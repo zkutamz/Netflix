@@ -1,0 +1,85 @@
+﻿<Window x:Class="Project_Netflix.View.Admin.Movie.Admin_Movie"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_Netflix.View.Admin.Movie"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="Admin_Movie" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Grid.Row="0" Margin="5">
+            <WrapPanel Margin="0 0 0 10">
+                <TextBox Text="{Binding SelectedMovie.NAME, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding SelectedMovie.POSTER, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Poster" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding SelectedMovie.MOVIE_INFORMATION.DESCRIPTION, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Desciption" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox  Margin="5 5 15 5" materialDesign:HintAssist.Hint="Category" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox VerticalAlignment="Center" Text="{Binding SelectedMovie.MOVIE_INFORMATION.DISTRIBUTE_YEAR, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Year" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding SelectedMovie.MOVIE_INFORMATION.COUNTRY, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Country" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="1" Margin="5">
+            <WrapPanel>
+                <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100" Click="Button_Click"></Button>
+                <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100" Click="Button_Click_1"></Button>
+                <Button Command="{Binding CmdDeleteMovie}" Content="Xóa" Margin="5" Width="100"></Button>
+            </WrapPanel>
+        </materialDesign:Card>
+        <ListView Grid.Row="2"
+                  ItemsSource="{Binding DSMovie}" Name="item"
+                  SelectedItem="{Binding SelectedMovie, 
+            Mode=OneWayToSource}" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+        DisplayMemberBinding="{Binding NAME}"
+        Header="Name" />
+                    <GridViewColumn
+        DisplayMemberBinding="{Binding POSTER}"
+        Header="Poster" />
+                    <GridViewColumn
+        DisplayMemberBinding="{Binding MOVIE_INFORMATION.DESCRIPTION}"
+        Header="Description" />
+                    <GridViewColumn
+        Header="Category" >
+                    </GridViewColumn>
+                    <GridViewColumn
+        DisplayMemberBinding="{Binding MOVIE_INFORMATION.DISTRIBUTE_YEAR}"
+        Header="Year" />
+                    <GridViewColumn
+        DisplayMemberBinding="{Binding MOVIE_INFORMATION.COUNTRY}"
+        Header="Country" />
+                    <GridViewColumn
+        Header="Options">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox
+              Width="100">
+                                    <ComboBoxItem
+                Content="Test" />
+                                    <ComboBoxItem
+                Content="Test2" />
+                                    <ComboBoxItem
+                Content="Test3" />
+                                </ComboBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

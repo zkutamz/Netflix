@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NETFLIX_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACCOUNT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMAIL" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="PASSWORD" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="BALANCE" Type="float" Nullable="false" />
+    <Property Name="TYPE" Type="int" Nullable="false" />
+    <Property Name="INFORMATION" Type="int" Nullable="false" />
+    <Property Name="ACTIVE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_TYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CATEGORY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CELEBRITIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DATEOFBIRTH" Type="date" />
+    <Property Name="TYPE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CLASSIFY">
+    <Key>
+      <PropertyRef Name="CATEGORY_ID" />
+      <PropertyRef Name="MOVIE_ID" />
+    </Key>
+    <Property Name="CATEGORY_ID" Type="int" Nullable="false" />
+    <Property Name="MOVIE_ID" Type="int" Nullable="false" />
+    <Property Name="ACTIVE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CREDITS">
+    <Key>
+      <PropertyRef Name="MOVIE_ID" />
+      <PropertyRef Name="PERSON_ID" />
+    </Key>
+    <Property Name="MOVIE_ID" Type="int" Nullable="false" />
+    <Property Name="PERSON_ID" Type="int" Nullable="false" />
+    <Property Name="ROLE" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FAVOURITE_MOVIES">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+      <PropertyRef Name="MOVIE_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="int" Nullable="false" />
+    <Property Name="MOVIE_ID" Type="int" Nullable="false" />
+    <Property Name="ACTIVE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MOVIE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="INFORMATION" Type="int" />
+    <Property Name="POSTER" Type="nchar" MaxLength="50" />
+    <Property Name="TRAILER" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="MOVIE" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="ACTIVE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MOVIE_INFORMATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="200" />
+    <Property Name="LENGTH" Type="int" />
+    <Property Name="RATE" Type="float" />
+    <Property Name="DISTRIBUTE_YEAR" Type="int" />
+    <Property Name="COUNTRY" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PURCHASE_INFORMATION">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+      <PropertyRef Name="MOVIE_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="int" Nullable="false" />
+    <Property Name="MOVIE_ID" Type="int" Nullable="false" />
+    <Property Name="PURCHASED_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USER_INFORMATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PHONE" Type="nchar" MaxLength="20" />
+    <Property Name="ADDRESS" Type="nvarchar" MaxLength="50" />
+    <Property Name="DATEOFBIRTH" Type="date" />
+    <Property Name="GENDER" Type="int" />
+  </EntityType>
+  <Association Name="FK_ACCOUNT_ACCTYPE">
+    <End Role="ACCOUNT_TYPE" Type="Self.ACCOUNT_TYPE" Multiplicity="1" />
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT_TYPE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ACCOUNT">
+        <PropertyRef Name="TYPE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ACCOUNT_INFO">
+    <End Role="USER_INFORMATION" Type="Self.USER_INFORMATION" Multiplicity="1" />
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_INFORMATION">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ACCOUNT">
+        <PropertyRef Name="INFORMATION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CATEGORY">
+    <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1" />
+    <End Role="CLASSIFY" Type="Self.CLASSIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CLASSIFY">
+        <PropertyRef Name="CATEGORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CRE_CELEB">
+    <End Role="CELEBRITIES" Type="Self.CELEBRITIES" Multiplicity="1" />
+    <End Role="CREDITS" Type="Self.CREDITS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CELEBRITIES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CREDITS">
+        <PropertyRef Name="PERSON_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CRE_MOVIE">
+    <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="1" />
+    <End Role="CREDITS" Type="Self.CREDITS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOVIE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CREDITS">
+        <PropertyRef Name="MOVIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FM_ACCOUNT">
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+    <End Role="FAVOURITE_MOVIES" Type="Self.FAVOURITE_MOVIES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FAVOURITE_MOVIES">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FM_MOVIE">
+    <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="1" />
+    <End Role="FAVOURITE_MOVIES" Type="Self.FAVOURITE_MOVIES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOVIE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FAVOURITE_MOVIES">
+        <PropertyRef Name="MOVIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MOVIE">
+    <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="1" />
+    <End Role="CLASSIFY" Type="Self.CLASSIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOVIE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CLASSIFY">
+        <PropertyRef Name="MOVIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MOVIE_INFO">
+    <End Role="MOVIE_INFORMATION" Type="Self.MOVIE_INFORMATION" Multiplicity="0..1" />
+    <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOVIE_INFORMATION">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MOVIE">
+        <PropertyRef Name="INFORMATION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUR_ACCOUNT">
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+    <End Role="PURCHASE_INFORMATION" Type="Self.PURCHASE_INFORMATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PURCHASE_INFORMATION">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUR_MOVIE">
+    <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="1" />
+    <End Role="PURCHASE_INFORMATION" Type="Self.PURCHASE_INFORMATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOVIE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PURCHASE_INFORMATION">
+        <PropertyRef Name="MOVIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NETFLIX_DBModelStoreContainer">
+    <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_TYPE" EntityType="Self.ACCOUNT_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CELEBRITIES" EntityType="Self.CELEBRITIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CLASSIFY" EntityType="Self.CLASSIFY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CREDITS" EntityType="Self.CREDITS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FAVOURITE_MOVIES" EntityType="Self.FAVOURITE_MOVIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MOVIE" EntityType="Self.MOVIE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MOVIE_INFORMATION" EntityType="Self.MOVIE_INFORMATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PURCHASE_INFORMATION" EntityType="Self.PURCHASE_INFORMATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_INFORMATION" EntityType="Self.USER_INFORMATION" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ACCOUNT_ACCTYPE" Association="Self.FK_ACCOUNT_ACCTYPE">
+      <End Role="ACCOUNT_TYPE" EntitySet="ACCOUNT_TYPE" />
+      <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ACCOUNT_INFO" Association="Self.FK_ACCOUNT_INFO">
+      <End Role="USER_INFORMATION" EntitySet="USER_INFORMATION" />
+      <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CATEGORY" Association="Self.FK_CATEGORY">
+      <End Role="CATEGORY" EntitySet="CATEGORY" />
+      <End Role="CLASSIFY" EntitySet="CLASSIFY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CRE_CELEB" Association="Self.FK_CRE_CELEB">
+      <End Role="CELEBRITIES" EntitySet="CELEBRITIES" />
+      <End Role="CREDITS" EntitySet="CREDITS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CRE_MOVIE" Association="Self.FK_CRE_MOVIE">
+      <End Role="MOVIE" EntitySet="MOVIE" />
+      <End Role="CREDITS" EntitySet="CREDITS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FM_ACCOUNT" Association="Self.FK_FM_ACCOUNT">
+      <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+      <End Role="FAVOURITE_MOVIES" EntitySet="FAVOURITE_MOVIES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FM_MOVIE" Association="Self.FK_FM_MOVIE">
+      <End Role="MOVIE" EntitySet="MOVIE" />
+      <End Role="FAVOURITE_MOVIES" EntitySet="FAVOURITE_MOVIES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MOVIE" Association="Self.FK_MOVIE">
+      <End Role="MOVIE" EntitySet="MOVIE" />
+      <End Role="CLASSIFY" EntitySet="CLASSIFY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MOVIE_INFO" Association="Self.FK_MOVIE_INFO">
+      <End Role="MOVIE_INFORMATION" EntitySet="MOVIE_INFORMATION" />
+      <End Role="MOVIE" EntitySet="MOVIE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUR_ACCOUNT" Association="Self.FK_PUR_ACCOUNT">
+      <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+      <End Role="PURCHASE_INFORMATION" EntitySet="PURCHASE_INFORMATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUR_MOVIE" Association="Self.FK_PUR_MOVIE">
+      <End Role="MOVIE" EntitySet="MOVIE" />
+      <End Role="PURCHASE_INFORMATION" EntitySet="PURCHASE_INFORMATION" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

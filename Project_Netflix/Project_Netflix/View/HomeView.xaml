@@ -1,0 +1,257 @@
+﻿<UserControl x:Class="Project_Netflix.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Project_Netflix.View"
+             mc:Ignorable="d"
+             xmlns:m ="clr-namespace:Project_Netflix.ModelTest"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal"
+            TextOptions.TextRenderingMode="Auto"
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="630" d:DesignWidth="1330">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type m:Movie}">
+            <Grid Margin="2" Width="240" Height="135" MouseLeave="Grid_MouseLeave" MouseEnter="Grid_MouseEnter">
+                <Border BorderBrush="BlueViolet" CornerRadius="2" BorderThickness="1">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+                        <Grid x:Name="lPoster" Opacity="1">
+                            <Image Source="{Binding p}" Stretch="Fill" 
+                               Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Path=Width}"
+                               Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Path=Height}"/>
+                            <Border  Opacity="0.8" VerticalAlignment="Bottom" Background="Gray">
+                                <Label Content="{Binding c}" Foreground="White" HorizontalAlignment="Center" />
+                            </Border>
+                        </Grid>
+                        <Grid x:Name="lTrailer" Opacity="0">
+                            <MediaElement Name="video" Source="{Binding t}" LoadedBehavior="Manual"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Grid.LayoutTransform>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Grid.LayoutTransform>
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, 
+                                Path=IsMouseOver}" Value="True">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX" BeginTime="0:0:0" To="1.3" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY" BeginTime="0:0:0" To="1.3" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.Target="{x:Reference Name = lPoster}"
+                                                             Storyboard.TargetProperty="(Grid.Opacity)" BeginTime="0:0:0" To="0"
+                                                             Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.Target="{x:Reference Name = lTrailer}"
+                                                             Storyboard.TargetProperty="(Grid.Opacity)" BeginTime="0:0:0" To="1"
+                                                             Duration="0:0:0.5"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.EnterActions>
+                                <DataTrigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX" Duration="0:0:0.3"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY" Duration="0:0:0.3"/>
+                                            <DoubleAnimation Storyboard.Target="{x:Reference Name = lPoster}"
+                                                             Storyboard.TargetProperty="(Grid.Opacity)" Duration="0:0:1"/>
+                                            <DoubleAnimation Storyboard.Target="{x:Reference Name = lTrailer}"
+                                                             Storyboard.TargetProperty="(Grid.Opacity)" Duration="0:0:1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.ExitActions>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <ScrollViewer Grid.Row="1" HorizontalAlignment="Left" Width="1324">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="NEW RELEASE" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Margin="20 0"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+                <StackPanel.Resources>
+                    <Style TargetType="ItemsControl">
+                        <Setter Property="ItemsPanel">
+                            <Setter.Value>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ItemsControl">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="32"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="32"/>
+                                        </Grid.ColumnDefinitions>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}"
+                                                  CommandTarget="{Binding ElementName = listTrendingMovie}" ClickMode="Press"
+                                                  Style="{DynamicResource MaterialDesignToolButton}">
+                                            <materialDesign:PackIcon Kind="ChevronLeft" Width="30" Height="30"/>
+                                        </RepeatButton>
+                                        <ScrollViewer x:Name="listTrendingMovie" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled" Grid.Column="1">
+                                            <ItemsPresenter/>
+                                        </ScrollViewer>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageRightCommand}" Grid.Column="2"
+                                                  CommandTarget="{Binding ElementName = listTrendingMovie}" ClickMode="Press"
+                                                  Style="{DynamicResource MaterialDesignToolButton}">
+                                            <materialDesign:PackIcon Kind="ChevronRight" Width="30" Height="30"/>
+                                        </RepeatButton>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <ItemsControl ItemsSource="{Binding DSMovie}"/>
+            </StackPanel>
+            <TextBlock Text="TV SHOW" FontSize="20" VerticalAlignment="Center" 
+                       FontWeight="Bold" Grid.Row="2" Margin="20 0"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3">
+                <StackPanel.Resources>
+                    <Style TargetType="ItemsControl">
+                        <Setter Property="ItemsPanel">
+                            <Setter.Value>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ItemsControl">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="35"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="35"/>
+                                        </Grid.ColumnDefinitions>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}"
+                                                  CommandTarget="{Binding ElementName = listTrendingMovie}" ClickMode="Press"
+                                                  Style="{DynamicResource MaterialDesignToolButton}">
+                                            <materialDesign:PackIcon Kind="ChevronLeft" Width="30" Height="30"/>
+                                        </RepeatButton>
+                                        <ScrollViewer x:Name="listTrendingMovie" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled" Grid.Column="1">
+                                            <ItemsPresenter/>
+                                        </ScrollViewer>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageRightCommand}" Grid.Column="2"
+                                                  CommandTarget="{Binding ElementName = listTrendingMovie}" ClickMode="Press"
+                                                  Style="{DynamicResource MaterialDesignToolButton}">
+                                            <materialDesign:PackIcon Kind="ChevronRight" Width="30" Height="30"/>
+                                        </RepeatButton>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <ItemsControl ItemsSource="{Binding DSMovie}"/>
+            </StackPanel>
+            <TextBlock Text="COMEDIES" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Margin="20 0" Grid.Row="4"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5">
+                <StackPanel.Resources>
+                    <Style TargetType="ItemsControl">
+                        <Setter Property="ItemsPanel">
+                            <Setter.Value>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ItemsControl">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="32"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="32"/>
+                                        </Grid.ColumnDefinitions>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}"
+                                                  CommandTarget="{Binding ElementName = listTrendingMovie}" ClickMode="Press"
+                                                  Style="{DynamicResource MaterialDesignToolButton}">
+                                            <materialDesign:PackIcon Kind="ChevronLeft" Width="30" Height="30"/>
+                                        </RepeatButton>
+                                        <ScrollViewer x:Name="listTrendingMovie" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled" Grid.Column="1">
+                                            <ItemsPresenter/>
+                                        </ScrollViewer>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageRightCommand}" Grid.Column="2"
+                                                  CommandTarget="{Binding ElementName = listTrendingMovie}" ClickMode="Press"
+                                                  Style="{DynamicResource MaterialDesignToolButton}">
+                                            <materialDesign:PackIcon Kind="ChevronRight" Width="30" Height="30"/>
+                                        </RepeatButton>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <ItemsControl ItemsSource="{Binding DSMovie}"/>
+            </StackPanel>
+            <TextBlock Text="ACTION AND ADVENTURE" FontSize="20" VerticalAlignment="Center" 
+                       FontWeight="Bold" Grid.Row="6" Margin="20 0"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7">
+                <StackPanel.Resources>
+                    <Style TargetType="ItemsControl">
+                        <Setter Property="ItemsPanel">
+                            <Setter.Value>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ItemsControl">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="35"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="35"/>
+                                        </Grid.ColumnDefinitions>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}"
+                                                  CommandTarget="{Binding ElementName = listTrendingMovie}" ClickMode="Press"
+                                                  Style="{DynamicResource MaterialDesignToolButton}">
+                                            <materialDesign:PackIcon Kind="ChevronLeft" Width="30" Height="30"/>
+                                        </RepeatButton>
+                                        <ScrollViewer x:Name="listTrendingMovie" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled" Grid.Column="1">
+                                            <ItemsPresenter/>
+                                        </ScrollViewer>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageRightCommand}" Grid.Column="2"
+                                                  CommandTarget="{Binding ElementName = listTrendingMovie}" ClickMode="Press"
+                                                  Style="{DynamicResource MaterialDesignToolButton}">
+                                            <materialDesign:PackIcon Kind="ChevronRight" Width="30" Height="30"/>
+                                        </RepeatButton>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <ItemsControl ItemsSource="{Binding DSMovie}"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

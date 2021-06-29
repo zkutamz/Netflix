@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4804cf3a261b4f5bb699c43624ab1bb1" Name="Diagram1">
+        <EntityTypeShape EntityType="NETFLIX_DBModel.ACCOUNT" Width="1.5" PointX="6" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NETFLIX_DBModel.ACCOUNT_TYPE" Width="1.5" PointX="3.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NETFLIX_DBModel.CATEGORY" Width="1.5" PointX="4.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NETFLIX_DBModel.CELEBRITy" Width="1.5" PointX="0.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NETFLIX_DBModel.CLASSIFY" Width="1.5" PointX="4.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NETFLIX_DBModel.CREDIT" Width="1.5" PointX="2.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NETFLIX_DBModel.FAVOURITE_MOVIES" Width="1.5" PointX="0.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NETFLIX_DBModel.MOVIE" Width="1.5" PointX="2.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="NETFLIX_DBModel.MOVIE_INFORMATION" Width="1.5" PointX="0.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="NETFLIX_DBModel.PURCHASE_INFORMATION" Width="1.5" PointX="8.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NETFLIX_DBModel.USER_INFORMATION" Width="1.5" PointX="3.75" PointY="14.375" IsExpanded="true" />
+        <AssociationConnector Association="NETFLIX_DBModel.FK_ACCOUNT_ACCTYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="NETFLIX_DBModel.FK_ACCOUNT_INFO" ManuallyRouted="false" />
+        <AssociationConnector Association="NETFLIX_DBModel.FK_FM_ACCOUNT" ManuallyRouted="false" />
+        <AssociationConnector Association="NETFLIX_DBModel.FK_PUR_ACCOUNT" ManuallyRouted="false" />
+        <AssociationConnector Association="NETFLIX_DBModel.FK_CATEGORY" ManuallyRouted="false" />
+        <AssociationConnector Association="NETFLIX_DBModel.FK_CRE_CELEB" ManuallyRouted="false" />
+        <AssociationConnector Association="NETFLIX_DBModel.FK_MOVIE" ManuallyRouted="false" />
+        <AssociationConnector Association="NETFLIX_DBModel.FK_CRE_MOVIE" ManuallyRouted="false" />
+        <AssociationConnector Association="NETFLIX_DBModel.FK_FM_MOVIE" ManuallyRouted="false" />
+        <AssociationConnector Association="NETFLIX_DBModel.FK_MOVIE_INFO" ManuallyRouted="false" />
+        <AssociationConnector Association="NETFLIX_DBModel.FK_PUR_MOVIE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

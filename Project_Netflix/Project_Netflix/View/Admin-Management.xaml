@@ -1,0 +1,44 @@
+﻿<Window x:Class="Project_Netflix.View.Admin_Management"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_Netflix.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Title="Admin_Management" MinHeight="450" Height="450" MinWidth="800" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="7*" />
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Run Text="ADMIN AREA" />
+        </TextBlock>
+        <ToolBarTray Grid.Row="1">
+            <ToolBar
+    Style="{DynamicResource MaterialDesignToolBar}"
+    ClipToBounds="False">
+
+                <Button
+      ToolTip="Follow me on Twitter"
+      
+      Content="ACCOUNT" Click="Button_Click" />
+                <Separator />
+                <Button
+      ToolTip="Save"
+      Content="MOVIE" Click="Button_Click_1" VerticalAlignment="Top" />
+                <Separator />
+            </ToolBar>
+        </ToolBarTray>
+        <Border Grid.Row="2" BorderThickness="1 0 1 1" BorderBrush="{DynamicResource PrimaryHueMidBrush}" Padding="16">
+            <Grid>
+                <Label>Chức năng 3 ở đây</Label>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
