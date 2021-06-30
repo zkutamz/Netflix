@@ -34,7 +34,7 @@ namespace Project_Netflix.viewmodel.Admin.Account
 			{
 				_SelectedAccount = value;
 				OnPropertyChanged();
-				if (SelectedAccount != null) { Email = SelectedAccount.EMAIL; Name = SelectedAccount.USER_INFORMATION.NAME; Balance = (double)SelectedAccount.BALANCE; Phone = SelectedAccount.USER_INFORMATION.PHONE; Address = SelectedAccount.USER_INFORMATION.ADDRESS; if (SelectedAccount.USER_INFORMATION.DATEOFBIRTH == null) Birth = DateTime.Parse("01/01/0001"); else Birth = (DateTime)SelectedAccount.USER_INFORMATION.DATEOFBIRTH; }
+				if (SelectedAccount != null) { Email = SelectedAccount.EMAIL; Name = SelectedAccount.USER_INFORMATION.NAME; Phone = SelectedAccount.USER_INFORMATION.PHONE; Address = SelectedAccount.USER_INFORMATION.ADDRESS; if (SelectedAccount.USER_INFORMATION.DATEOFBIRTH == null) Birth = DateTime.Parse("01/01/0001"); else Birth = (DateTime)SelectedAccount.USER_INFORMATION.DATEOFBIRTH; }
 			}
 		}
 		private string _Email;
@@ -137,7 +137,6 @@ namespace Project_Netflix.viewmodel.Admin.Account
 						EMAIL = Email.Trim(),
 						PASSWORD = HashPassword("123456"),
 						TYPE = 1,
-						BALANCE = 500000.0,
 						INFORMATION = user.ID,
 					};
 					db.ACCOUNTs.Add(account);
@@ -210,7 +209,6 @@ namespace Project_Netflix.viewmodel.Admin.Account
 						EMAIL = Email.Trim(),
 						PASSWORD = HashPassword("123456"),
 						TYPE = 2,
-						BALANCE = 0,
 						INFORMATION = user.ID,
 					};
 					db.ACCOUNTs.Add(account);

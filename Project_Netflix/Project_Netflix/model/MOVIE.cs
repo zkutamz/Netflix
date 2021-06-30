@@ -17,28 +17,26 @@ namespace Project_Netflix.model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MOVIE()
         {
-            this.CLASSIFies = new HashSet<CLASSIFY>();
             this.CREDITS = new HashSet<CREDIT>();
             this.FAVOURITE_MOVIES = new HashSet<FAVOURITE_MOVIES>();
-            this.PURCHASE_INFORMATION = new HashSet<PURCHASE_INFORMATION>();
         }
     
         public int ID { get; set; }
         public string NAME { get; set; }
-        public Nullable<int> INFORMATION { get; set; }
+        public int INFORMATION { get; set; }
         public string POSTER { get; set; }
-        public string TRAILER { get; set; }
-        public string MOVIE1 { get; set; }
+        public string TRAILER_NAME { get; set; }
+        public string MOVIE_NAME { get; set; }
+        public int TYPE_ID { get; set; }
+        public int CATEGORY_ID { get; set; }
         public int ACTIVE { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLASSIFY> CLASSIFies { get; set; }
+        public virtual CATEGORY CATEGORY { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CREDIT> CREDITS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FAVOURITE_MOVIES> FAVOURITE_MOVIES { get; set; }
         public virtual MOVIE_INFORMATION MOVIE_INFORMATION { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PURCHASE_INFORMATION> PURCHASE_INFORMATION { get; set; }
+        public virtual MOVIE_TYPE MOVIE_TYPE { get; set; }
     }
 }

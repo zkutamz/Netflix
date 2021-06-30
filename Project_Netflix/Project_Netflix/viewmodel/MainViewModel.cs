@@ -1,4 +1,5 @@
-﻿using Project_Netflix.ModelTest;
+﻿using Project_Netflix.model;
+using Project_Netflix.ModelTest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Project_Netflix.viewmodel
 {
     class MainViewModel : BaseViewModel
     {
+        
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand MyListViewCommand { get; set; }
         public RelayCommand FilmsViewCommand { get; set; }
@@ -31,13 +33,14 @@ namespace Project_Netflix.viewmodel
                 OnPropertyChanged();
             }
         }
+        public ACCOUNT User { get ; set; }
         public MainViewModel()
         {
             HomeVM = new HomeViewModel();            
             MyListVM = new MyListViewModel();
             FilmsVM = new FilmsViewModel();
             OriginalsVM = new OriginalsViewModel();
-
+            User = DangNhapViewModel.User;
             CurrentView = HomeVM;
 
             HomeViewCommand = new RelayCommand(o=>

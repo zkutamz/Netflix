@@ -18,7 +18,8 @@ namespace Project_Netflix.viewmodel
 		public static readonly DependencyProperty SelectMovieProperty;
 		public static readonly DependencyProperty YearProperty;
 		public static readonly DependencyProperty CountryProperty;
-
+		public static readonly DependencyProperty CategoryProperty;
+		public static readonly DependencyProperty TypeProperty;
 
 		public ICommand CmdUpdateMovie { get; set; }
 		public ICommand CmdDeleteMovie { get; set; }
@@ -28,11 +29,23 @@ namespace Project_Netflix.viewmodel
 			SelectMovieProperty = DependencyProperty.Register("SelectedMovie", typeof(MOVIE), typeof(AdminMovie));
 			YearProperty = DependencyProperty.Register("DSYear", typeof(ObservableCollection<int>), typeof(AdminMovie));
 			CountryProperty = DependencyProperty.Register("DSCountry", typeof(ObservableCollection<string>), typeof(AdminMovie));
+			CategoryProperty = DependencyProperty.Register("DSCategory", typeof(ObservableCollection<CATEGORY>), typeof(AdminMovie));
+			TypeProperty = DependencyProperty.Register("DSType", typeof(ObservableCollection<MOVIE_TYPE>), typeof(AdminMovie));
 		}
 		public ObservableCollection<MOVIE> DSMovie
 		{
 			get => (ObservableCollection<MOVIE>)GetValue(AdminMovieProperty);
 			set => SetValue(AdminMovieProperty, value);
+		}
+		public ObservableCollection<CATEGORY> DSCategory
+		{
+			get => (ObservableCollection<CATEGORY>)GetValue(CategoryProperty);
+			set => SetValue(CategoryProperty, value);
+		}
+		public ObservableCollection<MOVIE_TYPE> DSType
+		{
+			get => (ObservableCollection<MOVIE_TYPE>)GetValue(TypeProperty);
+			set => SetValue(TypeProperty, value);
 		}
 		public MOVIE SelectedMovie
 		{
@@ -48,6 +61,8 @@ namespace Project_Netflix.viewmodel
 			using (var db = new NETFLIX_DBEntities())
 			{
 				DSMovie = new ObservableCollection<MOVIE>(db.MOVIEs.Include("MOVIE_INFORMATION").ToList());
+				DSCategory = new ObservableCollection<CATEGORY>(db.CATEGORies.ToList());
+				DSType = new ObservableCollection<MOVIE_TYPE>(db.MOVIE_TYPE.ToList());
 			}
 			using (var sr = new StreamReader(@"..\..\viewmodel\Admin\Movie\Country.txt"))
 			{
@@ -82,19 +97,23 @@ namespace Project_Netflix.viewmodel
 				movie.MOVIE_INFORMATION.DESCRIPTION = SelectedMovie.MOVIE_INFORMATION.DESCRIPTION;
 				movie.MOVIE_INFORMATION.COUNTRY = SelectedMovie.MOVIE_INFORMATION.COUNTRY;
 				movie.MOVIE_INFORMATION.DISTRIBUTE_YEAR = SelectedMovie.MOVIE_INFORMATION.DISTRIBUTE_YEAR;
-				if(movie.MOVIE1 != SelectedMovie.MOVIE1)
+				movie.MOVIE_INFORMATION.RATE = SelectedMovie.MOVIE_INFORMATION.RATE;
+				movie.CATEGORY_ID = SelectedMovie.CATEGORY.ID;
+				movie.TYPE_ID = SelectedMovie.MOVIE_TYPE.ID;
+
+				if (movie.MOVIE_NAME != SelectedMovie.MOVIE_NAME)
 				{
-					movie.MOVIE1 = SelectedMovie.MOVIE1;
+					movie.MOVIE_NAME = SelectedMovie.MOVIE_NAME;
 					isChangeMovie = true;
 				}
-				if(movie.POSTER != SelectedMovie.POSTER)
+				if (movie.POSTER != SelectedMovie.POSTER)
 				{
 					movie.POSTER = SelectedMovie.POSTER;
 					isChangePoster = true;
 				}
-				if(movie.TRAILER != SelectedMovie.TRAILER)
+				if (movie.TRAILER_NAME != SelectedMovie.TRAILER_NAME)
 				{
-					movie.TRAILER = SelectedMovie.TRAILER;
+					movie.TRAILER_NAME = SelectedMovie.TRAILER_NAME;
 					isChangeTrailer = true;
 				}
 				db.SaveChanges();
@@ -119,15 +138,15 @@ namespace Project_Netflix.viewmodel
 				}
 				if (isChangeMovie)
 				{
-					if (System.IO.File.Exists(path + "\\Movie\\" + movie.MOVIE1))
+					if (System.IO.File.Exists(path + "\\Movie\\" + movie.MOVIE_NAME))
 					{
 						// Use a try block to catch IOExceptions, to
 						// handle the case of the file already being
 						// opened by another process.
 						try
 						{
-							System.IO.File.Delete(path + "\\Movie\\" + movie.MOVIE1);
-							System.IO.File.Copy(SelectedMovie.MOVIE1, path + "\\Movie\\" + movie.MOVIE1, true);
+							System.IO.File.Delete(path + "\\Movie\\" + movie.MOVIE_NAME);
+							System.IO.File.Copy(SelectedMovie.MOVIE_NAME, path + "\\Movie\\" + movie.MOVIE_NAME, true);
 						}
 						catch (System.IO.IOException e)
 						{
@@ -138,15 +157,15 @@ namespace Project_Netflix.viewmodel
 				}
 				if (isChangeTrailer)
 				{
-					if (System.IO.File.Exists(path + "\\Movie\\" + movie.TRAILER))
+					if (System.IO.File.Exists(path + "\\Movie\\" + movie.TRAILER_NAME))
 					{
 						// Use a try block to catch IOExceptions, to
 						// handle the case of the file already being
 						// opened by another process.
 						try
 						{
-							System.IO.File.Delete(path + "\\Movie\\" + movie.TRAILER);
-							System.IO.File.Copy(SelectedMovie.POSTER, path + "\\Movie\\" + movie.TRAILER, true);
+							System.IO.File.Delete(path + "\\Movie\\" + movie.TRAILER_NAME);
+							System.IO.File.Copy(SelectedMovie.POSTER, path + "\\Movie\\" + movie.TRAILER_NAME, true);
 						}
 						catch (System.IO.IOException e)
 						{
@@ -190,14 +209,14 @@ namespace Project_Netflix.viewmodel
 					}
 				}
 
-				if (System.IO.File.Exists(path + "\\Movie\\" + movie.TRAILER))
+				if (System.IO.File.Exists(path + "\\Movie\\" + movie.TRAILER_NAME))
 				{
 					// Use a try block to catch IOExceptions, to
 					// handle the case of the file already being
 					// opened by another process.
 					try
 					{
-						System.IO.File.Delete(path + "\\Movie\\" + movie.TRAILER);
+						System.IO.File.Delete(path + "\\Movie\\" + movie.TRAILER_NAME);
 					}
 					catch (System.IO.IOException e)
 					{
@@ -205,14 +224,14 @@ namespace Project_Netflix.viewmodel
 						return;
 					}
 				}
-				if (System.IO.File.Exists(path + "\\Movie\\" + movie.MOVIE1))
+				if (System.IO.File.Exists(path + "\\Movie\\" + movie.MOVIE_NAME))
 				{
 					// Use a try block to catch IOExceptions, to
 					// handle the case of the file already being
 					// opened by another process.
 					try
 					{
-						System.IO.File.Delete(path + "\\Movie\\" + movie.MOVIE1);
+						System.IO.File.Delete(path + "\\Movie\\" + movie.MOVIE_NAME);
 					}
 					catch (System.IO.IOException e)
 					{

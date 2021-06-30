@@ -112,59 +112,61 @@
     <Compile Include="Command\CmdPasswordChangeFP.cs" />
     <Compile Include="ModelTest\Movie.cs" />
     <Compile Include="model\ACCOUNT.cs">
-      <DependentUpon>NetfilxDB.tt</DependentUpon>
+      <DependentUpon>Netflix_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\ACCOUNT_TYPE.cs">
-      <DependentUpon>NetfilxDB.tt</DependentUpon>
+      <DependentUpon>Netflix_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\CATEGORY.cs">
-      <DependentUpon>NetfilxDB.tt</DependentUpon>
+      <DependentUpon>Netflix_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\CELEBRITy.cs">
-      <DependentUpon>NetfilxDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="model\CLASSIFY.cs">
-      <DependentUpon>NetfilxDB.tt</DependentUpon>
+      <DependentUpon>Netflix_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\CREDIT.cs">
-      <DependentUpon>NetfilxDB.tt</DependentUpon>
+      <DependentUpon>Netflix_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\FAVOURITE_MOVIES.cs">
-      <DependentUpon>NetfilxDB.tt</DependentUpon>
+      <DependentUpon>Netflix_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\MOVIE.cs">
-      <DependentUpon>NetfilxDB.tt</DependentUpon>
+      <DependentUpon>Netflix_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\MOVIE_INFORMATION.cs">
-      <DependentUpon>NetfilxDB.tt</DependentUpon>
+      <DependentUpon>Netflix_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="model\NetfilxDB.Context.cs">
+    <Compile Include="model\MOVIE_TYPE.cs">
+      <DependentUpon>Netflix_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\Netflix_DB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NetfilxDB.Context.tt</DependentUpon>
+      <DependentUpon>Netflix_DB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="model\NetfilxDB.cs">
+    <Compile Include="model\Netflix_DB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NetfilxDB.tt</DependentUpon>
+      <DependentUpon>Netflix_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="model\NetfilxDB.Designer.cs">
+    <Compile Include="model\Netflix_DB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NetfilxDB.edmx</DependentUpon>
+      <DependentUpon>Netflix_DB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="model\PURCHASE_INFORMATION.cs">
-      <DependentUpon>NetfilxDB.tt</DependentUpon>
+    <Compile Include="model\PACKAGE.cs">
+      <DependentUpon>Netflix_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\PURCHASE.cs">
+      <DependentUpon>Netflix_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\USER_INFORMATION.cs">
-      <DependentUpon>NetfilxDB.tt</DependentUpon>
+      <DependentUpon>Netflix_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="viewmodel\Admin\Account\AdminAccount.cs" />
     <Compile Include="viewmodel\Admin\AdminManagementViewModel.cs" />
     <Compile Include="viewmodel\Admin\Movie\AdminMovie.cs" />
     <Compile Include="viewmodel\Admin\Movie\AdminInfoMovieViewModel.cs" />
     <Compile Include="viewmodel\BaseViewModel.cs" />
-    <Compile Include="viewmodel\Admin\Movie\CategoryViewModel.cs" />
     <Compile Include="viewmodel\DangKyViewModel.cs" />
     <Compile Include="viewmodel\DangNhapViewModel.cs" />
     <Compile Include="viewmodel\FilmsViewModel.cs" />
@@ -175,9 +177,6 @@
     <Compile Include="viewmodel\OriginalsViewModel.cs" />
     <Compile Include="View\Admin-Management.xaml.cs">
       <DependentUpon>Admin-Management.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\Movie\AddCategoryforMovie.xaml.cs">
-      <DependentUpon>AddCategoryforMovie.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Admin\Account\Admin_Account.xaml.cs">
       <DependentUpon>Admin_Account.xaml</DependentUpon>
@@ -229,11 +228,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\ProfileInformation.xaml.cs">
+      <DependentUpon>ProfileInformation.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\Admin-Management.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Admin\Movie\AddCategoryforMovie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -297,6 +295,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ProfileInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -316,12 +318,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="model\NetfilxDB.edmx">
+    <EntityDeploy Include="model\Netflix_DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NetfilxDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>Netflix_DB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="model\NetfilxDB.edmx.diagram">
-      <DependentUpon>NetfilxDB.edmx</DependentUpon>
+    <None Include="model\Netflix_DB.edmx.diagram">
+      <DependentUpon>Netflix_DB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -331,18 +333,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="model\NetfilxDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NetfilxDB.edmx</DependentUpon>
-      <LastGenOutput>NetfilxDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="model\NetfilxDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NetfilxDB.edmx</DependentUpon>
-      <LastGenOutput>NetfilxDB.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\Icon.png" />
@@ -368,7 +358,19 @@
   <ItemGroup>
     <Resource Include="img\Netflix_Logo_PMS.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="model\Netflix_DB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Netflix_DB.edmx</DependentUpon>
+      <LastGenOutput>Netflix_DB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="model\Netflix_DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Netflix_DB.edmx</DependentUpon>
+      <LastGenOutput>Netflix_DB.cs</LastGenOutput>
+    </Content>
+    <Resource Include="View\channels4_profile.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

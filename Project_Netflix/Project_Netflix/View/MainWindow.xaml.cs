@@ -1,4 +1,5 @@
-﻿using Project_Netflix.viewmodel;
+﻿using Project_Netflix.model;
+using Project_Netflix.viewmodel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,28 +23,50 @@ namespace Project_Netflix.View
     {
         public MainWindow()
         {
-            InitializeComponent();            
+            InitializeComponent(); 
         }
 
-		private void Button_Click(object sender, RoutedEventArgs e)
+		private void Chip_Click(object sender, RoutedEventArgs e)
 		{
-            Info.Visibility = Visibility.Collapsed;
-            Sign.Visibility = Visibility.Hidden;
-            DanhNhap danhNhap = new DanhNhap();
-            //danhNhap.Show();
-			//if (DangNhapViewModel.IsLogin)
-			//{
-   //             ChangeSignvsInfo();
-   //         }
+            ProfileInformation profile = new ProfileInformation();
+            profile.ShowDialog();
 		}
 
-		private void Button_Click_1(object sender, RoutedEventArgs e)
+		private void ListBoxItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
 		{
-            DangKy dangKy = new DangKy();
-            dangKy.Show();
-		}
-        
+            ProfileInformation profile = new ProfileInformation();
+            profile.Show();
+        }
 
-		
+		private void ListBoxItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+            ProfileInformation profile = new ProfileInformation();
+            profile.ShowDialog();
+        }
+
+
+
+
+		private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			switch (UserControl.SelectedIndex)
+			{
+                case 0:
+					ProfileInformation profile = new ProfileInformation();
+					profile.ShowDialog();
+					break;
+                case 1:
+                    MessageBox.Show("1");
+                    break;
+                case 2:
+                    DangNhapViewModel.IsLogin = false;
+                    DangNhapViewModel.User = null;
+                    DanhNhap danhNhap = new DanhNhap();
+                    this.Close();
+                    danhNhap.Show();
+                    break;
+			}
+
+        }
 	}
 }

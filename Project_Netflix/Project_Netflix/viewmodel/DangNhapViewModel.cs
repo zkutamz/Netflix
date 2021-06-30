@@ -21,7 +21,8 @@ namespace Project_Netflix.viewmodel
         public static readonly DependencyProperty PasswordProperty;
         public ICommand CmdDangNhap { get; set; }
         public ICommand CmdPasswordChange { get; set; }
-        public static bool IsLogin;
+        public static bool IsLogin { get; set; }
+        public static ACCOUNT User { get; set; }
         static DangNhapViewModel()
         {
             UserNameProperty = DependencyProperty.Register("UserName", typeof(string), typeof(DangNhapViewModel));
@@ -55,7 +56,6 @@ namespace Project_Netflix.viewmodel
                         EMAIL = "admin@gmail.com",
                         PASSWORD = dk.HashPassword("123456"),
                         TYPE = 2,
-                        BALANCE = 0,
                         INFORMATION = user.ID,
                     };
                     db.ACCOUNTs.Add(account);
@@ -77,7 +77,10 @@ namespace Project_Netflix.viewmodel
                         {
                             IsLogin = true;
                             MessageBox.Show("Dang nhap thanh cong");
+                            User = getPassword.Single();
+                            MainWindow main = new MainWindow();
                             window.Close();
+                            main.ShowDialog();
                         }
                     }
                     else

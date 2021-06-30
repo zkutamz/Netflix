@@ -70,13 +70,18 @@
                     </Button>
                 </StackPanel>
                 <Grid Grid.Column="3">
-                    <Grid Name="Info" HorizontalAlignment="Right" Visibility="Hidden" Background="Black">
-                        <Label>eelo</Label>
-                        <StackPanel Orientation="Horizontal" Background="Black">
-                            <TextBlock x:Name="tbUsername" Text="User Name" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                    <Grid Name="Info" HorizontalAlignment="Right" Background="Black" Margin="0,0,0,0.4" Width="223">
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Background="Black">
+                            <materialDesign:Chip
+  Content="{Binding User.USER_INFORMATION.NAME}" Click="Chip_Click">
+                                <materialDesign:Chip.Icon>
+                                    <Image Source="channels4_profile.jpg" />
+                                </materialDesign:Chip.Icon>
+                            </materialDesign:Chip>
                             <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" Margin="10">
-                                <ListBox Width="150">
-                                    <ListBoxItem Content="Profile" />
+                                <ListBox x:Name="UserControl" Width="150" SelectionChanged="ListBox_SelectionChanged">
+                                    <ListBoxItem x:Name="Profile" Content="Profile"/>
                                     <ListBoxItem Content="Setting" />
                                     <ListBoxItem>
                                         <ListBoxItem.Content>
@@ -90,12 +95,12 @@
                             </materialDesign:PopupBox>
                         </StackPanel>
                     </Grid>
-                    <Grid Name="Sign" HorizontalAlignment="Right" VerticalAlignment="Center" Opacity="1" Margin="20 0">
+                    <!--<Grid Name="Sign" HorizontalAlignment="Right" VerticalAlignment="Center" Opacity="1" Margin="20 0">
                         <StackPanel Orientation="Horizontal">
                             <Button Content="SIGN IN" Margin="10 0" Width="100" Background="Red" VerticalAlignment="Top" Click="Button_Click"/>
                             <Button Content="SIGN UP" Margin="10 0" Width="100" Background="Red" Click="Button_Click_1"/>
                         </StackPanel>
-                    </Grid>
+                    </Grid>-->
                 </Grid>
             </Grid>
         </materialDesign:Card>

@@ -18,13 +18,12 @@ namespace Project_Netflix.model
         public ACCOUNT()
         {
             this.FAVOURITE_MOVIES = new HashSet<FAVOURITE_MOVIES>();
-            this.PURCHASE_INFORMATION = new HashSet<PURCHASE_INFORMATION>();
+            this.PURCHASEs = new HashSet<PURCHASE>();
         }
     
         public int ID { get; set; }
         public string EMAIL { get; set; }
         public string PASSWORD { get; set; }
-        public double BALANCE { get; set; }
         public int TYPE { get; set; }
         public int INFORMATION { get; set; }
         public int ACTIVE { get; set; }
@@ -34,6 +33,6 @@ namespace Project_Netflix.model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FAVOURITE_MOVIES> FAVOURITE_MOVIES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PURCHASE_INFORMATION> PURCHASE_INFORMATION { get; set; }
+        public virtual ICollection<PURCHASE> PURCHASEs { get; set; }
     }
 }

@@ -69,5 +69,10 @@ namespace Project_Netflix.View.Admin.Movie
 				vmdmin.Movie = openFileDialog.FileName;
 			}
 		}
+
+		private void BasicRatingBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<int> e)
+		{
+			vmdmin.Rate = BasicRatingBar.Value;
+		}
 	}
 }

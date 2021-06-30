@@ -1,0 +1,37 @@
+﻿<Window x:Class="Project_Netflix.View.ProfileInformation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewmodel="clr-namespace:Project_Netflix.viewmodel"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_Netflix.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStartupLocation="CenterScreen"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+       Height="500" Width="310" ResizeMode="NoResize"
+       Name="ProFileWindow"
+        Title="Cap nhat thong tin">
+    <Window.DataContext>
+        <viewmodel:MainViewModel/>
+    </Window.DataContext>
+    <Grid Name="UIProfile" Background="White" >
+        <Image Source="channels4_profile.jpg" Margin="-4,15,4,350.4"></Image>
+        <TextBlock Text="{Binding User.USER_INFORMATION.NAME}" Margin="100,138,104,0" VerticalAlignment="Top" FontSize="30" Foreground="Black" FontWeight="Bold" FontFamily="Arial" Height="37"/>
+
+        <TextBox Style="{StaticResource MaterialDesignFilledTextBox}" VerticalAlignment="Top" AcceptsReturn="True" Text="{Binding User.USER_INFORMATION.PHONE}"
+            TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Số điện thoại" Height="45" Margin="20,195,20,0" Padding="15,5,15,0" BorderBrush="#89000000" Foreground="#DD000000"/>
+        <TextBox Style="{StaticResource MaterialDesignFilledTextBox}" VerticalAlignment="Top" AcceptsReturn="True" Text="{Binding User.USER_INFORMATION.DATEOFBIRTH}"
+            TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Ngày sinh" Height="45" Margin="20,255,20,0" Padding="15,5,15,0" BorderBrush="#89000000" Foreground="#DD000000"/>
+        
+            <Button Command="{Binding CmdDangKy}" CommandParameter="{Binding ElementName=ProFileWindow}" Content="Hoàn tất" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="114" Height="38" Background="#FF5BAEFE" Foreground="White" Style="{DynamicResource RoundButtonStyle}" FontSize="20" FontFamily="Arial" FontWeight="Bold" BorderBrush="#FFFCF8F8" Margin="175,417,15,15.4" />
+
+        <TextBox Style="{StaticResource MaterialDesignFilledTextBox}" VerticalAlignment="Top" AcceptsReturn="True" Text="{Binding User.USER_INFORMATION.ADDRESS}"
+            TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Địa chỉ" Height="45" Margin="20,315,20,0" Padding="15,5,15,0" BorderBrush="#89000000" Foreground="#DD000000"/>
+    </Grid>
+</Window>

@@ -17,13 +17,13 @@ namespace Project_Netflix.model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CATEGORY()
         {
-            this.CLASSIFies = new HashSet<CLASSIFY>();
+            this.MOVIEs = new HashSet<MOVIE>();
         }
     
         public int ID { get; set; }
         public string NAME { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLASSIFY> CLASSIFies { get; set; }
+        public virtual ICollection<MOVIE> MOVIEs { get; set; }
     }
 }

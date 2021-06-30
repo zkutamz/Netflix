@@ -68,13 +68,91 @@ C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Pr
 C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix.pdb
 C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\View\ChangePassword.g.cs
 C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\View\ChangePassword.baml
-C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\AddCategoryforMovie.g.cs
 C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Account\Admin_Account.g.cs
 C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\Admin_Movie.g.cs
 C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\InformationMovie.g.cs
 C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\UpdateMovie.g.cs
-C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\AddCategoryforMovie.baml
 C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Account\Admin_Account.baml
 C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\Admin_Movie.baml
 C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\InformationMovie.baml
 C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\UpdateMovie.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\Project_Netflix.exe.config
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\Project_Netflix.exe
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\Project_Netflix.pdb
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\EntityFramework.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\MaterialDesignColors.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\EntityFramework.xml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\MaterialDesignColors.pdb
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\ru\Microsoft.Expression.Interactions.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\ru\System.Windows.Interactivity.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix.csproj.AssemblyReference.cache
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin-Management.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Account\Admin_Account.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\Admin_Movie.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\InformationMovie.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\UpdateMovie.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\ChangePassword.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\DangKy.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\DanhNhap.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\FilmsView.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\ForgotPassword.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\HomeView.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\MainWindow.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\MyListView.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\OriginalsView.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\PagePay.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Profile.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\ProfileInformation.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\App.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix_Content.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix_MarkupCompile.cache
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix_MarkupCompile.lref
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\App.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin-Management.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Account\Admin_Account.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\Admin_Movie.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\InformationMovie.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Movie\UpdateMovie.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\ChangePassword.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\DangKy.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\DanhNhap.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\FilmsView.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\ForgotPassword.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\HomeView.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\MainWindow.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\MyListView.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\OriginalsView.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\PagePay.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Profile.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\ProfileInformation.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix.g.resources
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix.Properties.Resources.resources
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix.csproj.GenerateResource.cache
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix.csproj.CoreCompileInputs.cache
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix.csproj.CopyComplete
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix.exe
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix.pdb

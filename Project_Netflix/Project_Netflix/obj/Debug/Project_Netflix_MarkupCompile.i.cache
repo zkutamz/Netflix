@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\obj\Debug\
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\
 Project_Netflix
 none
 false
 DEBUG;TRACE
-C:\Users\tujiu\Desktop\New folder1\New folder (2)\netflix_app\Project_Netflix\Project_Netflix\App.xaml
-17-889474944
-2893113301
-67199059648
-24-2143935745
-View\Admin-Management.xaml;View\Admin\Movie\AddCategoryforMovie.xaml;View\Admin\Account\Admin_Account.xaml;View\Admin\Movie\Admin_Movie.xaml;View\Admin\Movie\InformationMovie.xaml;View\Admin\Movie\UpdateMovie.xaml;View\ChangePassword.xaml;View\DangKy.xaml;View\DanhNhap.xaml;View\FilmsView.xaml;View\ForgotPassword.xaml;View\HomeView.xaml;View\MainWindow.xaml;View\MyListView.xaml;View\OriginalsView.xaml;View\PagePay.xaml;View\Profile.xaml;
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\App.xaml
+171762109945
+21618584513
+67-2014311798
+24250742436
+View\Admin-Management.xaml;View\Admin\Account\Admin_Account.xaml;View\Admin\Movie\Admin_Movie.xaml;View\Admin\Movie\InformationMovie.xaml;View\Admin\Movie\UpdateMovie.xaml;View\ChangePassword.xaml;View\DangKy.xaml;View\DanhNhap.xaml;View\FilmsView.xaml;View\ForgotPassword.xaml;View\HomeView.xaml;View\MainWindow.xaml;View\MyListView.xaml;View\OriginalsView.xaml;View\PagePay.xaml;View\Profile.xaml;View\ProfileInformation.xaml;
 
 True
 

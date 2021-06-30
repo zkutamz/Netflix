@@ -25,7 +25,7 @@ namespace Project_Netflix.model
         public string PHONE { get; set; }
         public string ADDRESS { get; set; }
         public Nullable<System.DateTime> DATEOFBIRTH { get; set; }
-        public Nullable<int> GENDER { get; set; }
+        public string GENDER { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ACCOUNT> ACCOUNTs { get; set; }

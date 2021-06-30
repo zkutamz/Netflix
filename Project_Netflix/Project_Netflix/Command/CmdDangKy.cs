@@ -39,7 +39,6 @@ namespace Project_Netflix.Command
 					EMAIL = vm.Email,
 					PASSWORD = vm.HashPassword(vm.Password),
 					TYPE = 1,
-					BALANCE = 500000.0,
 					INFORMATION = user.ID,
 				};
 				db.ACCOUNTs.Add(account);
