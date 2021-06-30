@@ -6,18 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows;
 
-namespace Project_Netflix.Command
+namespace Project_Netflix.Command.MainWindow
 {
-	class CmdPasswordChangeDK : ICommand
+	class CmdPasswordChangeFP : ICommand
 	{
 		public event EventHandler CanExecuteChanged
 		{
 			add { CommandManager.RequerySuggested += value; }
 			remove { CommandManager.RequerySuggested -= value; }
 		}
-		DangKyViewModel vm;
+		ForgotPasswordViewModel vm;
 		public bool CanExecute(object parameter)
 		{
 			return true;
@@ -29,7 +28,7 @@ namespace Project_Netflix.Command
 			vm.Password = p.Password;
 		}
 
-		public CmdPasswordChangeDK(DangKyViewModel vm)
+		public CmdPasswordChangeFP(ForgotPasswordViewModel vm)
 		{
 			this.vm = vm;
 		}

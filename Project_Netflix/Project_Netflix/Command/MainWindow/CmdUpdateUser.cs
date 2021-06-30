@@ -1,5 +1,4 @@
-﻿using Project_Netflix.model;
-using Project_Netflix.viewmodel;
+﻿using Project_Netflix.viewmodel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,28 +7,29 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Project_Netflix.Command
+namespace Project_Netflix.Command.MainWindow
 {
-	public class CmdDangNhap : ICommand
+	public class CmdUpdateUser : ICommand
 	{
+		UserProfileViewModel vm;
 		public event EventHandler CanExecuteChanged
 		{
 			add { CommandManager.RequerySuggested += value; }
 			remove { CommandManager.RequerySuggested -= value; }
 		}
-		DangNhapViewModel vm;
+
 		public bool CanExecute(object parameter)
 		{
-			return vm.allowButton();
+			return vm.checkUpdate();
 		}
 
 		public void Execute(object parameter)
 		{
+			vm.UpdateUser();
 			var window = (Window)parameter;
-			vm.Login(window);
+			window.Close();
 		}
-
-		public CmdDangNhap(DangNhapViewModel vm)
+		public CmdUpdateUser(UserProfileViewModel vm)
 		{
 			this.vm = vm;
 		}

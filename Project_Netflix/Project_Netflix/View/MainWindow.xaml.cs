@@ -28,37 +28,28 @@ namespace Project_Netflix.View
 
 		private void Chip_Click(object sender, RoutedEventArgs e)
 		{
-            ProfileInformation profile = new ProfileInformation();
+            ProfileInformation profile = new ProfileInformation(DangNhapViewModel.User);
             profile.ShowDialog();
 		}
-
-		private void ListBoxItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-		{
-            ProfileInformation profile = new ProfileInformation();
-            profile.Show();
-        }
-
-		private void ListBoxItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-		{
-            ProfileInformation profile = new ProfileInformation();
-            profile.ShowDialog();
-        }
-
-
-
 
 		private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			switch (UserControl.SelectedIndex)
 			{
                 case 0:
-					ProfileInformation profile = new ProfileInformation();
+					ProfileInformation profile = new ProfileInformation(DangNhapViewModel.User);
 					profile.ShowDialog();
 					break;
                 case 1:
                     MessageBox.Show("1");
                     break;
                 case 2:
+                    MessageBox.Show("2");
+                    break;
+                case 3:
+                    MessageBox.Show("3");
+                    break;
+                case 4:
                     DangNhapViewModel.IsLogin = false;
                     DangNhapViewModel.User = null;
                     DanhNhap danhNhap = new DanhNhap();

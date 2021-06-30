@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Project_Netflix.Command;
+using Project_Netflix.Command.MainWindow;
 using Project_Netflix.model;
 using Project_Netflix.View;
 

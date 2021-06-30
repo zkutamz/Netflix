@@ -70,11 +70,11 @@
                     </Button>
                 </StackPanel>
                 <Grid Grid.Column="3">
-                    <Grid Name="Info" HorizontalAlignment="Right" Background="Black" Margin="0,0,0,0.4" Width="223">
+                    <Grid Name="Info" HorizontalAlignment="Right" Background="Black" Margin="0,0,0,0.4" Width="243">
 
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Background="Black">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="Black">
                             <materialDesign:Chip
-  Content="{Binding User.USER_INFORMATION.NAME}" Click="Chip_Click">
+                                 Content="{Binding User.USER_INFORMATION.NAME, Mode=OneWay}" Click="Chip_Click">
                                 <materialDesign:Chip.Icon>
                                     <Image Source="channels4_profile.jpg" />
                                 </materialDesign:Chip.Icon>
@@ -82,7 +82,9 @@
                             <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" Margin="10">
                                 <ListBox x:Name="UserControl" Width="150" SelectionChanged="ListBox_SelectionChanged">
                                     <ListBoxItem x:Name="Profile" Content="Profile"/>
-                                    <ListBoxItem Content="Setting" />
+                                    <ListBoxItem Content="Doi mat khau" />
+                                    <ListBoxItem Content="Goi thanh toan" />
+                                    <ListBoxItem Content="Lich su thanh toan" />
                                     <ListBoxItem>
                                         <ListBoxItem.Content>
                                             <WrapPanel>

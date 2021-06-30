@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Project_Netflix.Command
+namespace Project_Netflix.Command.MainWindow
 {
 	class CmdForgotPassword : ICommand
 	{

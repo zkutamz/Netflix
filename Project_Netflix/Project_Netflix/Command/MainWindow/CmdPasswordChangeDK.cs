@@ -4,20 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows;
-using System.Windows.Controls;
 
-namespace Project_Netflix.Command
+namespace Project_Netflix.Command.MainWindow
 {
-	class CmdPasswordChange : ICommand
+	class CmdPasswordChangeDK : ICommand
 	{
 		public event EventHandler CanExecuteChanged
 		{
 			add { CommandManager.RequerySuggested += value; }
 			remove { CommandManager.RequerySuggested -= value; }
 		}
-		DangNhapViewModel vm;
+		DangKyViewModel vm;
 		public bool CanExecute(object parameter)
 		{
 			return true;
@@ -29,7 +29,7 @@ namespace Project_Netflix.Command
 			vm.Password = p.Password;
 		}
 
-		public CmdPasswordChange(DangNhapViewModel vm)
+		public CmdPasswordChangeDK(DangKyViewModel vm)
 		{
 			this.vm = vm;
 		}

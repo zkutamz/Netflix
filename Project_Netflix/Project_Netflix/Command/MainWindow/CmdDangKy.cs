@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 
-namespace Project_Netflix.Command
+namespace Project_Netflix.Command.MainWindow
 {
 	public class CmdDangKy : ICommand
 	{

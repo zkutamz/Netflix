@@ -12,26 +12,60 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="White"
         FontFamily="{DynamicResource MaterialDesignFont}"
        Height="500" Width="310" ResizeMode="NoResize"
-       Name="ProFileWindow"
-        Title="Cap nhat thong tin">
-    <Window.DataContext>
-        <viewmodel:MainViewModel/>
-    </Window.DataContext>
+       Name="UserProFileWindow"
+        Title="Cập nhật thông tin" Foreground="White">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Popupbox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid Name="UIProfile" Background="White" >
-        <Image Source="channels4_profile.jpg" Margin="-4,15,4,350.4"></Image>
-        <TextBlock Text="{Binding User.USER_INFORMATION.NAME}" Margin="100,138,104,0" VerticalAlignment="Top" FontSize="30" Foreground="Black" FontWeight="Bold" FontFamily="Arial" Height="37"/>
-
+        <Image Width="300" Margin="2,5,2,315.4" Source="/Project_Netflix;component/img/Poster.jpg" OpacityMask="Black"/>
+        <Ellipse Width="75" Height="75" Margin="102,-170,102,0">
+            <Ellipse.Fill>
+                <ImageBrush  ImageSource="channels4_profile.jpg"></ImageBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <materialDesign:Flipper  IsFlippedChanged="Flipper_OnIsFlippedChanged" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,175,0,235.4" Background="White" Width="240" Height="40">
+            <materialDesign:Flipper.FrontContent>
+                <Button  materialDesign:ShadowAssist.ShadowDepth="Depth0" 
+  Command="{x:Static materialDesign:Flipper.FlipCommand}" FontSize="15" Width="auto" Background="White" BorderBrush="Black" BorderThickness="0" Foreground="Black" Height="40" Content="{Binding User.USER_INFORMATION.NAME}" />
+            </materialDesign:Flipper.FrontContent>
+            <materialDesign:Flipper.BackContent>
+                <WrapPanel>
+                    <TextBox Text="{Binding User.USER_INFORMATION.NAME}" Padding="0 15 0 0" HorizontalAlignment="Left" Width="180" TextAlignment="Center"  VerticalAlignment="Top" FontSize="15" Foreground="Black" FontFamily="Arial" Height="37"/>
+                    <Button materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="10 7 0 0" Padding="0" Command="{x:Static materialDesign:Flipper.FlipCommand}" Foreground="Black" Background="White" BorderBrush="White" Width="25" Height="25">
+                        <materialDesign:PackIcon Kind="Pencil" />
+                    </Button>
+                </WrapPanel>
+            </materialDesign:Flipper.BackContent>
+        </materialDesign:Flipper>
         <TextBox Style="{StaticResource MaterialDesignFilledTextBox}" VerticalAlignment="Top" AcceptsReturn="True" Text="{Binding User.USER_INFORMATION.PHONE}"
-            TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Số điện thoại" Height="45" Margin="20,195,20,0" Padding="15,5,15,0" BorderBrush="#89000000" Foreground="#DD000000"/>
-        <TextBox Style="{StaticResource MaterialDesignFilledTextBox}" VerticalAlignment="Top" AcceptsReturn="True" Text="{Binding User.USER_INFORMATION.DATEOFBIRTH}"
-            TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Ngày sinh" Height="45" Margin="20,255,20,0" Padding="15,5,15,0" BorderBrush="#89000000" Foreground="#DD000000"/>
-        
-            <Button Command="{Binding CmdDangKy}" CommandParameter="{Binding ElementName=ProFileWindow}" Content="Hoàn tất" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="114" Height="38" Background="#FF5BAEFE" Foreground="White" Style="{DynamicResource RoundButtonStyle}" FontSize="20" FontFamily="Arial" FontWeight="Bold" BorderBrush="#FFFCF8F8" Margin="175,417,15,15.4" />
+            TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Số điện thoại" Height="45" Margin="20,230,20,0" Padding="15,5,15,0" BorderBrush="#89000000" Foreground="#DD000000"/>
+        <DatePicker materialDesign:HintAssist.Hint="Ngày sinh" SelectedDate="{Binding User.USER_INFORMATION.DATEOFBIRTH}" Height="45" Margin="20,270,19,0"  VerticalAlignment="Top" MaxWidth="400" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Padding="15,5,15,0" BorderBrush="#89000000" Foreground="#DD000000"/>
+        <StackPanel Margin="15,325,0,90.4">
+            <Label Foreground="#DD000000" Margin="15 0 0 0">Giới tính</Label>
+            <WrapPanel Height="41">
+                <RadioButton Width="100" Height="30" Style="{DynamicResource MaterialDesignUserForegroundRadioButton}" Content="Nam" Foreground="#DD000000" />
+                <RadioButton Width="100" Height="30" Style="{DynamicResource MaterialDesignUserForegroundRadioButton}" Content="Nữ" Foreground="#DD000000" />
+            </WrapPanel>
+        </StackPanel>
+        <Border Margin="0,390,0,0.4" BorderThickness="0 1 0 0" BorderBrush="#FFB0ADAD">
+            <Grid >
+                <Button materialDesign:ShadowAssist.ShadowDepth="Depth0"  materialDesign:ButtonAssist.CornerRadius="7" BorderBrush="#FF0082FF" BorderThickness="1" Command="{Binding CmdUpdateUser}" CommandParameter="{Binding ElementName=UserProFileWindow}" Content="Cập nhật" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="114" Height="38" Background="#FF0082FF" Foreground="White"  FontSize="13" FontFamily="Arial" FontWeight="Bold"  Margin="180,22,10,20"  />
+                <Button materialDesign:ShadowAssist.ShadowDepth="Depth0"  materialDesign:ButtonAssist.CornerRadius="7" BorderThickness="1" Command="{Binding CmdHuy}" CommandParameter="{Binding ElementName=UserProFileWindow}" Content="Hủy" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="70" Height="38" Background="#FFC2C2C2" Foreground="Black"  FontSize="13" FontFamily="Arial" FontWeight="Bold" BorderBrush="#FFC2C2C2" Margin="100,22,134,20"  />
+            </Grid>
+        </Border>
 
-        <TextBox Style="{StaticResource MaterialDesignFilledTextBox}" VerticalAlignment="Top" AcceptsReturn="True" Text="{Binding User.USER_INFORMATION.ADDRESS}"
-            TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Địa chỉ" Height="45" Margin="20,315,20,0" Padding="15,5,15,0" BorderBrush="#89000000" Foreground="#DD000000"/>
     </Grid>
 </Window>

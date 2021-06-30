@@ -1,4 +1,5 @@
-﻿using Project_Netflix.model;
+﻿using Project_Netflix.Command.MainWindow;
+using Project_Netflix.model;
 using Project_Netflix.ModelTest;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Project_Netflix.viewmodel
 {
@@ -16,7 +18,13 @@ namespace Project_Netflix.viewmodel
         public RelayCommand MyListViewCommand { get; set; }
         public RelayCommand FilmsViewCommand { get; set; }
         public RelayCommand OriginalsViewCommand { get; set; }
-
+        /// <summary>
+        /// /////////////////////////////////////////
+        /// </summary>
+        public ACCOUNT User { get; set; }
+        /// <summary>
+        /// //////////////////////////////////////////
+        /// </summary>
         public HomeViewModel HomeVM { get; set; }
         public MyListViewModel MyListVM { get; set; }
 
@@ -33,7 +41,7 @@ namespace Project_Netflix.viewmodel
                 OnPropertyChanged();
             }
         }
-        public ACCOUNT User { get ; set; }
+        
         public MainViewModel()
         {
             HomeVM = new HomeViewModel();            

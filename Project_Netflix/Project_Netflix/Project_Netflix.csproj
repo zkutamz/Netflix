@@ -104,12 +104,14 @@
     <Compile Include="Command\Admin\User\CmdAddUser.cs" />
     <Compile Include="Command\Admin\User\CmdDeleteUser.cs" />
     <Compile Include="Command\Admin\User\CmdUpdateUser.cs" />
-    <Compile Include="Command\CmdDangKy.cs" />
-    <Compile Include="Command\CmdDangNhap.cs" />
-    <Compile Include="Command\CmdForgotPassword.cs" />
-    <Compile Include="Command\CmdPasswordChange.cs" />
-    <Compile Include="Command\CmdPasswordChangeDK.cs" />
-    <Compile Include="Command\CmdPasswordChangeFP.cs" />
+    <Compile Include="Command\MainWindow\CmdDangKy.cs" />
+    <Compile Include="Command\MainWindow\CmdDangNhap.cs" />
+    <Compile Include="Command\MainWindow\CmdForgotPassword.cs" />
+    <Compile Include="Command\MainWindow\CmdHuy.cs" />
+    <Compile Include="Command\MainWindow\CmdPasswordChange.cs" />
+    <Compile Include="Command\MainWindow\CmdPasswordChangeDK.cs" />
+    <Compile Include="Command\MainWindow\CmdPasswordChangeFP.cs" />
+    <Compile Include="Command\MainWindow\CmdUpdateUser.cs" />
     <Compile Include="ModelTest\Movie.cs" />
     <Compile Include="model\ACCOUNT.cs">
       <DependentUpon>Netflix_DB.tt</DependentUpon>
@@ -175,6 +177,7 @@
     <Compile Include="viewmodel\MainViewModel.cs" />
     <Compile Include="viewmodel\MyListViewModel.cs" />
     <Compile Include="viewmodel\OriginalsViewModel.cs" />
+    <Compile Include="viewmodel\UserProfileViewModel.cs" />
     <Compile Include="View\Admin-Management.xaml.cs">
       <DependentUpon>Admin-Management.xaml</DependentUpon>
     </Compile>
