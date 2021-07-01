@@ -98,6 +98,11 @@
     <Compile Include="Command\Admin\Admin\CmdAddAdmin.cs" />
     <Compile Include="Command\Admin\Admin\CmdDeleteAdmin.cs" />
     <Compile Include="Command\Admin\Admin\CmdUpdateAdmin.cs" />
+    <Compile Include="Command\Admin\Category\CmdAddCategory.cs" />
+    <Compile Include="Command\Admin\Category\CmdAddMovie.cs" />
+    <Compile Include="Command\Admin\Category\CmdDeleteCategory.cs" />
+    <Compile Include="Command\Admin\Category\CmdDeleteMovie.cs" />
+    <Compile Include="Command\Admin\Category\CmdUpdateCategory.cs" />
     <Compile Include="Command\Admin\Movie\CmdAddMovie.cs" />
     <Compile Include="Command\Admin\Movie\CmdDeleteMovie.cs" />
     <Compile Include="Command\Admin\Movie\CmdUpdateMovie.cs" />
@@ -166,6 +171,7 @@
     </Compile>
     <Compile Include="viewmodel\Admin\Account\AdminAccount.cs" />
     <Compile Include="viewmodel\Admin\AdminManagementViewModel.cs" />
+    <Compile Include="viewmodel\Admin\Category\AdminCategoryViewModel.cs" />
     <Compile Include="viewmodel\Admin\Movie\AdminMovie.cs" />
     <Compile Include="viewmodel\Admin\Movie\AdminInfoMovieViewModel.cs" />
     <Compile Include="viewmodel\BaseViewModel.cs" />
@@ -183,6 +189,12 @@
     </Compile>
     <Compile Include="View\Admin\Account\Admin_Account.xaml.cs">
       <DependentUpon>Admin_Account.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\Category\AdminCategory.xaml.cs">
+      <DependentUpon>AdminCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\Category\InformationMovie.xaml.cs">
+      <DependentUpon>InformationMovie.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Admin\Movie\Admin_Movie.xaml.cs">
       <DependentUpon>Admin_Movie.xaml</DependentUpon>
@@ -239,6 +251,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Admin\Account\Admin_Account.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\Category\AdminCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\Category\InformationMovie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

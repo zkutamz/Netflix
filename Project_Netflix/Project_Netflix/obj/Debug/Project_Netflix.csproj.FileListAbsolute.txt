@@ -156,3 +156,7 @@ C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debu
 C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix.csproj.CopyComplete
 C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix.exe
 C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\Project_Netflix.pdb
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Category\AdminCategory.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Category\AdminCategory.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Category\InformationMovie.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Category\InformationMovie.baml

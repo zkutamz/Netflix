@@ -25,13 +25,17 @@
     ClipToBounds="False">
 
                 <Button
-      ToolTip="Follow me on Twitter"
+      ToolTip="Quan ly tai khoan"
       
       Content="ACCOUNT" Click="Button_Click" />
                 <Separator />
                 <Button
-      ToolTip="Save"
+      ToolTip="Quan ly movie"
       Content="MOVIE" Click="Button_Click_1" VerticalAlignment="Top" />
+                <Separator />
+                <Button
+      ToolTip="Quan ly movie"
+      Content="CATEGORY"  VerticalAlignment="Top" Click="Button_Click_2" />
                 <Separator />
             </ToolBar>
         </ToolBarTray>
