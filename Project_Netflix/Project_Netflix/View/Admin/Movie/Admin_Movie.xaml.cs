@@ -38,5 +38,10 @@ namespace Project_Netflix.View.Admin.Movie
 			UpdateMovie updateMovie = new UpdateMovie();
 			updateMovie.Show();
 		}
+
+		private void item_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+		{
+			MessageBox.Show(vm.SelectedMovie.NAME);
+		}
 	}
 }

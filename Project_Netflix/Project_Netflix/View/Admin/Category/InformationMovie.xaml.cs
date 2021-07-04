@@ -36,6 +36,7 @@ namespace Project_Netflix.View.Admin.Category
 			{
 				PosterText.Text = getFileName(openFileDialog.FileName);
 				AdminCategory.vm.Poster = openFileDialog.FileName;
+				
 			}
 		}
 		string getFileName(string fileName)

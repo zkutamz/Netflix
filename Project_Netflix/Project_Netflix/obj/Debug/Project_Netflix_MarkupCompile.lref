@@ -2,6 +2,9 @@
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\App.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin-Management.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Account\Admin_Account.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Category\AdminCategory.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Category\InformationMovie.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\AdminHistoryPay.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Movie\Admin_Movie.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Movie\InformationMovie.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Movie\UpdateMovie.xaml;;
@@ -10,6 +13,7 @@ FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Da
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\DanhNhap.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\FilmsView.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\ForgotPassword.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\HistoryPay.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\HomeView.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\MainWindow.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\MyListView.xaml;;
@@ -17,6 +21,4 @@ FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Or
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\PagePay.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Profile.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\ProfileInformation.xaml;;
-FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Category\AdminCategory.xaml;;
-FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Category\InformationMovie.xaml;;
 

@@ -72,8 +72,11 @@
   ItemsSource="{Binding DSAccount}" Name="DSUser" 
             SelectedItem="{Binding SelectedAccount, 
             Mode=OneWayToSource}" Margin="0,116,-0.4,42" >
-
+                        <ListView.InputBindings>
+                            <MouseBinding  Gesture="MiddleClick"  Command="{Binding CmdShowHistoryPay}" CommandParameter="{Binding SelectedAccount}"/>
+                        </ListView.InputBindings>
                         <ListView.View>
+                            
                             <GridView>
                                 <GridViewColumn
         DisplayMemberBinding="{Binding EMAIL}"
@@ -142,6 +145,7 @@
   ItemsSource="{Binding DSAdmin}" 
             SelectedItem="{Binding SelectedAdmin, 
             Mode=OneWayToSource}" Margin="0,116,-0.4,0.2" >
+                    
                     <ListView.View>
                         <GridView>
                             <GridViewColumn

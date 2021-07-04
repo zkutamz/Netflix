@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
+using Project_Netflix.View;
 
 namespace Project_Netflix.Command.MainWindow
 {
@@ -40,12 +41,16 @@ namespace Project_Netflix.Command.MainWindow
 					PASSWORD = vm.HashPassword(vm.Password),
 					TYPE = 1,
 					INFORMATION = user.ID,
+					ACTIVE = 0,
 				};
 				db.ACCOUNTs.Add(account);
 				db.SaveChanges();
 				var p = (Window)parameter;
 				MessageBox.Show("Dang ky thanh cong");
+				PagePay page = new PagePay();
+				DangNhapViewModel.User = account;
 				p.Close();
+				page.ShowDialog();
 			}
 		}
 		public CmdDangKy(DangKyViewModel vm)

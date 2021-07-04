@@ -16,6 +16,7 @@ using Project_Netflix.viewmodel.Admin;
 using Project_Netflix.View.Admin.Account;
 using Project_Netflix.View.Admin.Movie;
 using Project_Netflix.View.Admin.Category;
+using Project_Netflix.View.Admin;
 
 namespace Project_Netflix.View
 {
@@ -47,6 +48,11 @@ namespace Project_Netflix.View
 		{
             AdminCategory category = new AdminCategory();
             category.Show();
+		}
+
+		private void Button_Click_3(object sender, RoutedEventArgs e)
+		{
+            
 		}
 	}
 }

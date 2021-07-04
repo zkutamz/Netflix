@@ -160,3 +160,7 @@ C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debu
 C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Category\AdminCategory.baml
 C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Category\InformationMovie.g.cs
 C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\Category\InformationMovie.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\HistoryPay.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\HistoryPay.baml
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\AdminHistoryPay.g.cs
+C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\View\Admin\AdminHistoryPay.baml

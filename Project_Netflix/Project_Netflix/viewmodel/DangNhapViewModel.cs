@@ -79,9 +79,21 @@ namespace Project_Netflix.viewmodel
                             IsLogin = true;
                             MessageBox.Show("Dang nhap thanh cong");
                             User = getPassword.Single();
-                            MainWindow main = new MainWindow();
-                            window.Close();
-                            main.ShowDialog();
+                            var puch = User.PURCHASEs.ToList().Last();
+                            if (puch.OUTOFDATE < DateTime.Now)
+                                User.ACTIVE = 0;
+                            if (User.ACTIVE == 1)
+                            {
+                                MainWindow main = new MainWindow();
+                                window.Close();
+                                main.ShowDialog();
+                            }
+							else
+							{
+                                PagePay page = new PagePay();
+                                window.Close();
+                                page.ShowDialog();
+							}
                         }
                     }
                     else

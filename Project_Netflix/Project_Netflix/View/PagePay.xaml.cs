@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_Netflix.viewmodel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,12 @@ namespace Project_Netflix.View
     /// </summary>
     public partial class PagePay : Window
     {
+        public static string choose = null;
+        PayViewModel vm = new PayViewModel();
         public PagePay()
         {
             InitializeComponent();
+            DataContext = vm;
         }
         void setColorPage(string color, string type)
         {
@@ -31,24 +35,27 @@ namespace Project_Netflix.View
             {
                 case "basic":
                     PhimHDBasic.Background = brush;
-                    GioiHanPhimBasic.Background = brush;
-                    TinhNang1Basic.Background = brush;
-                    TinhNang2Basic.Background = brush;
+                    GioiHanPhimBasic.Foreground = brush;
+                    ThoiGianPhimBasic.Foreground = brush;
+                    GiaBasic.Foreground = brush;
                     HuyThueBasic.Background = brush;
+                    
                     break;
                 case "standard":
                     PhimHDStandard.Background = brush;
-                    GioiHanPhimStandard.Background = brush;
-                    TinhNang1Standard.Background = brush;
-                    TinhNang2Standard.Background = brush;
+                    GioiHanPhimStandard.Foreground = brush;
+                    ThoiGianPhimStandard.Foreground = brush;
+                    GiaStandard.Foreground = brush;
                     HuyThueStandard.Background = brush;
+                    
                     break;
                 case "premium":
                     PhimHDPremium.Background = brush;
-                    GioiHanPhimPremium.Background = brush;
-                    TinhNang1Premium.Background = brush;
-                    TinhNang2Premium.Background = brush;
+                    GioiHanPhimPremium.Foreground = brush;
+                    GiaPremium.Foreground = brush;
+                    ThoiGianPhimPremium.Foreground = brush;
                     HuyThuePremium.Background = brush;
+                   
                     break;
             }
         }
@@ -64,6 +71,7 @@ namespace Project_Netflix.View
             setColorPage("#FA7967", "Basic");
             setColorPage("#FFF7F7F7", "Standard");
             setColorPage("#FFF7F7F7", "Premium");
+            choose = "Basic";
         }
 
         private void TextBlock_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
@@ -78,6 +86,7 @@ namespace Project_Netflix.View
             setColorPage("#FFF7F7F7", "Basic");
             setColorPage("#FA7967", "Standard");
             setColorPage("#FFF7F7F7", "Premium");
+            choose = "Standard";
         }
 
         private void TextBlock_MouseLeftButtonDown_2(object sender, MouseButtonEventArgs e)
@@ -92,6 +101,7 @@ namespace Project_Netflix.View
             setColorPage("#FFF7F7F7", "Basic");
             setColorPage("#FFF7F7F7", "Standard");
             setColorPage("#FA7967", "Premium");
+            choose = "Premium";
         }
     }
 }

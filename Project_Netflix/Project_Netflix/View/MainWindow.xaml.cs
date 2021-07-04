@@ -41,15 +41,10 @@ namespace Project_Netflix.View
 					profile.ShowDialog();
 					break;
                 case 1:
-                    MessageBox.Show("1");
+                    HistoryPay historyPay = new HistoryPay();
+                    historyPay.ShowDialog();
                     break;
                 case 2:
-                    MessageBox.Show("2");
-                    break;
-                case 3:
-                    MessageBox.Show("3");
-                    break;
-                case 4:
                     DangNhapViewModel.IsLogin = false;
                     DangNhapViewModel.User = null;
                     DanhNhap danhNhap = new DanhNhap();

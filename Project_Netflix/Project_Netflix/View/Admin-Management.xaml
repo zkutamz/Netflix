@@ -37,6 +37,10 @@
       ToolTip="Quan ly movie"
       Content="CATEGORY"  VerticalAlignment="Top" Click="Button_Click_2" />
                 <Separator />
+                <Button
+      ToolTip="Lich su thanh toan"
+      Content="Report"  VerticalAlignment="Top" Click="Button_Click_3" />
+                <Separator />
             </ToolBar>
         </ToolBarTray>
         <Border Grid.Row="2" BorderThickness="1 0 1 1" BorderBrush="{DynamicResource PrimaryHueMidBrush}" Padding="16">

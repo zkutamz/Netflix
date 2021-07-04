@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Project_Netflix.View"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-         Height="450" Width="800">
+         Height="450" Width="800"
+        Name="PagePayWindow">
     <Grid>
         <Image HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="137" Source="/Project_Netflix;component/img/Netflix_Logo_PMS.png" Margin="10,0,0,0"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="20,49,0,0" VerticalAlignment="Top" Width="747" RenderTransformOrigin="0.5,0.5">
@@ -25,8 +26,8 @@
         <Label Content="Chọn gói mà bạn muốn thuê." HorizontalAlignment="Left" Margin="49,91,0,0" VerticalAlignment="Top" FontSize="15" Background="Transparent" Foreground="Black"/>
         <Label Content="Phim HD" HorizontalAlignment="Left" Margin="49,224,0,0" VerticalAlignment="Top"/>
         <Label Content="Giới hạn phim" HorizontalAlignment="Left" Margin="49,255,0,0" VerticalAlignment="Top" Foreground="Black"/>
-        <Label Content="Tính năng" HorizontalAlignment="Left" Margin="49,286,0,0" VerticalAlignment="Top" Foreground="Black"/>
-        <Label Content="Tính năng" HorizontalAlignment="Left" Margin="49,317,0,0" VerticalAlignment="Top" Foreground="Black"/>
+        <Label Content="Thời gian" HorizontalAlignment="Left" Margin="49,286,0,0" VerticalAlignment="Top" Foreground="Black"/>
+        <Label Content="Giá" HorizontalAlignment="Left" Margin="49,317,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Label Content="Hủy thuê mọi lúc" HorizontalAlignment="Left" Margin="49,348,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="51,250,0,0" VerticalAlignment="Top" Width="680" RenderTransformOrigin="0.5,0.5">
             <Border.RenderTransform>
@@ -78,19 +79,18 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-        <Label Content="Giá" HorizontalAlignment="Left" Margin="286,384,0,0" VerticalAlignment="Top" Foreground="Black"/>
-        <Label Content="Giá" HorizontalAlignment="Left" Margin="465,384,0,0" VerticalAlignment="Top" Foreground="Black"/>
-        <Label Content="Giá" HorizontalAlignment="Left" Margin="644,384,0,0" VerticalAlignment="Top" Foreground="Black"/>
 
         <Canvas>
             <Grid Name="PhimHDBasic" HorizontalAlignment="Left" Height="25" Margin="291,223,0,0" VerticalAlignment="Top" Width="25" Background="#FFF7F7F7"/>
             <Image HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="290,221,0,0"/>
-            <Grid Name="GioiHanPhimBasic" HorizontalAlignment="Left" Height="25" Margin="291,253,0,0" VerticalAlignment="Top" Width="25" Background="#FFF7F7F7"/>
-            <Image HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="290,252,0,0"/>
-            <Grid Name="TinhNang1Basic" HorizontalAlignment="Left" Height="25" Margin="291,284,0,0" VerticalAlignment="Top" Width="25" Background="#FFF7F7F7"/>
-            <Image HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="290,283,0,0"/>
-            <Grid Name="TinhNang2Basic" HorizontalAlignment="Left" Height="25" Margin="291,316,0,0" VerticalAlignment="Top" Width="25" Background="#FFF7F7F7"/>
-            <Image HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="290,315,0,0"/>
+
+
+            <Label Name="GioiHanPhimBasic" Content="Tất cả" HorizontalAlignment="Center" Padding="10 5 0 0" Height="28" VerticalAlignment="Center" Width="70" FontWeight="Bold" FontSize="15" Background="White" Foreground="#FFF7F7F7" Canvas.Left="270" Canvas.Top="252"/>
+            <Image />
+            <Label Name="ThoiGianPhimBasic" Content="1 Tuần" HorizontalAlignment="Center" Padding="10 5 0 0" Height="28" VerticalAlignment="Center" Width="70" FontWeight="Bold" FontSize="15" Background="White" Foreground="#FFF7F7F7" Canvas.Left="270" Canvas.Top="283"/>
+
+            <Label Name="GiaBasic" Content="{Binding PriceBasic}" HorizontalAlignment="Center" Padding="10 5 0 0" Height="28" VerticalAlignment="Center" Width="90" FontWeight="Bold" FontSize="15" Background="White" Foreground="#FFF7F7F7" Canvas.Left="265" Canvas.Top="315"/>
+
             <Grid Name="HuyThueBasic" HorizontalAlignment="Left" Height="25" Margin="291,348,0,0" VerticalAlignment="Top" Width="25" Background="#FFF7F7F7"/>
             <Image HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="290,347,0,0"/>
 
@@ -98,28 +98,25 @@
         <Canvas>
             <Grid Name="PhimHDStandard" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Background="#FFF7F7F7" Canvas.Left="467" Canvas.Top="220"/>
             <Image  HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="466,219,0,0"/>
-            <Grid Name="GioiHanPhimStandard" HorizontalAlignment="Left" Height="25"  Canvas.Left="467" Canvas.Top="253" VerticalAlignment="Top" Width="25" Background="#FFF7F7F7"/>
-            <Image  HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="466,252,0,0"/>
-            <Grid Name="TinhNang1Standard" HorizontalAlignment="Left" Height="25"  Canvas.Left="467" Canvas.Top="284" VerticalAlignment="Top" Width="25" Background="#FFF7F7F7"/>
-            <Image  HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="466,283,0,0"/>
-            <Grid Name="TinhNang2Standard" HorizontalAlignment="Left" Height="25"  Canvas.Left="467" Canvas.Top="316" VerticalAlignment="Top" Width="25" Background="#FFF7F7F7"/>
-            <Image  HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="466,315,0,0"/>
+            <Label Name="GioiHanPhimStandard" Content="Tất cả" HorizontalAlignment="Center" Padding="10 5 0 0" Height="28" VerticalAlignment="Center" Width="70" FontWeight="Bold" FontSize="15" Background="White" Foreground="#FFF7F7F7" Canvas.Left="450" Canvas.Top="252"/>
+            <Label  Name="ThoiGianPhimStandard" Content="1 Tháng" HorizontalAlignment="Center" Padding="10 5 0 0" Height="28" VerticalAlignment="Center" Width="69" FontWeight="Bold" FontSize="15" Background="White" Foreground="#FFF7F7F7" Canvas.Left="445" Canvas.Top="283"/>
+
+            <Label Name="GiaStandard" Content="{Binding PriceStandard}" HorizontalAlignment="Center" Padding="10 5 0 0" Height="28" VerticalAlignment="Center" Width="90" FontWeight="Bold" FontSize="15" Background="White" Foreground="#FFF7F7F7" Canvas.Left="440" Canvas.Top="315"/>
+
             <Grid Name="HuyThueStandard" HorizontalAlignment="Left" Height="25"  VerticalAlignment="Top" Canvas.Left="467" Canvas.Top="348" Width="25" Background="#FFF7F7F7"/>
             <Image  HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="466,347,0,0"/>
         </Canvas>
         <Canvas>
             <Grid Name="PhimHDPremium" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Background="#FFF7F7F7" Canvas.Left="643" Canvas.Top="220"/>
             <Image HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="642,219,0,0"/>
-            <Grid Name="GioiHanPhimPremium" HorizontalAlignment="Left" Height="25"  Canvas.Left="643" Canvas.Top="253" VerticalAlignment="Top" Width="25" Background="#FFF7F7F7"/>
-            <Image HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="642,252,0,0"/>
-            <Grid Name="TinhNang1Premium" HorizontalAlignment="Left" Height="25"  Canvas.Left="643" Canvas.Top="284" VerticalAlignment="Top" Width="25" Background="#FFF7F7F7"/>
-            <Image HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="642,283,0,0"/>
-            <Grid Name="TinhNang2Premium" HorizontalAlignment="Left" Height="25"  Canvas.Left="643" Canvas.Top="316" VerticalAlignment="Top" Width="25" Background="#FFF7F7F7"/>
-            <Image HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="642,315,0,0"/>
+            <Label Name="GioiHanPhimPremium" Content="Tất cả" HorizontalAlignment="Left" Padding="10 5 0 0" Height="28" VerticalAlignment="Top" Width="70" FontWeight="Bold" FontSize="15" Background="White" Foreground="#FFF7F7F7" Canvas.Left="620" Canvas.Top="252"/>
+
+            <Label Name="ThoiGianPhimPremium" Content="6 Tháng" HorizontalAlignment="Center" Padding="10 5 0 0" Height="28" VerticalAlignment="Center" Width="75" FontWeight="Bold" FontSize="15" Background="White" Foreground="#FFF7F7F7" Canvas.Left="615" Canvas.Top="283"/>
+            <Label Name="GiaPremium" Content="{Binding PricePremium}" HorizontalAlignment="Center" Padding="10 5 0 0" Height="28" VerticalAlignment="Center" Width="90" FontWeight="Bold" FontSize="15" Background="White" Foreground="#FFF7F7F7" Canvas.Left="610" Canvas.Top="315"/>
             <Grid Name="HuyThuePremium" HorizontalAlignment="Left" Height="25"  VerticalAlignment="Top" Canvas.Left="643" Canvas.Top="348" Width="25" Background="#FFF7F7F7"/>
             <Image HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="642,347,0,0"/>
         </Canvas>
-        <Button Content="Tiếp tục" HorizontalAlignment="Left" Margin="618,10,0,0" VerticalAlignment="Top" Width="137" Height="29" Background="#FFF40612" Foreground="White" FontSize="15"/>
+        <Button Content="Thanh toán" Command="{Binding CmdPay}" CommandParameter="{Binding PagePayWindow}" HorizontalAlignment="Left" Margin="618,10,0,0" VerticalAlignment="Top" Width="137" Height="29" Background="#FFF40612" Foreground="White" FontSize="15" BorderBrush="#FFF40612"/>
 
     </Grid>
 </Window>

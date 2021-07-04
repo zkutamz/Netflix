@@ -1,6 +1,7 @@
 ﻿using Project_Netflix.Command.Admin.Admin;
 using Project_Netflix.Command.Admin.User;
 using Project_Netflix.model;
+using Project_Netflix.View.Admin;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,6 +24,7 @@ namespace Project_Netflix.viewmodel.Admin.Account
 		public ICommand CmdAddAdmin { get; set; }
 		public ICommand CmdUpdateAdmin { get; set; }
 		public ICommand CmdDeleteAdmin { get; set; }
+		public ICommand CmdShowHistoryPay { get; set; }
 		private ObservableCollection<ACCOUNT> _DSAdmin;
 		public ObservableCollection<ACCOUNT> DSAdmin { get => _DSAdmin; set { _DSAdmin = value; OnPropertyChanged(); } }
 		//public ObservableCollection<CATEGORY> DSAdmin { get => _DSAdmin; set { _DSAdmin = value; OnPropertyChanged(); } }
@@ -72,6 +74,7 @@ namespace Project_Netflix.viewmodel.Admin.Account
 			CmdAddAdmin = new CmdAddAdmin(this);
 			CmdUpdateAdmin = new CmdUpdateAdmin(this);
 			CmdDeleteAdmin = new CmdDeleteAdmin(this);
+			CmdShowHistoryPay = new CmdShowHistoryPay(this);
 			using (var db = new NETFLIX_DBEntities())
 			{
 				loadDBUser();
@@ -117,6 +120,11 @@ namespace Project_Netflix.viewmodel.Admin.Account
 			//| chuyển đổi mảng byte sang dạng chuỗi HEX đề ghi xuống database
 			var strPwHashed = BitConverter.ToString(arrPwSaltHashed).Replace("-", "");
 			return strPwHashed;
+		}
+		public void showHistoryPay()
+		{
+			AdminHistoryPay adminHistoryPay = new AdminHistoryPay(SelectedAccount);
+			adminHistoryPay.ShowDialog();
 		}
 		public void CreateUser()
 		{

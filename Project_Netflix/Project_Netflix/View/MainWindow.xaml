@@ -82,8 +82,6 @@
                             <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" Margin="10">
                                 <ListBox x:Name="UserControl" Width="150" SelectionChanged="ListBox_SelectionChanged">
                                     <ListBoxItem x:Name="Profile" Content="Profile"/>
-                                    <ListBoxItem Content="Doi mat khau" />
-                                    <ListBoxItem Content="Goi thanh toan" />
                                     <ListBoxItem Content="Lich su thanh toan" />
                                     <ListBoxItem>
                                         <ListBoxItem.Content>

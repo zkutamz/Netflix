@@ -23,6 +23,7 @@ namespace Project_Netflix.viewmodel
 
 		public ICommand CmdUpdateMovie { get; set; }
 		public ICommand CmdDeleteMovie { get; set; }
+		public ICommand CmdShowInformationMovie { get; set; }
 		static AdminMovie()
 		{
 			AdminMovieProperty = DependencyProperty.Register("DSMovie", typeof(ObservableCollection<MOVIE>), typeof(AdminMovie));
@@ -58,6 +59,7 @@ namespace Project_Netflix.viewmodel
 		{
 			CmdUpdateMovie = new CmdUpdateMovie(this);
 			CmdDeleteMovie = new CmdDeleteMovie(this);
+			CmdShowInformationMovie = new CmdInformationMovie(this);
 			using (var db = new NETFLIX_DBEntities())
 			{
 				DSMovie = new ObservableCollection<MOVIE>(db.MOVIEs.Include("MOVIE_INFORMATION").ToList());
@@ -103,17 +105,17 @@ namespace Project_Netflix.viewmodel
 
 				if (movie.MOVIE_NAME != SelectedMovie.MOVIE_NAME)
 				{
-					movie.MOVIE_NAME = SelectedMovie.MOVIE_NAME;
+					movie.MOVIE_NAME = SelectedMovie.MOVIE_NAME.Split('\\').Last();
 					isChangeMovie = true;
 				}
 				if (movie.POSTER != SelectedMovie.POSTER)
 				{
-					movie.POSTER = SelectedMovie.POSTER;
+					movie.POSTER = SelectedMovie.POSTER.Split('\\').Last();
 					isChangePoster = true;
 				}
 				if (movie.TRAILER_NAME != SelectedMovie.TRAILER_NAME)
 				{
-					movie.TRAILER_NAME = SelectedMovie.TRAILER_NAME;
+					movie.TRAILER_NAME = SelectedMovie.TRAILER_NAME.Split('\\').Last();
 					isChangeTrailer = true;
 				}
 				db.SaveChanges();

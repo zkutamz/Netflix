@@ -49,11 +49,11 @@
             <Button Name="PosterFile" Click="PosterFile_Click_1">Open File</Button>
         </WrapPanel>
         <WrapPanel Grid.Row="3" Grid.Column="1" Margin="10 5 10 0">
-            <TextBox Text="{Binding SelectedMovie.TRAILER}" Name="TrailerText" Margin="0 0 10 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" MaxWidth="200" Foreground="White"/>
+            <TextBox Text="{Binding SelectedMovie.TRAILER_NAME}" Name="TrailerText" Margin="0 0 10 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" MaxWidth="200" Foreground="White"/>
             <Button Name="TrailerFile" Click="TrailerFile_Click">Open File</Button>
         </WrapPanel>
         <WrapPanel Grid.Row="4" Grid.Column="1" Margin="10 5 10 0">
-            <TextBox Text="{Binding SelectedMovie.MOVIE1}" Name="MovieText" Margin="0 0 10 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" MaxWidth="200" Foreground="White"/>
+            <TextBox Text="{Binding SelectedMovie.MOVIE_NAME}" Name="MovieText" Margin="0 0 10 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" MaxWidth="200" Foreground="White"/>
             <Button Name="MovieFile" Click="MovieFile_Click">Open File</Button>
         </WrapPanel>
         <TextBox Text="{Binding SelectedMovie.MOVIE_INFORMATION.DESCRIPTION}"
@@ -73,7 +73,7 @@
   Value="{Binding SelectedMovie.MOVIE_INFORMATION.RATE}"
   ValueChanged="BasicRatingBar_ValueChanged" />
         <ComboBox ItemsSource="{Binding DSCategory}" DisplayMemberPath="NAME"  SelectedItem="{Binding SelectedMovie.CATEGORY}" Grid.Row="9" Grid.Column="1" Margin="10 0 0 0" Width="150" HorizontalAlignment="Left" Foreground="White"></ComboBox>
-        <ComboBox ItemsSource="{Binding DSType}" DisplayMemberPath="NAME"  SelectedItem="{Binding SelectedMovie.MOVE_TYPE}" Grid.Row="10" Grid.Column="1" Margin="10 0 0 0" Width="150" HorizontalAlignment="Left" Foreground="White"></ComboBox>
+        <ComboBox ItemsSource="{Binding DSType}" DisplayMemberPath="NAME"  SelectedItem="{Binding SelectedMovie.MOVIE_TYPE}" Grid.Row="10" Grid.Column="1" Margin="10 0 0 0" Width="150" HorizontalAlignment="Left" Foreground="White"></ComboBox>
         <Button Grid.Row="12" Grid.ColumnSpan="2" Content="Sua" Width="250" Command="{Binding CmdUpdateMovie}" CommandParameter="{Binding ElementName=UpdateMovieWindow}" Margin="55,30,55,30" Height="Auto"  FontSize="25" Background="Red" BorderBrush="Red"></Button>
     </Grid>
 </Window>
