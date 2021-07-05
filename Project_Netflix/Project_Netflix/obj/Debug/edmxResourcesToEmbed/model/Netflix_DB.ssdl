@@ -65,6 +65,7 @@
     <Property Name="TYPE_ID" Type="int" Nullable="false" />
     <Property Name="CATEGORY_ID" Type="int" Nullable="false" />
     <Property Name="ACTIVE" Type="int" Nullable="false" />
+    <Property Name="VIEWS" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MOVIE_INFORMATION">
     <Key>
@@ -92,6 +93,7 @@
     <Property Name="NAME" Type="nvarchar" MaxLength="50" />
     <Property Name="PRICE" Type="float" />
     <Property Name="TIME" Type="int" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="PURCHASE">
     <Key>

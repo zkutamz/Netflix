@@ -76,6 +76,7 @@
     <Property Name="TYPE_ID" Type="Int32" Nullable="false" />
     <Property Name="CATEGORY_ID" Type="Int32" Nullable="false" />
     <Property Name="ACTIVE" Type="Int32" Nullable="false" />
+    <Property Name="VIEWS" Type="Int32" Nullable="false" />
     <NavigationProperty Name="CATEGORY" Relationship="Self.FK_MOVIE_CATEGORY" FromRole="MOVIE" ToRole="CATEGORY" />
     <NavigationProperty Name="CREDITS" Relationship="Self.FK_CRE_MOVIE" FromRole="MOVIE" ToRole="CREDITS" />
     <NavigationProperty Name="FAVOURITE_MOVIES" Relationship="Self.FK_FM_MOVIE" FromRole="MOVIE" ToRole="FAVOURITE_MOVIES" />
@@ -110,6 +111,7 @@
     <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PRICE" Type="Double" />
     <Property Name="TIME" Type="Int32" />
+    <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PURCHASEs" Relationship="Self.FK_PUR_PACKAGE" FromRole="PACKAGE" ToRole="PURCHASE" />
   </EntityType>
   <EntityType Name="PURCHASE">

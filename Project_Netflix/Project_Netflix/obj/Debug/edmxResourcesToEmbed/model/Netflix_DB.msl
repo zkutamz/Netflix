@@ -69,6 +69,7 @@
           <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
           <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
           <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="VIEWS" ColumnName="VIEWS" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -99,6 +100,7 @@
           <ScalarProperty Name="NAME" ColumnName="NAME" />
           <ScalarProperty Name="PRICE" ColumnName="PRICE" />
           <ScalarProperty Name="TIME" ColumnName="TIME" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

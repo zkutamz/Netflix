@@ -19,17 +19,17 @@ namespace Project_Netflix.viewmodel
 		public static readonly DependencyProperty PasswordProperty;
 		static ForgotPasswordViewModel()
 		{
-			EmailProperty = DependencyProperty.Register("Email", typeof(string), typeof(DangKyViewModel));
-			PasswordProperty = DependencyProperty.Register("Password", typeof(string), typeof(DangKyViewModel));
+			EmailProperty = DependencyProperty.Register("EmailForGot", typeof(string), typeof(DangKyViewModel));
+			PasswordProperty = DependencyProperty.Register("PasswordForgot", typeof(string), typeof(DangKyViewModel));
 		}
-		public string Email { get => (string)GetValue(EmailProperty); set => SetValue(EmailProperty, value); }
-		public string Password { get => (string)GetValue(PasswordProperty); set => SetValue(PasswordProperty, value); }
+		public string EmailForGot { get => (string)GetValue(EmailProperty); set => SetValue(EmailProperty, value); }
+		public string PasswordForgot { get => (string)GetValue(PasswordProperty); set => SetValue(PasswordProperty, value); }
 		public ICommand CmdPasswordChange { get; set; }
 		public ICommand CmdForgot { get; set; }
 		public ForgotPasswordViewModel()
 		{
-			Email = "";
-			Password = "";
+			EmailForGot = "";
+			PasswordForgot = "";
 			CmdPasswordChange = new CmdPasswordChangeFP(this);
 			CmdForgot = new CmdForgotPassword(this);
 		}
@@ -61,9 +61,9 @@ namespace Project_Netflix.viewmodel
 		public bool checkInput()
 		{
 			Regex emailCheck = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-			Match match = emailCheck.Match(Email);
+			Match match = emailCheck.Match(EmailForGot);
 			bool isEmail = (match.Success) ? true : false;
-			if (Email.Length == 0)
+			if (EmailForGot.Length == 0)
 				return false;
 			else if (!isEmail)
 			{
@@ -73,7 +73,7 @@ namespace Project_Netflix.viewmodel
 			{
 				using(var db = new NETFLIX_DBEntities())
 				{
-					if(db.ACCOUNTs.Where(x=>x.EMAIL == Email).Count() == 0)
+					if(db.ACCOUNTs.Where(x=>x.EMAIL == EmailForGot).Count() == 0)
 					{
 						MessageBox.Show("Email khong ton tai");
 						return false;
@@ -81,10 +81,11 @@ namespace Project_Netflix.viewmodel
 					else { return true; }
 				}
 			}
+			
 		}
 		public bool checkePassword()
 		{
-			if (Password.Length >= 8) return true;
+			if (PasswordForgot.Length >= 8) return true;
 			return false;
 		}
 	}

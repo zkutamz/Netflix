@@ -30,6 +30,7 @@ namespace Project_Netflix.model
         public int TYPE_ID { get; set; }
         public int CATEGORY_ID { get; set; }
         public int ACTIVE { get; set; }
+        public int VIEWS { get; set; }
     
         public virtual CATEGORY CATEGORY { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
