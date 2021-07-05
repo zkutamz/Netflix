@@ -20,16 +20,19 @@ namespace Project_Netflix.model
             this.CREDITS = new HashSet<CREDIT>();
             this.FAVOURITE_MOVIES = new HashSet<FAVOURITE_MOVIES>();
         }
+        
         private string _P;
         private string _Tr;
         private string _Mo;
 
+        private string path_movie = @"D:\Netflix02\Netflix\Movie\";
+        private string path_poster = @"D:\Netflix02\Netflix\Movie\Poster\";
         public int ID { get; set; }
         public string NAME { get; set; }
         public int INFORMATION { get; set; }
-        public string POSTER { get { return @"C:\Users\Zolo\Desktop\Poster\" + _P ; } set { _P = value; } }
-        public string TRAILER_NAME { get { return @"C:\Users\Zolo\Desktop\Movies\" + _Tr; } set { _Tr = value; } }
-        public string MOVIE_NAME { get { return @"C:\Users\Zolo\Desktop\Movies\" + _Mo; } set { _Mo = value; } }
+        public string POSTER { get { return path_poster + _P; } set { _P = value; } }
+        public string TRAILER_NAME { get { return path_movie + _Tr; } set { _Tr = value; } }
+        public string MOVIE_NAME { get { return path_movie + _Mo; } set { _Mo = value; } }
         public int TYPE_ID { get; set; }
         public int CATEGORY_ID { get; set; }
         public int ACTIVE { get; set; }
