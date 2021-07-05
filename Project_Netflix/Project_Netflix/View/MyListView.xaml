@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Project_Netflix.View"
              mc:Ignorable="d"
-             xmlns:m ="clr-namespace:Project_Netflix.ModelTest"
+             xmlns:m ="clr-namespace:Project_Netflix.model"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             TextElement.FontWeight="Regular"
@@ -16,32 +16,30 @@
             FontFamily="{DynamicResource MaterialDesignFont}"
              d:DesignHeight="630" d:DesignWidth="1330">
     <UserControl.Resources>
-        <DataTemplate DataType="{x:Type m:Movie}">
-            <Grid Margin="20 20 20 0" Width="auto" Height="180"                   
-                  MouseLeave="Grid_MouseLeave" MouseEnter="Grid_MouseEnter">
-                <Border BorderBrush="DarkGray" CornerRadius="5" BorderThickness="1">
-                    <Grid HorizontalAlignment="Left" VerticalAlignment="Center" Width="320">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
-                            <Grid x:Name="lPoster" Opacity="1" Grid.Column="0">
-                                <Image Source="{Binding p}" Stretch="Fill" 
+        <DataTemplate DataType="{x:Type m:MOVIE}">
+            <Grid Margin="2" Width="240" Height="135">
+                <Border BorderBrush="BlueViolet" CornerRadius="2" BorderThickness="1">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+                        <Grid x:Name="lPoster" Opacity="1">
+                            <Image Source="{Binding POSTER}" Stretch="Fill" 
                                Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Path=Width}"
                                Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Path=Height}"/>
-                            </Grid>
-                            <Grid x:Name="lTrailer" Opacity="0"  Grid.Column="0">
-                                <MediaElement Name="video" Source="{Binding t}" LoadedBehavior="Manual"/>
-                            </Grid>
-                        </Grid>                        
-                        <StackPanel Grid.Column="1" Margin="50 20 0 0 ">
-                            <TextBlock Text="{Binding c}" FontSize="25" FontWeight="Bold"/>
-                            <TextBlock Text="Description:"/>
-                            <TextBlock Text="{Binding des}" TextWrapping="Wrap"/>
-                        </StackPanel>
+                            <Border  Opacity="0.8" VerticalAlignment="Bottom" Background="Gray">
+                                <Label Content="{Binding NAME}" Foreground="White" HorizontalAlignment="Center" />
+                            </Border>
+                        </Grid>
+                        <Grid x:Name="lTrailer" Opacity="0">
+                            <MediaElement Name="video" Source="{Binding TRAILER_NAME}" LoadedBehavior="Manual" UnloadedBehavior="Manual"/>
+                            <Button Style="{StaticResource MaterialDesignIconButton}" ToolTip="MaterialDesignIconButton" 
+                                    HorizontalAlignment="Right" VerticalAlignment="Center" Opacity="0.5">
+                                <materialDesign:PackIcon Kind="Play"/>
+                            </Button>
+                        </Grid>
                     </Grid>
-                </Border>                
+                </Border>
+                <Grid.LayoutTransform>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Grid.LayoutTransform>
                 <Grid.Style>
                     <Style TargetType="Grid">
                         <Style.Triggers>
@@ -50,6 +48,8 @@
                                 <DataTrigger.EnterActions>
                                     <BeginStoryboard>
                                         <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX" BeginTime="0:0:0" To="1.3" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY" BeginTime="0:0:0" To="1.3" Duration="0:0:0.5"/>
                                             <DoubleAnimation Storyboard.Target="{x:Reference Name = lPoster}"
                                                              Storyboard.TargetProperty="(Grid.Opacity)" BeginTime="0:0:0" To="0"
                                                              Duration="0:0:0.5"/>
@@ -62,6 +62,8 @@
                                 <DataTrigger.ExitActions>
                                     <BeginStoryboard>
                                         <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX" Duration="0:0:0.3"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY" Duration="0:0:0.3"/>
                                             <DoubleAnimation Storyboard.Target="{x:Reference Name = lPoster}"
                                                              Storyboard.TargetProperty="(Grid.Opacity)" Duration="0:0:1"/>
                                             <DoubleAnimation Storyboard.Target="{x:Reference Name = lTrailer}"
@@ -89,7 +91,7 @@
                         <Setter Property="ItemsPanel">
                             <Setter.Value>
                                 <ItemsPanelTemplate>
-                                    <VirtualizingStackPanel/>
+                                    <WrapPanel/>
                                 </ItemsPanelTemplate>
                             </Setter.Value>
                         </Setter>                        

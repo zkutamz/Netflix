@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\
+C:\Users\Zolo\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\obj\Debug\
 Project_Netflix
 none
 false
 DEBUG;TRACE
-C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\App.xaml
-21-151883987
+C:\Users\Zolo\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\App.xaml
+212067827637
 21693896437
-85-779234802
-24250742436
-View\Admin-Management.xaml;View\Admin\Account\Admin_Account.xaml;View\Admin\AdminHistoryPay.xaml;View\Admin\Category\AdminCategory.xaml;View\Admin\Category\InformationMovie.xaml;View\Admin\Movie\Admin_Movie.xaml;View\Admin\Movie\InformationMovie.xaml;View\Admin\Movie\UpdateMovie.xaml;View\ChangePassword.xaml;View\DangKy.xaml;View\DanhNhap.xaml;View\FilmsView.xaml;View\ForgotPassword.xaml;View\HistoryPay.xaml;View\HomeView.xaml;View\MainWindow.xaml;View\MyListView.xaml;View\OriginalsView.xaml;View\PagePay.xaml;View\Profile.xaml;View\ProfileInformation.xaml;
+85629973618
+241791583747
+View\Admin-Management.xaml;View\Admin\Account\Admin_Account.xaml;View\Admin\AdminHistoryPay.xaml;View\Admin\Category\AdminCategory.xaml;View\Admin\Category\InformationMovie.xaml;View\Admin\Movie\Admin_Movie.xaml;View\Admin\Movie\InformationMovie.xaml;View\Admin\Movie\UpdateMovie.xaml;View\ChangePassword.xaml;View\DangKy.xaml;View\DanhNhap.xaml;View\ForgotPassword.xaml;View\HistoryPay.xaml;View\HomeView.xaml;View\MainWindow.xaml;View\MyListView.xaml;View\OriginalsView.xaml;View\PagePay.xaml;View\Profile.xaml;View\ProfileInformation.xaml;View\WatchMoiveView.xaml;
 
 False
 

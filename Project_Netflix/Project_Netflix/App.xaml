@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:Project_Netflix"             
              xmlns:view="clr-namespace:Project_Netflix.View"
              xmlns:viewmodel="clr-namespace:Project_Netflix.viewmodel"
-             StartupUri="View/DanhNhap.xaml">
+             StartupUri="View/WatchMoiveView.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -21,10 +21,7 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodel:MyListViewModel}">
                 <view:MyListView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodel:FilmsViewModel}">
-                <view:FilmsView/>
-            </DataTemplate>
+            </DataTemplate>            
             <DataTemplate DataType="{x:Type viewmodel:OriginalsViewModel}">
                 <view:OriginalsView/>
             </DataTemplate>
