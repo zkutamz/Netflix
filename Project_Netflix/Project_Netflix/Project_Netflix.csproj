@@ -58,9 +58,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="IMDbApiLib, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\IMDbApiLib.1.5.0\lib\net45\IMDbApiLib.dll</HintPath>
-    </Reference>
     <Reference Include="MaterialDesignColors, Version=2.0.1.2556, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.2.0.1\lib\net452\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -70,19 +67,12 @@
     <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Expression.Blend.Sdk.WPF.1.0.1\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Expression.Blend.Sdk.WPF.1.0.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -116,8 +106,6 @@
     <Compile Include="Command\Admin\Category\CmdUpdateCategory.cs" />
     <Compile Include="Command\Admin\Movie\CmdAddMovie.cs" />
     <Compile Include="Command\Admin\Movie\CmdDeleteMovie.cs" />
-    <Compile Include="Command\Admin\Movie\CmdGetAPI.cs" />
-    <Compile Include="Command\Admin\Movie\CmdGetAPIUpdate.cs" />
     <Compile Include="Command\Admin\Movie\CmdInformationMovie.cs" />
     <Compile Include="Command\Admin\Movie\CmdUpdateMovie.cs" />
     <Compile Include="Command\Admin\User\CmdAddUser.cs" />
@@ -134,55 +122,55 @@
     <Compile Include="Command\MainWindow\CmdUpdateUser.cs" />
     <Compile Include="ModelTest\Movie.cs" />
     <Compile Include="model\ACCOUNT.cs">
-      <DependentUpon>Netflix_DB.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\ACCOUNT_TYPE.cs">
-      <DependentUpon>Netflix_DB.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\CATEGORY.cs">
-      <DependentUpon>Netflix_DB.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\CELEBRITy.cs">
-      <DependentUpon>Netflix_DB.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\CREDIT.cs">
-      <DependentUpon>Netflix_DB.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\FAVOURITE_MOVIES.cs">
-      <DependentUpon>Netflix_DB.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\MOVIE.cs">
-      <DependentUpon>Netflix_DB.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\MOVIE_INFORMATION.cs">
-      <DependentUpon>Netflix_DB.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\MOVIE_TYPE.cs">
-      <DependentUpon>Netflix_DB.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="model\Netflix_DB.Context.cs">
+    <Compile Include="model\NETFLIX_DB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Netflix_DB.Context.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="model\Netflix_DB.cs">
+    <Compile Include="model\NETFLIX_DB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Netflix_DB.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="model\Netflix_DB.Designer.cs">
+    <Compile Include="model\NETFLIX_DB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Netflix_DB.edmx</DependentUpon>
+      <DependentUpon>NETFLIX_DB.edmx</DependentUpon>
     </Compile>
     <Compile Include="model\PACKAGE.cs">
-      <DependentUpon>Netflix_DB.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\PURCHASE.cs">
-      <DependentUpon>Netflix_DB.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\USER_INFORMATION.cs">
-      <DependentUpon>Netflix_DB.tt</DependentUpon>
+      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="viewmodel\Admin\Account\AdminAccount.cs" />
     <Compile Include="viewmodel\Admin\AdminHistoryViewModel.cs" />
@@ -190,15 +178,9 @@
     <Compile Include="viewmodel\Admin\Category\AdminCategoryViewModel.cs" />
     <Compile Include="viewmodel\Admin\Movie\AdminMovie.cs" />
     <Compile Include="viewmodel\Admin\Movie\AdminInfoMovieViewModel.cs" />
-    <Compile Include="viewmodel\Admin\Report\AdminReportViewModel.cs" />
-    <Compile Include="viewmodel\Admin\Report\Revenue\NgayViewModel.cs" />
-    <Compile Include="viewmodel\Admin\Report\Revenue\QuyViewModel.cs" />
-    <Compile Include="viewmodel\Admin\Report\Revenue\RevenueViewModel.cs" />
-    <Compile Include="viewmodel\Admin\Report\Revenue\ThangViewModel.cs" />
     <Compile Include="viewmodel\BaseViewModel.cs" />
     <Compile Include="viewmodel\DangKyViewModel.cs" />
     <Compile Include="viewmodel\DangNhapViewModel.cs" />
-    <Compile Include="viewmodel\FilmsViewModel.cs" />
     <Compile Include="viewmodel\ForgotPasswordViewModel.cs" />
     <Compile Include="viewmodel\HomeViewModel.cs" />
     <Compile Include="viewmodel\HistoryPayViewModel.cs" />
@@ -207,6 +189,7 @@
     <Compile Include="viewmodel\OriginalsViewModel.cs" />
     <Compile Include="viewmodel\PayViewModel.cs" />
     <Compile Include="viewmodel\UserProfileViewModel.cs" />
+    <Compile Include="viewmodel\WatchMovieViewModel.cs" />
     <Compile Include="View\Admin-Management.xaml.cs">
       <DependentUpon>Admin-Management.xaml</DependentUpon>
     </Compile>
@@ -231,21 +214,6 @@
     <Compile Include="View\Admin\Movie\UpdateMovie.xaml.cs">
       <DependentUpon>UpdateMovie.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\Report\AdminReport.xaml.cs">
-      <DependentUpon>AdminReport.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\Report\Ngay.xaml.cs">
-      <DependentUpon>Ngay.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\Report\Quy.xaml.cs">
-      <DependentUpon>Quy.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\Report\Revenue.xaml.cs">
-      <DependentUpon>Revenue.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\Report\Thang.xaml.cs">
-      <DependentUpon>Thang.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\ChangePassword.xaml.cs">
       <DependentUpon>ChangePassword.xaml</DependentUpon>
     </Compile>
@@ -256,9 +224,6 @@
       <DependentUpon>DanhNhap.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EmailCharacterRule.cs" />
-    <Compile Include="View\FilmsView.xaml.cs">
-      <DependentUpon>FilmsView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\ForgotPassword.xaml.cs">
       <DependentUpon>ForgotPassword.xaml</DependentUpon>
     </Compile>
@@ -289,6 +254,9 @@
     </Compile>
     <Compile Include="View\ProfileInformation.xaml.cs">
       <DependentUpon>ProfileInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WatchMoiveView.xaml.cs">
+      <DependentUpon>WatchMoiveView.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Admin-Management.xaml">
       <SubType>Designer</SubType>
@@ -322,26 +290,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Admin\Report\AdminReport.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Admin\Report\Ngay.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Admin\Report\Quy.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Admin\Report\Revenue.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Admin\Report\Thang.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\ChangePassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -351,10 +299,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DanhNhap.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\FilmsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -394,6 +338,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\WatchMoiveView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -413,12 +361,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="model\Netflix_DB.edmx">
+    <EntityDeploy Include="model\NETFLIX_DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Netflix_DB.Designer.cs</LastGenOutput>
+      <LastGenOutput>NETFLIX_DB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="model\Netflix_DB.edmx.diagram">
-      <DependentUpon>Netflix_DB.edmx</DependentUpon>
+    <None Include="model\NETFLIX_DB.edmx.diagram">
+      <DependentUpon>NETFLIX_DB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -458,17 +406,16 @@
     <Resource Include="View\tick-icon.png" />
     <Resource Include="View\channels4_profile.jpg" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="model\Netflix_DB.Context.tt">
+    <Content Include="model\NETFLIX_DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Netflix_DB.edmx</DependentUpon>
-      <LastGenOutput>Netflix_DB.Context.cs</LastGenOutput>
+      <DependentUpon>NETFLIX_DB.edmx</DependentUpon>
+      <LastGenOutput>NETFLIX_DB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="model\Netflix_DB.tt">
+    <Content Include="model\NETFLIX_DB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Netflix_DB.edmx</DependentUpon>
-      <LastGenOutput>Netflix_DB.cs</LastGenOutput>
+      <DependentUpon>NETFLIX_DB.edmx</DependentUpon>
+      <LastGenOutput>NETFLIX_DB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

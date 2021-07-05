@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Project_Netflix.View"
              mc:Ignorable="d"
-             xmlns:m ="clr-namespace:Project_Netflix.ModelTest"
+             xmlns:m ="clr-namespace:Project_Netflix.model"
             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             TextElement.FontWeight="Regular"
@@ -16,20 +16,25 @@
             FontFamily="{DynamicResource MaterialDesignFont}"
              d:DesignHeight="630" d:DesignWidth="1330">
     <UserControl.Resources>
-        <DataTemplate DataType="{x:Type m:Movie}">
-            <Grid Margin="2" Width="240" Height="135" MouseLeave="Grid_MouseLeave" MouseEnter="Grid_MouseEnter">
+        <DataTemplate DataType="{x:Type m:MOVIE}">
+            <Grid Margin="2" Width="240" Height="135">
                 <Border BorderBrush="BlueViolet" CornerRadius="2" BorderThickness="1">
                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
                         <Grid x:Name="lPoster" Opacity="1">
-                            <Image Source="{Binding p}" Stretch="Fill" 
+                            <Image Source="{Binding POSTER}" Stretch="Fill" 
                                Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Path=Width}"
                                Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Path=Height}"/>
                             <Border  Opacity="0.8" VerticalAlignment="Bottom" Background="Gray">
-                                <Label Content="{Binding c}" Foreground="White" HorizontalAlignment="Center" />
+                                <Label Content="{Binding NAME}" Foreground="White" HorizontalAlignment="Center" />
                             </Border>
                         </Grid>
                         <Grid x:Name="lTrailer" Opacity="0">
-                            <MediaElement Name="video" Source="{Binding t}" LoadedBehavior="Manual"/>
+                            <MediaElement Name="video" Source="{Binding TRAILER_NAME}" LoadedBehavior="Manual" UnloadedBehavior="Manual"/>
+                            <TextBlock Text="{Binding ID}" x:Name="txtID" Visibility="Hidden"/>
+                            <Button Style="{StaticResource MaterialDesignIconButton}" ToolTip="MaterialDesignIconButton" 
+                                    HorizontalAlignment="Right" VerticalAlignment="Center" Opacity="0.5"  x:Name="btnWatch" Click="btnWatch_Click">
+                                <materialDesign:PackIcon Kind="Play"/>
+                            </Button>
                         </Grid>
                     </Grid>
                 </Border>
@@ -85,8 +90,10 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="NEW RELEASE" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Margin="20 0"/>
+            <TextBlock Text="ACTION AND AVENTURE" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Margin="20 0"/>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
                 <StackPanel.Resources>
                     <Style TargetType="ItemsControl">
@@ -125,9 +132,9 @@
                         </Setter>
                     </Style>
                 </StackPanel.Resources>
-                <ItemsControl ItemsSource="{Binding DSMovie}"/>
+                <ItemsControl ItemsSource="{Binding ActionAventure}"/>
             </StackPanel>
-            <TextBlock Text="TV SHOW" FontSize="20" VerticalAlignment="Center" 
+            <TextBlock Text="HORROR" FontSize="20" VerticalAlignment="Center" 
                        FontWeight="Bold" Grid.Row="2" Margin="20 0"/>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3">
                 <StackPanel.Resources>
@@ -167,7 +174,7 @@
                         </Setter>
                     </Style>
                 </StackPanel.Resources>
-                <ItemsControl ItemsSource="{Binding DSMovie}"/>
+                <ItemsControl ItemsSource="{Binding Horror}"/>
             </StackPanel>
             <TextBlock Text="COMEDIES" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Margin="20 0" Grid.Row="4"/>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5">
@@ -208,9 +215,9 @@
                         </Setter>
                     </Style>
                 </StackPanel.Resources>
-                <ItemsControl ItemsSource="{Binding DSMovie}"/>
+                <ItemsControl ItemsSource="{Binding Comedy}"/>
             </StackPanel>
-            <TextBlock Text="ACTION AND ADVENTURE" FontSize="20" VerticalAlignment="Center" 
+            <TextBlock Text="ROMANCE AND HISTORICAL" FontSize="20" VerticalAlignment="Center" 
                        FontWeight="Bold" Grid.Row="6" Margin="20 0"/>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7">
                 <StackPanel.Resources>
@@ -250,7 +257,49 @@
                         </Setter>
                     </Style>
                 </StackPanel.Resources>
-                <ItemsControl ItemsSource="{Binding DSMovie}"/>
+                <ItemsControl ItemsSource="{Binding RomanceAndHistorical}"/>
+            </StackPanel>
+            <TextBlock Text="SCIENCE FICTION" FontSize="20" VerticalAlignment="Center" 
+                       FontWeight="Bold" Grid.Row="8" Margin="20 0"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="9">
+                <StackPanel.Resources>
+                    <Style TargetType="ItemsControl">
+                        <Setter Property="ItemsPanel">
+                            <Setter.Value>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ItemsControl">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="35"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="35"/>
+                                        </Grid.ColumnDefinitions>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}"
+                                                  CommandTarget="{Binding ElementName = listTrendingMovie}" ClickMode="Press"
+                                                  Style="{DynamicResource MaterialDesignToolButton}">
+                                            <materialDesign:PackIcon Kind="ChevronLeft" Width="30" Height="30"/>
+                                        </RepeatButton>
+                                        <ScrollViewer x:Name="listTrendingMovie" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled" Grid.Column="1">
+                                            <ItemsPresenter/>
+                                        </ScrollViewer>
+                                        <RepeatButton Command="{x:Static ScrollBar.PageRightCommand}" Grid.Column="2"
+                                                  CommandTarget="{Binding ElementName = listTrendingMovie}" ClickMode="Press"
+                                                  Style="{DynamicResource MaterialDesignToolButton}">
+                                            <materialDesign:PackIcon Kind="ChevronRight" Width="30" Height="30"/>
+                                        </RepeatButton>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <ItemsControl ItemsSource="{Binding ScienceFiction}"/>
             </StackPanel>
         </Grid>
     </ScrollViewer>
