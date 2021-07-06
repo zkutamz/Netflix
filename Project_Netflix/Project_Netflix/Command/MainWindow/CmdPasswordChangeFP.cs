@@ -25,7 +25,7 @@ namespace Project_Netflix.Command.MainWindow
 		public void Execute(object parameter)
 		{
 			PasswordBox p = parameter as PasswordBox;
-			vm.Password = p.Password;
+			vm.PasswordForgot = p.Password;
 		}
 
 		public CmdPasswordChangeFP(ForgotPasswordViewModel vm)

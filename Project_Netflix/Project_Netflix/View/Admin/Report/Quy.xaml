@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Project_Netflix.View.Admin.Report.Quy"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Project_Netflix.View.Admin.Report"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal"
+            TextOptions.TextRenderingMode="Auto"
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="38" d:DesignWidth="480">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ComboBox Grid.Column="0" ItemsSource="{Binding DSYear}" SelectedItem="{Binding SelectedYear}" materialDesign:HintAssist.Hint="Nam" Width="150"></ComboBox>
+        <ComboBox Grid.Column="1" ItemsSource="{Binding DSQuy}" SelectedItem="{Binding SelectedQuy}" materialDesign:HintAssist.Hint="Quy" Width="150"></ComboBox>
+    </Grid>
+</UserControl>

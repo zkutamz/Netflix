@@ -69,6 +69,10 @@
           <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
           <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
           <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+<<<<<<< HEAD
+=======
+          <ScalarProperty Name="VIEWS" ColumnName="VIEWS" />
+>>>>>>> 75ea69a173a4c106068a3a47f956e38e4fd690b0
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -99,6 +103,10 @@
           <ScalarProperty Name="NAME" ColumnName="NAME" />
           <ScalarProperty Name="PRICE" ColumnName="PRICE" />
           <ScalarProperty Name="TIME" ColumnName="TIME" />
+<<<<<<< HEAD
+=======
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+>>>>>>> 75ea69a173a4c106068a3a47f956e38e4fd690b0
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -116,7 +116,7 @@
             <Grid Name="HuyThuePremium" HorizontalAlignment="Left" Height="25"  VerticalAlignment="Top" Canvas.Left="643" Canvas.Top="348" Width="25" Background="#FFF7F7F7"/>
             <Image HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" Source="/Project_Netflix;component/img/tick-icon.png" Margin="642,347,0,0"/>
         </Canvas>
-        <Button Content="Thanh toán" Command="{Binding CmdPay}" CommandParameter="{Binding PagePayWindow}" HorizontalAlignment="Left" Margin="618,10,0,0" VerticalAlignment="Top" Width="137" Height="29" Background="#FFF40612" Foreground="White" FontSize="15" BorderBrush="#FFF40612"/>
+        <Button Content="Thanh toán" Command="{Binding CmdPay}" CommandParameter="{Binding ElementName=PagePayWindow}" HorizontalAlignment="Left" Margin="618,10,0,0" VerticalAlignment="Top" Width="137" Height="29" Background="#FFF40612" Foreground="White" FontSize="15" BorderBrush="#FFF40612"/>
 
     </Grid>
 </Window>

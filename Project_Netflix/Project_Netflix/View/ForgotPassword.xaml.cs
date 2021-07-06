@@ -31,8 +31,9 @@ namespace Project_Netflix.View
         {
             if (vmfp.checkInput())
             {
-                this.Close();
                 ChangePassword profile = new ChangePassword();
+                this.Close();
+                
                 profile.Show();
             }
         }

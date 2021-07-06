@@ -8,7 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+<<<<<<< HEAD
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/netfilx_db.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/netfilx_db.tt")]
+=======
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/netflix_db.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/netflix_db.tt")]
+>>>>>>> 75ea69a173a4c106068a3a47f956e38e4fd690b0
 
 

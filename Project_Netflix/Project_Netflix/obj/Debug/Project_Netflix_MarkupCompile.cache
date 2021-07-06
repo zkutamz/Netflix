@@ -10,11 +10,19 @@ none
 false
 DEBUG;TRACE
 C:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\App.xaml
+<<<<<<< HEAD
 21-151883987
 21693896437
 85-779234802
 24250742436
 View\Admin-Management.xaml;View\Admin\Account\Admin_Account.xaml;View\Admin\AdminHistoryPay.xaml;View\Admin\Category\AdminCategory.xaml;View\Admin\Category\InformationMovie.xaml;View\Admin\Movie\Admin_Movie.xaml;View\Admin\Movie\InformationMovie.xaml;View\Admin\Movie\UpdateMovie.xaml;View\ChangePassword.xaml;View\DangKy.xaml;View\DanhNhap.xaml;View\FilmsView.xaml;View\ForgotPassword.xaml;View\HistoryPay.xaml;View\HomeView.xaml;View\MainWindow.xaml;View\MyListView.xaml;View\OriginalsView.xaml;View\PagePay.xaml;View\Profile.xaml;View\ProfileInformation.xaml;
+=======
+261367979833
+21618584513
+97-90449809
+281008375542
+View\Admin-Management.xaml;View\Admin\Account\Admin_Account.xaml;View\Admin\AdminHistoryPay.xaml;View\Admin\Category\AdminCategory.xaml;View\Admin\Category\InformationMovie.xaml;View\Admin\Movie\Admin_Movie.xaml;View\Admin\Movie\InformationMovie.xaml;View\Admin\Movie\UpdateMovie.xaml;View\Admin\Report\AdminReport.xaml;View\Admin\Report\Ngay.xaml;View\Admin\Report\Quy.xaml;View\Admin\Report\Revenue.xaml;View\Admin\Report\Thang.xaml;View\ChangePassword.xaml;View\DangKy.xaml;View\DanhNhap.xaml;View\FilmsView.xaml;View\ForgotPassword.xaml;View\HistoryPay.xaml;View\HomeView.xaml;View\MainWindow.xaml;View\MyListView.xaml;View\OriginalsView.xaml;View\PagePay.xaml;View\Profile.xaml;View\ProfileInformation.xaml;
+>>>>>>> 75ea69a173a4c106068a3a47f956e38e4fd690b0
 
 False
 

@@ -2,12 +2,26 @@
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\App.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin-Management.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Account\Admin_Account.xaml;;
+<<<<<<< HEAD
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Category\AdminCategory.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Category\InformationMovie.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\AdminHistoryPay.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Movie\Admin_Movie.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Movie\InformationMovie.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Movie\UpdateMovie.xaml;;
+=======
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\AdminHistoryPay.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Category\AdminCategory.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Category\InformationMovie.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Movie\Admin_Movie.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Movie\InformationMovie.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Movie\UpdateMovie.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Report\AdminReport.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Report\Ngay.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Report\Quy.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Report\Revenue.xaml;;
+FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\Admin\Report\Thang.xaml;;
+>>>>>>> 75ea69a173a4c106068a3a47f956e38e4fd690b0
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\ChangePassword.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\DangKy.xaml;;
 FC:\Users\tujiu\Documents\GitHub\Netflix\Project_Netflix\Project_Netflix\View\DanhNhap.xaml;;

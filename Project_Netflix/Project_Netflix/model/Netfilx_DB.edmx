@@ -70,6 +70,7 @@
           <Property Name="TYPE_ID" Type="int" Nullable="false" />
           <Property Name="CATEGORY_ID" Type="int" Nullable="false" />
           <Property Name="ACTIVE" Type="int" Nullable="false" />
+          <Property Name="VIEWS" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MOVIE_INFORMATION">
           <Key>
@@ -391,6 +392,7 @@
           <Property Name="TYPE_ID" Type="Int32" Nullable="false" />
           <Property Name="CATEGORY_ID" Type="Int32" Nullable="false" />
           <Property Name="ACTIVE" Type="Int32" Nullable="false" />
+          <Property Name="VIEWS" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CATEGORY" Relationship="Self.FK_MOVIE_CATEGORY" FromRole="MOVIE" ToRole="CATEGORY" />
           <NavigationProperty Name="CREDITS" Relationship="Self.FK_CRE_MOVIE" FromRole="MOVIE" ToRole="CREDITS" />
           <NavigationProperty Name="FAVOURITE_MOVIES" Relationship="Self.FK_FM_MOVIE" FromRole="MOVIE" ToRole="FAVOURITE_MOVIES" />
@@ -716,6 +718,7 @@
                 <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
                 <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
                 <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="VIEWS" ColumnName="VIEWS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
