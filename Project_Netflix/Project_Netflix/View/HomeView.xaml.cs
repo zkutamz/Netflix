@@ -21,12 +21,11 @@ namespace Project_Netflix.View
     /// </summary>
     public partial class HomeView : UserControl
     {
-        HomeViewModel hv;        
+        HomeViewModel hv;
         public HomeView()
         {
-            
             InitializeComponent();
-            hv = new HomeViewModel();            
+            hv = new HomeViewModel();
         }
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -40,13 +39,6 @@ namespace Project_Netflix.View
             var video = sender as Grid;
             var me = video.FindName("video") as MediaElement;
             me?.Stop();
-        }
-
-        private void btnWatch_Click(object sender, RoutedEventArgs e)
-        {
-            var movie = sender as Grid;
-            var id = movie.FindName("txtID") as TextBlock;
-            WatchMoiveView watch = new WatchMoiveView(int.Parse(id.Text));         
         }
     }
 }
