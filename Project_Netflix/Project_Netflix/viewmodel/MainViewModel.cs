@@ -13,9 +13,9 @@ namespace Project_Netflix.viewmodel
 {
     public class MainViewModel : BaseViewModel
     {        
-        public RelayCommand HomeViewCommand { get; set; }
-        public RelayCommand MyListViewCommand { get; set; }
-        public RelayCommand OriginalsViewCommand { get; set; }
+        public ICommand HomeViewCommand { get; set; }
+        public ICommand MyListViewCommand { get; set; }
+        public ICommand OriginalsViewCommand { get; set; }
         /// <summary>
         /// /////////////////////////////////////////
         /// </summary>
@@ -47,15 +47,18 @@ namespace Project_Netflix.viewmodel
             User = DangNhapViewModel.User;
             CurrentView = HomeVM;
 
-            HomeViewCommand = new RelayCommand(o=>
+            HomeViewCommand = new RelayCommand<object>(o=> { return true; },
+            (o) =>
             {
                 CurrentView = HomeVM;
             });
-            MyListViewCommand = new RelayCommand(o =>
+            MyListViewCommand = new RelayCommand<object>(o => { return true; },
+            (o) =>
             {
                 CurrentView = MyListVM;
             });            
-            OriginalsViewCommand = new RelayCommand(o =>
+            OriginalsViewCommand = new RelayCommand<object>(o => { return true; },
+            (o) =>
             {
                 CurrentView = OriginalsVM;
             });

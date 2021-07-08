@@ -25,8 +25,8 @@ namespace Project_Netflix.model
         private string _Tr;
         private string _Mo;
 
-        private string path_movie = @"D:\Netflix02\Netflix\Movie\";
-        private string path_poster = @"D:\Netflix02\Netflix\Movie\Poster\";
+        private string path_movie = @"D:\Netflix\Movie\";
+        private string path_poster = @"D:\Netflix\Movie\Poster\";
         public int ID { get; set; }
         public string NAME { get; set; }
         public int INFORMATION { get; set; }

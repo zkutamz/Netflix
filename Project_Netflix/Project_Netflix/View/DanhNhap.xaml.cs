@@ -31,7 +31,6 @@ namespace Project_Netflix.View
         {
             InitializeComponent();
             DataContext = vm;
-
         }
         private void Label_MouseEnter(object sender, MouseEventArgs e)
         {

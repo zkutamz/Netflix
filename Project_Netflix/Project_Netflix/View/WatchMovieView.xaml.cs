@@ -17,27 +17,25 @@ using System.Windows.Threading;
 namespace Project_Netflix.View
 {
     /// <summary>
-    /// Interaction logic for WatchMoiveView.xaml
+    /// Interaction logic for WatchMovieView.xaml
     /// </summary>
-    public partial class WatchMoiveView : Window
-    {        
+    public partial class WatchMovieView : Window
+    {
         DispatcherTimer t;
         WatchMovieViewModel vm;
-
-        public WatchMoiveView() { }
-        public WatchMoiveView(int id)
+        public WatchMovieView(int id)
         {
-            InitializeComponent();
+            InitializeComponent(); 
             vm = new WatchMovieViewModel(id);
-            DataContext = vm; 
-            t = new DispatcherTimer();
+            DataContext = vm;
+            t = new DispatcherTimer();            
             t.Tick += new EventHandler(TimeTick);
-            t.Interval = TimeSpan.FromMilliseconds(300);
+            t.Interval = TimeSpan.FromMilliseconds(1);     
             video.Play();
             t.Start();
         }
         void TimeTick(object sender, EventArgs e)
-        {
+        {            
             time_tick.Value = video.Position.TotalSeconds;
         }
 
@@ -53,7 +51,7 @@ namespace Project_Netflix.View
             video.Pause();
             btnPause.Visibility = Visibility.Hidden;
             btnPlay.Visibility = Visibility.Visible;
-        }        
+        }
 
         private void volume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -62,7 +60,30 @@ namespace Project_Netflix.View
 
         private void time_tick_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            time_tick.Maximum = video.NaturalDuration.TimeSpan.TotalSeconds;            
             video.Position = TimeSpan.FromSeconds(time_tick.Value);
+        }
+
+        private void hideninfo_Click(object sender, RoutedEventArgs e)
+        {
+            layout.MaxWidth = 30;
+            hideninfo.Visibility = Visibility.Hidden;
+            showinfo.Visibility = Visibility.Visible;
+            showinfo.Margin = new Thickness(0);
+        }
+
+        private void showinfo_Click(object sender, RoutedEventArgs e)
+        {
+            layout.MaxWidth = 400;
+            showinfo.Visibility = Visibility.Hidden;
+            hideninfo.Visibility = Visibility.Visible;
+        }
+        private void FullScreen(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Normal)
+                this.WindowState = WindowState.Maximized;
+            else
+                this.WindowState = WindowState.Normal;
         }
     }
 }

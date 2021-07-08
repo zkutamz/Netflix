@@ -44,9 +44,10 @@ namespace Project_Netflix.View
 
         private void btnWatch_Click(object sender, RoutedEventArgs e)
         {
-            var movie = sender as Grid;
+            var movie = sender as Button;
             var id = movie.FindName("txtID") as TextBlock;
-            WatchMoiveView watch = new WatchMoiveView(int.Parse(id.Text));         
+            WatchMovieView watch = new WatchMovieView(int.Parse(id.Text));
+            watch.ShowDialog();
         }
     }
 }

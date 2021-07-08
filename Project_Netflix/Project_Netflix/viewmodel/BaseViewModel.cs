@@ -18,17 +18,12 @@ namespace Project_Netflix.viewmodel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-    public class RelayCommand: ICommand   
-    {        
-        private Action<object> _execute;
-        private Func<object, bool> _canExecute;
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
-        }
+    class RelayCommand<T> : ICommand
+    {
+        private readonly Predicate<T> _canExecute;
+        private readonly Action<T> _execute;
 
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
+        public RelayCommand(Predicate<T> canExecute, Action<T> execute)
         {
             if (execute == null)
                 throw new ArgumentNullException("execute");
@@ -40,7 +35,7 @@ namespace Project_Netflix.viewmodel
         {
             try
             {
-                return _canExecute == null ? true : _canExecute(parameter);
+                return _canExecute == null ? true : _canExecute((T)parameter);
             }
             catch
             {
@@ -50,7 +45,13 @@ namespace Project_Netflix.viewmodel
 
         public void Execute(object parameter)
         {
-            _execute((object)parameter);
-        }        
+            _execute((T)parameter);
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
     }
 }

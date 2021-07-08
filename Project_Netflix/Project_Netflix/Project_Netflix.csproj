@@ -255,8 +255,8 @@
     <Compile Include="View\ProfileInformation.xaml.cs">
       <DependentUpon>ProfileInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\WatchMoiveView.xaml.cs">
-      <DependentUpon>WatchMoiveView.xaml</DependentUpon>
+    <Compile Include="View\WatchMovieView.xaml.cs">
+      <DependentUpon>WatchMovieView.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Admin-Management.xaml">
       <SubType>Designer</SubType>
@@ -338,7 +338,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\WatchMoiveView.xaml">
+    <Page Include="View\WatchMovieView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
