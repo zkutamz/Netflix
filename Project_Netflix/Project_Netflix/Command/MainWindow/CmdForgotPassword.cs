@@ -26,11 +26,11 @@ namespace Project_Netflix.Command.MainWindow
 		public void Execute(object parameter)
 		{
 			var windon = (Window)parameter;
-			if (vm.Password.Length > 0)
+			if (vm.PasswordForgot.Length > 0)
 			{
 				using (var db = new NETFLIX_DBEntities())
 				{
-					db.ACCOUNTs.Single(x => x.EMAIL == vm.Email).PASSWORD = vm.HashPassword(vm.Password);
+					db.ACCOUNTs.Single(x => x.EMAIL == vm.EmailForGot).PASSWORD = vm.HashPassword(vm.PasswordForgot);
 					db.SaveChanges();
 					var p = (Window)parameter;
 					MessageBox.Show("Đổi mật khẩu thành công");

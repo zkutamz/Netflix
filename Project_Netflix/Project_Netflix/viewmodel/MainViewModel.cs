@@ -16,16 +16,11 @@ namespace Project_Netflix.viewmodel
         public ICommand HomeViewCommand { get; set; }
         public ICommand MyListViewCommand { get; set; }
         public ICommand OriginalsViewCommand { get; set; }
-        /// <summary>
-        /// /////////////////////////////////////////
-        /// </summary>
         public ACCOUNT User { get; set; }
-        /// <summary>
-        /// //////////////////////////////////////////
-        /// </summary>
         public HomeViewModel HomeVM { get; set; }
         public MyListViewModel MyListVM { get; set; }
 
+        public FilmsViewModel FilmsVM { get; set; }
         public OriginalsViewModel OriginalsVM { get; set; }
 
         private object _currentView;
@@ -43,6 +38,7 @@ namespace Project_Netflix.viewmodel
         {
             HomeVM = new HomeViewModel();            
             MyListVM = new MyListViewModel();
+            FilmsVM = new FilmsViewModel();
             OriginalsVM = new OriginalsViewModel();
             User = DangNhapViewModel.User;
             CurrentView = HomeVM;

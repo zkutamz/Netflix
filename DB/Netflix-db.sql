@@ -57,7 +57,8 @@ create table MOVIE
 	TYPE_ID int not null,
 	CATEGORY_ID int not null,
 	ACTIVE int NOT NULL,
-	VIEWS int DEFAULT 0,
+	VIEWS int NOT NULL,
+
 	constraint PK_MOVIE primary key (ID)
 )
 
@@ -222,14 +223,14 @@ values	('On the cusp of the year 2000, Colombian brothers Carly and Mateo prepar
 
 insert into MOVIE
 values	--Name							INFO_ID		POSTER_NAME			TRAILER_NAME							MOVIE_NAME						TYPE_ID		CATEGORY_ID		IS_ACTIVE
-		('Blast Beat',					'0001', '0001_poster.jpg', 'BlastBeat_Trailer.mov',					'BlastBeat_Film.mov',					1,			1,				1,		0),
-		('Chasing Wonders',				'0002', '0002_poster.jpg', 'ChasingWonders_Trailer.mov',			'ChasingWonders_Film.mov',				3,			3,				1,		0),
-		('Death in Texas',				'0003', '0003_poster.jpg', 'DeathInTexas_Trailer.mov',				'DeathInTexas_Film.mov',				4,			4,				1,		0),
-		('Domino Battle of the Bones',	'0004', '0004_poster.jpg', 'DominoBattleOfTheBones_Trailer.mov',	'DominoBattleOfTheBones_Film.mov',		5,			5,				1,		0),
-		('Dream Horse',					'0005', '0005_poster.jpg', 'DreamHorse_Trailer.mov',				'DreamHorse_Film.mov',					1,			6,				1,		0),
-		('End Game',					'0006', '0006_poster.jpg', 'EndGame_Trailer.mov',					'EndGame_Film.mov',						2,			7,				1,		0),
-		('Flash Back',					'0007', '0007_poster.jpg', 'FlashBack_Trailer.mov',					'FlashBack_Film.mov',					3,			1,				1,		0),
-		('Free Guy',					'0008', '0008_poster.jpg', 'FreeGuy_Trailer.mov',					'FreeGuy_Film.mov',						4,			2,				1,		0),
+		('Blast Beat',					'0001', '0001_poster.jpg', 'BlastBeat_Trailer.mov',					'BlastBeat_Film.mov',					1,			1,				1,0),
+		('Chasing Wonders',				'0002', '0002_poster.jpg', 'ChasingWonders_Trailer.mov',			'ChasingWonders_Film.mov',				3,			3,				1,0),
+		('Death in Texas',				'0003', '0003_poster.jpg', 'DeathInTexas_Trailer.mov',				'DeathInTexas_Film.mov',				4,			4,				1,0),
+		('Domino Battle of the Bones',	'0004', '0004_poster.jpg', 'DominoBattleOfTheBones_Trailer.mov',	'DominoBattleOfTheBones_Film.mov',		5,			5,				1,0),
+		('Dream Horse',					'0005', '0005_poster.jpg', 'DreamHorse_Trailer.mov',				'DreamHorse_Film.mov',					1,			6,				1,0),
+		('End Game',					'0006', '0006_poster.jpg', 'EndGame_Trailer.mov',					'EndGame_Film.mov',						2,			7,				1,0),
+		('Flash Back',					'0007', '0007_poster.jpg', 'FlashBack_Trailer.mov',					'FlashBack_Film.mov',					3,			1,				1,0),
+		('Free Guy',					'0008', '0008_poster.jpg', 'FreeGuy_Trailer.mov',					'FreeGuy_Film.mov',						4,			2,				1,0),
 		('Fun House',					'0009', '0009_poster.jpg', 'FunHouse_Trailer.mov',					'FunHouse_Film.mov',					5,			3,				1,0),
 		('Hero Mode',					'0010', '0010_poster.jpg', 'HeroMode_Trailer.mov',					'HeroMode_Film.mov',					1,			4,				1,0),
 		('Hitman Wife BodyGuard',		'0011', '0011_poster.jpg', 'HitmanWifeBodyGuard_Trailer.mov',		'HitmanWifeBodyGuard_Film.mov',			2,			5,				1,0),

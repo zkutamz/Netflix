@@ -23,14 +23,14 @@
         </Grid.RowDefinitions>
         <materialDesign:Card Grid.Row="0" Margin="5">
             <WrapPanel Margin="0 0 0 10">
-                <TextBox Text="{Binding SelectedMovie.NAME, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding SelectedMovie.POSTER, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Poster" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding SelectedMovie.MOVIE_INFORMATION.DESCRIPTION, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Desciption" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox VerticalAlignment="Center" Text="{Binding SelectedMovie.NAME, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox VerticalAlignment="Center" Text="{Binding SelectedMovie.POSTER, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Poster" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox VerticalAlignment="Center" Text="{Binding SelectedMovie.MOVIE_INFORMATION.DESCRIPTION, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Desciption" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 
                 <TextBox VerticalAlignment="Center" Text="{Binding SelectedMovie.CATEGORY.NAME, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Category" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding SelectedMovie.MOVE_TYPE.NAME, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Type" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox VerticalAlignment="Center" Text="{Binding SelectedMovie.MOVIE_TYPE.NAME, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Type" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox VerticalAlignment="Center" Text="{Binding SelectedMovie.MOVIE_INFORMATION.DISTRIBUTE_YEAR, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Year" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding SelectedMovie.MOVIE_INFORMATION.COUNTRY, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Country" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox VerticalAlignment="Center" Text="{Binding SelectedMovie.MOVIE_INFORMATION.COUNTRY, Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Country" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 
             </WrapPanel>
         </materialDesign:Card>

@@ -24,6 +24,7 @@ namespace Project_Netflix.model
         public string NAME { get; set; }
         public Nullable<double> PRICE { get; set; }
         public Nullable<int> TIME { get; set; }
+        public string Unit { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PURCHASE> PURCHASEs { get; set; }

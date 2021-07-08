@@ -122,55 +122,55 @@
     <Compile Include="Command\MainWindow\CmdUpdateUser.cs" />
     <Compile Include="ModelTest\Movie.cs" />
     <Compile Include="model\ACCOUNT.cs">
-      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\ACCOUNT_TYPE.cs">
-      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\CATEGORY.cs">
-      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\CELEBRITy.cs">
-      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\CREDIT.cs">
-      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\FAVOURITE_MOVIES.cs">
-      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\MOVIE.cs">
-      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\MOVIE_INFORMATION.cs">
-      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\MOVIE_TYPE.cs">
-      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="model\NETFLIX_DB.Context.cs">
+    <Compile Include="model\Netfilx_DB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NETFLIX_DB.Context.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="model\NETFLIX_DB.cs">
+    <Compile Include="model\Netfilx_DB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="model\NETFLIX_DB.Designer.cs">
+    <Compile Include="model\Netfilx_DB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NETFLIX_DB.edmx</DependentUpon>
+      <DependentUpon>Netfilx_DB.edmx</DependentUpon>
     </Compile>
     <Compile Include="model\PACKAGE.cs">
-      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\PURCHASE.cs">
-      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="model\USER_INFORMATION.cs">
-      <DependentUpon>NETFLIX_DB.tt</DependentUpon>
+      <DependentUpon>Netfilx_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="viewmodel\Admin\Account\AdminAccount.cs" />
     <Compile Include="viewmodel\Admin\AdminHistoryViewModel.cs" />
@@ -181,6 +181,7 @@
     <Compile Include="viewmodel\BaseViewModel.cs" />
     <Compile Include="viewmodel\DangKyViewModel.cs" />
     <Compile Include="viewmodel\DangNhapViewModel.cs" />
+    <Compile Include="viewmodel\FilmsViewModel.cs" />
     <Compile Include="viewmodel\ForgotPasswordViewModel.cs" />
     <Compile Include="viewmodel\HomeViewModel.cs" />
     <Compile Include="viewmodel\HistoryPayViewModel.cs" />
@@ -189,7 +190,6 @@
     <Compile Include="viewmodel\OriginalsViewModel.cs" />
     <Compile Include="viewmodel\PayViewModel.cs" />
     <Compile Include="viewmodel\UserProfileViewModel.cs" />
-    <Compile Include="viewmodel\WatchMovieViewModel.cs" />
     <Compile Include="View\Admin-Management.xaml.cs">
       <DependentUpon>Admin-Management.xaml</DependentUpon>
     </Compile>
@@ -224,6 +224,9 @@
       <DependentUpon>DanhNhap.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EmailCharacterRule.cs" />
+    <Compile Include="View\FilmsView.xaml.cs">
+      <DependentUpon>FilmsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ForgotPassword.xaml.cs">
       <DependentUpon>ForgotPassword.xaml</DependentUpon>
     </Compile>
@@ -302,6 +305,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\FilmsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ForgotPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -361,12 +368,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="model\NETFLIX_DB.edmx">
+    <EntityDeploy Include="model\Netfilx_DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NETFLIX_DB.Designer.cs</LastGenOutput>
+      <LastGenOutput>Netfilx_DB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="model\NETFLIX_DB.edmx.diagram">
-      <DependentUpon>NETFLIX_DB.edmx</DependentUpon>
+    <None Include="model\Netfilx_DB.edmx.diagram">
+      <DependentUpon>Netfilx_DB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -407,15 +414,15 @@
     <Resource Include="View\channels4_profile.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="model\NETFLIX_DB.Context.tt">
+    <Content Include="model\Netfilx_DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NETFLIX_DB.edmx</DependentUpon>
-      <LastGenOutput>NETFLIX_DB.Context.cs</LastGenOutput>
+      <DependentUpon>Netfilx_DB.edmx</DependentUpon>
+      <LastGenOutput>Netfilx_DB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="model\NETFLIX_DB.tt">
+    <Content Include="model\Netfilx_DB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NETFLIX_DB.edmx</DependentUpon>
-      <LastGenOutput>NETFLIX_DB.cs</LastGenOutput>
+      <DependentUpon>Netfilx_DB.edmx</DependentUpon>
+      <LastGenOutput>Netfilx_DB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

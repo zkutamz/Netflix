@@ -21,12 +21,11 @@ namespace Project_Netflix.View
     /// </summary>
     public partial class HomeView : UserControl
     {
-        HomeViewModel hv;        
+        HomeViewModel hv;
         public HomeView()
         {
-            
             InitializeComponent();
-            hv = new HomeViewModel();            
+            hv = new HomeViewModel();
         }
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {

@@ -30,12 +30,13 @@ namespace Project_Netflix.model
         public int ID { get; set; }
         public string NAME { get; set; }
         public int INFORMATION { get; set; }
-        public string POSTER { get { return path_poster + _P; } set { _P = value; } }
-        public string TRAILER_NAME { get { return path_movie + _Tr; } set { _Tr = value; } }
-        public string MOVIE_NAME { get { return path_movie + _Mo; } set { _Mo = value; } }
+        public string POSTER { get; set; }
+        public string TRAILER_NAME { get; set; }
+        public string MOVIE_NAME { get; set; }
         public int TYPE_ID { get; set; }
         public int CATEGORY_ID { get; set; }
         public int ACTIVE { get; set; }
+        public int VIEWS { get; set; }
     
         public virtual CATEGORY CATEGORY { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

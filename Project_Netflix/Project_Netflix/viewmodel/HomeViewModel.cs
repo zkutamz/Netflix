@@ -1,9 +1,8 @@
-﻿using Project_Netflix.model;
+using Project_Netflix.model;
 using Project_Netflix.ModelTest;
 using Project_Netflix.View;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +12,7 @@ using System.Windows.Input;
 
 namespace Project_Netflix.viewmodel
 {
-    public class HomeViewModel : BaseViewModel
+    public class HomeViewModel : DependencyObject
     {
         private string _MovieID;
         public string MovieID { get => _MovieID; set { _MovieID = value; OnPropertyChanged(); } }

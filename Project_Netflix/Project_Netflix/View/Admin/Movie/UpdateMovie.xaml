@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Project_Netflix.View.Admin.Movie"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Height="700" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Height="730" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         Name="UpdateMovieWindow">
     <Grid Background="#FF303030">
         <Grid.RowDefinitions >
@@ -22,7 +22,10 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions >
@@ -33,31 +36,35 @@
         </Grid.ColumnDefinitions>
         <Image Grid.Row="0" Grid.ColumnSpan="2" Source="/Project_Netflix;component/img/Netflix_Logo_PMS.png"></Image>
         <Label Grid.Row="1" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" >Name</Label>
-        <Label Grid.Row="2" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Poster</Label>
-        <Label Grid.Row="3" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Trailer</Label>
-        <Label Grid.Row="4" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Movie</Label>
-        <Label Grid.Row="5" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Description</Label>
-        <Label Grid.Row="7" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Year</Label>
-        <Label Grid.Row="8" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Country</Label>
-        <Label Grid.Row="9" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Category</Label>
-        <Label Grid.Row="10" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Type</Label>
-        <Label Grid.Row="11" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Rate</Label>
+        <Label Grid.Row="3" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Poster</Label>
+        <Label Grid.Row="4" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Trailer</Label>
+        <Label Grid.Row="5" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Movie</Label>
+        <Label Grid.Row="6" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Description</Label>
+        <Label Grid.Row="8" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Year</Label>
+        <Label Grid.Row="9" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Country</Label>
+        <Label Grid.Row="10" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Category</Label>
+        <Label Grid.Row="11" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Type</Label>
+        <Label Grid.Row="12" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Rate</Label>
 
-        <TextBox Text="{Binding SelectedMovie.NAME}" Grid.Row="1" Grid.Column="1" Margin="9.6,8,0,8" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Center" Width="325" Foreground="White"/>
-        <WrapPanel Grid.Row="2" Grid.Column="1" Margin="10 5 10 0">
-            <TextBox Text="{Binding SelectedMovie.POSTER}" Name="PosterText" Margin="0 0 10 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" MaxWidth="200" Foreground="White"/>
+       
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Margin="0.4,0,-0.4,0" Grid.Column="1">
+            <TextBox Text="{Binding Name}" Grid.Row="1" Grid.Column="1" Margin="9.6,8,0,8" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Center" Width="325" Foreground="White"/>
+            <Button Margin="0 0 20 0" HorizontalAlignment="Right" Content="GET API" Background="#FF4AB73A" BorderBrush="White" Command="{Binding CmdGetAPIUpdate}"></Button>
+        </StackPanel>
+        <WrapPanel Grid.Row="3" Grid.Column="1" Margin="10 5 10 0">
+            <TextBox Text="{Binding Poster}" Name="PosterText" Margin="0 0 10 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" MaxWidth="200" Foreground="White"/>
             <Button Name="PosterFile" Click="PosterFile_Click_1">Open File</Button>
         </WrapPanel>
-        <WrapPanel Grid.Row="3" Grid.Column="1" Margin="10 5 10 0">
-            <TextBox Text="{Binding SelectedMovie.TRAILER_NAME}" Name="TrailerText" Margin="0 0 10 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" MaxWidth="200" Foreground="White"/>
+        <WrapPanel Grid.Row="4" Grid.Column="1" Margin="10 5 10 0">
+            <TextBox Text="{Binding Trailer}" Name="TrailerText" Margin="0 0 10 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" MaxWidth="200" Foreground="White"/>
             <Button Name="TrailerFile" Click="TrailerFile_Click">Open File</Button>
         </WrapPanel>
-        <WrapPanel Grid.Row="4" Grid.Column="1" Margin="10 5 10 0">
-            <TextBox Text="{Binding SelectedMovie.MOVIE_NAME}" Name="MovieText" Margin="0 0 10 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" MaxWidth="200" Foreground="White"/>
+        <WrapPanel Grid.Row="5" Grid.Column="1" Margin="10 5 10 0">
+            <TextBox Text="{Binding Movie}" Name="MovieText" Margin="0 0 10 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" MaxWidth="200" Foreground="White"/>
             <Button Name="MovieFile" Click="MovieFile_Click">Open File</Button>
         </WrapPanel>
-        <TextBox Text="{Binding SelectedMovie.MOVIE_INFORMATION.DESCRIPTION}"
-  TextWrapping="Wrap" Grid.Row="5" Grid.Column="1" Grid.RowSpan="2" Margin="10 0 10 0"
+        <TextBox Text="{Binding Description}"
+  TextWrapping="Wrap" Grid.Row="6" Grid.Column="1" Grid.RowSpan="2" Margin="10 0 10 0"
   VerticalAlignment="Top"
   MinWidth="252"
   AcceptsReturn="True"
@@ -65,16 +72,16 @@
   SpellCheck.IsEnabled="True"
   Height="75" Foreground="White"
    />
-        <ComboBox ItemsSource="{Binding DSYear}" SelectedItem="{Binding SelectedMovie.MOVIE_INFORMATION.DISTRIBUTE_YEAR}" Name="Year" Grid.Row="7" Grid.Column="1" Margin="10 0 0 0" Width="150" HorizontalAlignment="Left" Foreground="White"></ComboBox>
-        <ComboBox ItemsSource="{Binding DSCountry}" SelectedItem="{Binding SelectedMovie.MOVIE_INFORMATION.COUNTRY}" Grid.Row="8" Grid.Column="1" Margin="10 0 0 0" Width="150" HorizontalAlignment="Left" Foreground="White"></ComboBox>
+        <ComboBox ItemsSource="{Binding DSYear}" SelectedItem="{Binding Year,Mode=TwoWay}" Name="Year" Grid.Row="8" Grid.Column="1" Margin="10 0 0 0" Width="150" HorizontalAlignment="Left" Foreground="White"></ComboBox>
+        <ComboBox ItemsSource="{Binding DSCountry}" SelectedItem="{Binding Country, Mode=TwoWay}" Name="Country" Grid.Row="9" Grid.Column="1" Margin="10, 8,0,8" Width="150" HorizontalAlignment="Left" Foreground="White"></ComboBox>
         
-        <materialDesign:RatingBar  Grid.Row="11" Grid.Column="1" VerticalAlignment="Center" Foreground="Gold"
+        <materialDesign:RatingBar Max="10"  Grid.Row="12" Grid.Column="1" VerticalAlignment="Center" Foreground="Gold"
   x:Name="BasicRatingBar"
   Value="{Binding SelectedMovie.MOVIE_INFORMATION.RATE}"
   ValueChanged="BasicRatingBar_ValueChanged" />
-        <ComboBox ItemsSource="{Binding DSCategory}" DisplayMemberPath="NAME"  SelectedItem="{Binding SelectedMovie.CATEGORY}" Grid.Row="9" Grid.Column="1" Margin="10 0 0 0" Width="150" HorizontalAlignment="Left" Foreground="White"></ComboBox>
-        <ComboBox ItemsSource="{Binding DSType}" DisplayMemberPath="NAME"  SelectedItem="{Binding SelectedMovie.MOVIE_TYPE}" Grid.Row="10" Grid.Column="1" Margin="10 0 0 0" Width="150" HorizontalAlignment="Left" Foreground="White"></ComboBox>
-        <Button Grid.Row="12" Grid.ColumnSpan="2" Content="Sua" Width="250" Command="{Binding CmdUpdateMovie}" CommandParameter="{Binding ElementName=UpdateMovieWindow}" Margin="55,30,55,30" Height="Auto"  FontSize="25" Background="Red" BorderBrush="Red"></Button>
+        <ComboBox ItemsSource="{Binding DSCategory}" DisplayMemberPath="NAME"  SelectedItem="{Binding Category, Mode=TwoWay}" Grid.Row="10" Grid.Column="1" Margin="10 0 0 0" Width="150" HorizontalAlignment="Left" Foreground="White"></ComboBox>
+        <ComboBox ItemsSource="{Binding DSType}" DisplayMemberPath="NAME"  SelectedItem="{Binding Type, Mode=TwoWay}" Grid.Row="11" Grid.Column="1" Margin="10 0 0 0" Width="150" HorizontalAlignment="Left" Foreground="White"></ComboBox>
+        <Button Grid.Row="14" Grid.RowSpan="2" Grid.ColumnSpan="2" Content="Sua" Height="50" Width="250" Command="{Binding CmdUpdateMovie}" CommandParameter="{Binding ElementName=UpdateMovieWindow}"  FontSize="25" Background="Red" BorderBrush="Red"></Button>
     </Grid>
 </Window>
 

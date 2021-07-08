@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NETFLIX_DBModelStoreContainer" CdmEntityContainer="NETFLIX_DBEntities">
+    <EntitySetMapping Name="ACCOUNTs">
+      <EntityTypeMapping TypeName="NETFLIX_DBModel.ACCOUNT">
+        <MappingFragment StoreEntitySet="ACCOUNT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="INFORMATION" ColumnName="INFORMATION" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCOUNT_TYPE">
+      <EntityTypeMapping TypeName="NETFLIX_DBModel.ACCOUNT_TYPE">
+        <MappingFragment StoreEntitySet="ACCOUNT_TYPE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CATEGORies">
+      <EntityTypeMapping TypeName="NETFLIX_DBModel.CATEGORY">
+        <MappingFragment StoreEntitySet="CATEGORY">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CELEBRITIES">
+      <EntityTypeMapping TypeName="NETFLIX_DBModel.CELEBRITy">
+        <MappingFragment StoreEntitySet="CELEBRITIES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DATEOFBIRTH" ColumnName="DATEOFBIRTH" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CREDITS">
+      <EntityTypeMapping TypeName="NETFLIX_DBModel.CREDIT">
+        <MappingFragment StoreEntitySet="CREDITS">
+          <ScalarProperty Name="MOVIE_ID" ColumnName="MOVIE_ID" />
+          <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+          <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FAVOURITE_MOVIES">
+      <EntityTypeMapping TypeName="NETFLIX_DBModel.FAVOURITE_MOVIES">
+        <MappingFragment StoreEntitySet="FAVOURITE_MOVIES">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="MOVIE_ID" ColumnName="MOVIE_ID" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOVIEs">
+      <EntityTypeMapping TypeName="NETFLIX_DBModel.MOVIE">
+        <MappingFragment StoreEntitySet="MOVIE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INFORMATION" ColumnName="INFORMATION" />
+          <ScalarProperty Name="POSTER" ColumnName="POSTER" />
+          <ScalarProperty Name="TRAILER_NAME" ColumnName="TRAILER_NAME" />
+          <ScalarProperty Name="MOVIE_NAME" ColumnName="MOVIE_NAME" />
+          <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
+          <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOVIE_INFORMATION">
+      <EntityTypeMapping TypeName="NETFLIX_DBModel.MOVIE_INFORMATION">
+        <MappingFragment StoreEntitySet="MOVIE_INFORMATION">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
+          <ScalarProperty Name="RATE" ColumnName="RATE" />
+          <ScalarProperty Name="DISTRIBUTE_YEAR" ColumnName="DISTRIBUTE_YEAR" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOVIE_TYPE">
+      <EntityTypeMapping TypeName="NETFLIX_DBModel.MOVIE_TYPE">
+        <MappingFragment StoreEntitySet="MOVIE_TYPE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PACKAGEs">
+      <EntityTypeMapping TypeName="NETFLIX_DBModel.PACKAGE">
+        <MappingFragment StoreEntitySet="PACKAGE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="TIME" ColumnName="TIME" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PURCHASEs">
+      <EntityTypeMapping TypeName="NETFLIX_DBModel.PURCHASE">
+        <MappingFragment StoreEntitySet="PURCHASE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PURCHASED_DATE" ColumnName="PURCHASED_DATE" />
+          <ScalarProperty Name="OUTOFDATE" ColumnName="OUTOFDATE" />
+          <ScalarProperty Name="PACKAGE_ID" ColumnName="PACKAGE_ID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_INFORMATION">
+      <EntityTypeMapping TypeName="NETFLIX_DBModel.USER_INFORMATION">
+        <MappingFragment StoreEntitySet="USER_INFORMATION">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="DATEOFBIRTH" ColumnName="DATEOFBIRTH" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
