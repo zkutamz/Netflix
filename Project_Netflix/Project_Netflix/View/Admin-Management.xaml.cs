@@ -17,7 +17,6 @@ using Project_Netflix.View.Admin.Account;
 using Project_Netflix.View.Admin.Movie;
 using Project_Netflix.View.Admin.Category;
 using Project_Netflix.View.Admin;
-using Project_Netflix.View.Admin.Report;
 
 namespace Project_Netflix.View
 {
@@ -30,9 +29,9 @@ namespace Project_Netflix.View
         public Admin_Management()
         {
             InitializeComponent();
-           
+
             this.DataContext = vm;
         }
-	}
+    }
 }
    

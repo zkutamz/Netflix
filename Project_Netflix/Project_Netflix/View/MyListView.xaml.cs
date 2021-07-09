@@ -26,6 +26,7 @@ namespace Project_Netflix.View
         {
             InitializeComponent();
             v = new MyListViewModel();
+            DataContext = v;
         }
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {

@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="Project_Netflix.View.Admin.Report.ViewModel.ViewModel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Project_Netflix.View.Admin.Report.ViewModel"
+              mc:Ignorable="d" 
+             xmlns:vm="clr-namespace:Project_Netflix.viewmodel"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal"
+            TextOptions.TextRenderingMode="Auto"
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="8.5*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <materialDesign:Card Grid.Row="0" Margin="5 5 5 5">
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <TextBox Width="100" Height="40" Margin="15,0,0,0"
+                     Padding="15 5 2 2"
+                     Background="Black"
+                        materialDesign:HintAssist.Hint="Maximum"
+                        materialDesign:TextFieldAssist.RippleOnFocusEnabled="False"
+                        Style="{StaticResource MaterialDesignFilledTextBox}"
+                        Text="{Binding Max, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Width="100" Height="40"
+                        Background="Black"
+                     Padding="15 5 2 2" 
+                        materialDesign:HintAssist.Hint="Tick Frequency"
+                        materialDesign:TextFieldAssist.RippleOnFocusEnabled="False"
+                        Margin="15,0,0,0"
+                        Style="{StaticResource MaterialDesignFilledTextBox}"
+                        Text="{Binding Tick, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="1" Margin="5 0 5 5">
+            <ListView Grid.Row="1" ItemsSource="{Binding DSViewMovie}" Margin="0,5,0,0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn 
+        DisplayMemberBinding="{Binding NAME}"
+        Header="Movie" />
+                        <GridViewColumn Header="Options" Width="500">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid Width="500">
+
+
+
+                                        <Slider 
+                            Value="{Binding VIEWS}"
+                            Minimum="0"
+                            Maximum="{Binding ElementName= Max, Path=int}"
+                            Style="{StaticResource MaterialDesignDiscreteSlider}"
+                            TickFrequency="10000"
+                            TickPlacement="BottomRight" />
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn
+        DisplayMemberBinding="{Binding VIEWS}"
+        Header="View" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

@@ -47,9 +47,6 @@ namespace Project_Netflix.Command.MainWindow
 				db.SaveChanges();
 				var p = (Window)parameter;
 				MessageBox.Show("Dang ky thanh cong");
-				vm.Name = "";
-				vm.Email = "";
-				vm.Phone = "";
 				PagePay page = new PagePay();
 				DangNhapViewModel.User = account;
 				p.Close();

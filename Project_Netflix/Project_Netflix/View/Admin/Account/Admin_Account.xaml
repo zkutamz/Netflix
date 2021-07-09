@@ -39,28 +39,28 @@
                     <RowDefinition ></RowDefinition>
                 </Grid.RowDefinitions>
 
-                    <materialDesign:Card Grid.Row="0" Margin="5 0 5 5">
-                        <WrapPanel Margin="0 0 0 10">
-                            <!--<TextBox Name="email" Text="{Binding ElementName= DSUser, Path=SelectedValue.EMAIL,Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
-                            <TextBox Text="{Binding Email,Mode=TwoWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                            <TextBox Text="{Binding Name,Mode=TwoWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                            <TextBox Text="{Binding Phone,Mode=TwoWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Phone" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                            <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Birth,Mode=TwoWay}" Width="100" Margin="5 0 15 0" materialDesign:HintAssist.Hint="Birth" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                            
-                            <!--<TextBox Text="{Binding ElementName=DSUser, Path=SelectedValue.USER_INFORMATION.NAME}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <materialDesign:Card Grid.Row="0" Margin="5 0 5 5">
+                    <WrapPanel Margin="0 0 0 10">
+                        <!--<TextBox Name="email" Text="{Binding ElementName= DSUser, Path=SelectedValue.EMAIL,Mode=OneWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
+                        <TextBox Text="{Binding Email,Mode=TwoWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <TextBox Text="{Binding Name,Mode=TwoWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <TextBox Text="{Binding Phone,Mode=TwoWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Phone" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Birth,Mode=TwoWay}" Width="100" Margin="5 0 15 0" materialDesign:HintAssist.Hint="Birth" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+
+                        <!--<TextBox Text="{Binding ElementName=DSUser, Path=SelectedValue.USER_INFORMATION.NAME}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                             <TextBox Text="{Binding ElementName=DSUser, Path=SelectedValue.BALANCE}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Balance" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                             <TextBox Text="{Binding ElementName=DSUser, Path=SelectedValue.USER_INFORMATION.PHONE}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Phone" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
-                            <!--<DatePicker VerticalAlignment="Center" SelectedDate="{Binding ElementName=DSUser, Path=SelectedValue.USER_INFORMATION.DATEOFBIRTH}" Width="100" Margin="5 0 15 0" materialDesign:HintAssist.Hint="Birth" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />-->
-                            <!--<TextBox Text="{Binding ElementName=DSUser, Path=SelectedValue.USER_INFORMATION.ADDRESS}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Address" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
-                        </WrapPanel>
-                    </materialDesign:Card>
-                    <materialDesign:Card Grid.Row="1" Margin=" 5 0 5 0">
-                        <WrapPanel>
-                            <Button Command="{Binding CmdAddUser}" Content="Thêm" Margin="5" Width="100"></Button>
-                            <Button Command="{Binding CmdUpdateUser}" Content="Sửa" Margin="5" Width="100"></Button>
-                            <Button Command="{Binding CmdDeleteUser}" Content="Xóa" Margin="5" Width="100"></Button>
-                        </WrapPanel>
-                    </materialDesign:Card>
+                        <!--<DatePicker VerticalAlignment="Center" SelectedDate="{Binding ElementName=DSUser, Path=SelectedValue.USER_INFORMATION.DATEOFBIRTH}" Width="100" Margin="5 0 15 0" materialDesign:HintAssist.Hint="Birth" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />-->
+                        <!--<TextBox Text="{Binding ElementName=DSUser, Path=SelectedValue.USER_INFORMATION.ADDRESS}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Address" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
+                    </WrapPanel>
+                </materialDesign:Card>
+                <materialDesign:Card Grid.Row="1" Margin=" 5 0 5 0">
+                    <WrapPanel>
+                        <Button Command="{Binding CmdAddUser}" Content="Thêm" Margin="5" Width="100"></Button>
+                        <Button Command="{Binding CmdUpdateUser}" Content="Sửa" Margin="5" Width="100"></Button>
+                        <Button Command="{Binding CmdDeleteUser}" Content="Xóa" Margin="5" Width="100"></Button>
+                    </WrapPanel>
+                </materialDesign:Card>
                 <materialDesign:Card Grid.Row="2" Margin="5 5 5 5">
                     <ListView
   ItemsSource="{Binding DSAccount}" Name="DSUser" 
@@ -102,7 +102,7 @@
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition ></RowDefinition>
                 </Grid.RowDefinitions>
-               
+
                 <materialDesign:Card Grid.Row="0" Margin="5,0,5,5">
                     <WrapPanel Margin="0 0 0 10">
                         <TextBox Text="{Binding EmailAdmin,Mode=TwoWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
@@ -121,22 +121,22 @@
   ItemsSource="{Binding DSAdmin}" 
             SelectedItem="{Binding SelectedAdmin, 
             Mode=OneWayToSource}">
-                    
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn
+
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn
         DisplayMemberBinding="{Binding EMAIL}"
         Header="Email" />
-                            <GridViewColumn
+                                <GridViewColumn
         DisplayMemberBinding="{Binding PASSWORD}"
         Header="Password" />
-                            <GridViewColumn
+                                <GridViewColumn
         DisplayMemberBinding="{Binding USER_INFORMATION.NAME}"
         Header="Name" />
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-                    </materialDesign:Card>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </materialDesign:Card>
             </Grid>
         </Grid>
     </Grid>

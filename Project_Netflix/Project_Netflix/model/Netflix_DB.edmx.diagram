@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="751422b6e57d46dea68028210ab0fdce" Name="Diagram1">
+      <Diagram DiagramId="224a289b553847f4881ec5ed8ad53b89" Name="Diagram1">
         <EntityTypeShape EntityType="NETFLIX_DBModel.ACCOUNT" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="NETFLIX_DBModel.ACCOUNT_TYPE" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NETFLIX_DBModel.CATEGORY" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NETFLIX_DBModel.CATEGORY" Width="1.5" PointX="0.875" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="NETFLIX_DBModel.FAVOURITE_MOVIES" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="NETFLIX_DBModel.MOVIE" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="NETFLIX_DBModel.MOVIE_INFORMATION" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />

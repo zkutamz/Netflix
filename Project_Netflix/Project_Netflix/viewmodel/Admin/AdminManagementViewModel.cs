@@ -9,16 +9,16 @@ using System.Windows;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Project_Netflix.View.Admin.Account;
+using Project_Netflix.View.Admin.Movie;
 using Project_Netflix.View.Admin.Category;
 using Project_Netflix.View.Admin.Report;
-using Project_Netflix.View.Admin.Movie;
 using Project_Netflix.View;
 using Project_Netflix.Command.Admin;
 using Project_Netflix.View.Admin;
 
 namespace Project_Netflix.viewmodel.Admin
 {
-    class AdminManagementViewModel : BaseViewModel
+	class AdminManagementViewModel : BaseViewModel
 	{
 		private object _CurrentAdminManager;
 		public object CurrentAdminManager { get => _CurrentAdminManager; set { _CurrentAdminManager = value; OnPropertyChanged(); } }
@@ -38,11 +38,11 @@ namespace Project_Netflix.viewmodel.Admin
 		public AdminManagementViewModel()
 		{
 			CurrentAdminManager = new Dashboard();
-			CmdAccount = new RelayCommand(o => { CurrentAdminManager = new Admin_Account(); });
-			CmdMovie = new RelayCommand(o => { CurrentAdminManager = new Admin_Movie(); });
-			CmdCategory = new RelayCommand(o => { CurrentAdminManager = new AdminCategory(); });
-			CmdReport = new RelayCommand(o => { CurrentAdminManager = new AdminReport(); });
-			CmdDashboard = new RelayCommand(o => { CurrentAdminManager = new Dashboard(); });
+			CmdAccount = new RelayCommand<object>((o) =>true, (o) => { CurrentAdminManager = new Admin_Account(); });
+			CmdMovie = new RelayCommand<object>((o) => true, (o) => { CurrentAdminManager = new Admin_Movie(); });
+			CmdCategory = new RelayCommand<object>((o) => true, (o) => { CurrentAdminManager = new AdminCategory(); });
+			CmdReport = new RelayCommand<object>((o) => true, (o) => { CurrentAdminManager = new AdminReport(); });
+			CmdDashboard = new RelayCommand<object>((o) => true, (o) => { CurrentAdminManager = new Dashboard(); });
 			CmdLogout = new CmdLogout(this);
 		}
 
@@ -54,4 +54,5 @@ namespace Project_Netflix.viewmodel.Admin
 		}
 	}
 }
+
 

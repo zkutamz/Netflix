@@ -11,7 +11,7 @@ namespace Project_Netflix.viewmodel.Admin.Report.Revenue
 	public class QuyViewModel : BaseViewModel
 	{
 		private ObservableCollection<int> _DSYear;
-		public ObservableCollection<int> DSYear { get => _DSYear; set { _DSYear = value;OnPropertyChanged(); } }
+		public ObservableCollection<int> DSYear { get => _DSYear; set { _DSYear = value; OnPropertyChanged(); } }
 		private int _SelectedYear;
 		public int SelectedYear { get => _SelectedYear; set { _SelectedYear = value; OnPropertyChanged(); } }
 		private ObservableCollection<int> _DSQuy;
@@ -25,14 +25,14 @@ namespace Project_Netflix.viewmodel.Admin.Report.Revenue
 			DSQuy = new ObservableCollection<int>();
 			for (int i = 1; i <= 4; i++)
 				DSQuy.Add(i);
-			
-			using(var db = new NETFLIX_DBEntities())
+
+			using (var db = new NETFLIX_DBEntities())
 			{
 				var pURCHASEs = db.PURCHASEs.ToList();
-					var firstYear = (pURCHASEs.Count > 0) ? pURCHASEs[0].PURCHASED_DATE.Year: DateTime.Now.Year;
-					var endYear = DateTime.Now.Year;
-					for (int i = firstYear; i <= endYear; i++)
-						DSYear.Add(i);
+				var firstYear = (pURCHASEs.Count > 0) ? pURCHASEs[0].PURCHASED_DATE.Year : DateTime.Now.Year;
+				var endYear = DateTime.Now.Year;
+				for (int i = firstYear; i <= endYear; i++)
+					DSYear.Add(i);
 			}
 		}
 	}

@@ -1,13 +1,10 @@
-﻿using Project_Netflix.viewmodel;
-using Project_Netflix.viewmodel.Admin.Movie;
+﻿using Project_Netflix.viewmodel.Admin.Movie;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows;
-using System.Web.UI.WebControls;
 
 namespace Project_Netflix.Command.Admin.Movie
 {

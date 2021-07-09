@@ -122,7 +122,8 @@ namespace Project_Netflix.viewmodel.Admin.Category
 						db.SaveChanges();
 						MessageBox.Show("Them thanh cong.");
 						loadCategory();
-					}catch (Exception e)
+					}
+					catch (Exception e)
 					{
 						Console.WriteLine(e.Message);
 						MessageBox.Show("Them that bai.");
@@ -429,7 +430,7 @@ namespace Project_Netflix.viewmodel.Admin.Category
 				MessageBox.Show("Connection Fail.");
 				return null;
 			}
-}
+		}
 		public void GetAPI()
 		{
 			try

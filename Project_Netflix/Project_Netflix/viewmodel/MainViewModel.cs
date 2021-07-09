@@ -11,13 +11,11 @@ using System.Windows.Input;
 
 namespace Project_Netflix.viewmodel
 {
-    class MainViewModel : BaseViewModel
-    {
-        
-        public RelayCommand HomeViewCommand { get; set; }
-        public RelayCommand MyListViewCommand { get; set; }
-        public RelayCommand FilmsViewCommand { get; set; }
-        public RelayCommand OriginalsViewCommand { get; set; }
+    public class MainViewModel : BaseViewModel
+    {        
+        public ICommand HomeViewCommand { get; set; }
+        public ICommand MyListViewCommand { get; set; }
+        public ICommand OriginalsViewCommand { get; set; }
         /// <summary>
         /// /////////////////////////////////////////
         /// </summary>
@@ -28,7 +26,6 @@ namespace Project_Netflix.viewmodel
         public HomeViewModel HomeVM { get; set; }
         public MyListViewModel MyListVM { get; set; }
 
-        public FilmsViewModel FilmsVM { get; set; }
         public OriginalsViewModel OriginalsVM { get; set; }
 
         private object _currentView;
@@ -46,24 +43,22 @@ namespace Project_Netflix.viewmodel
         {
             HomeVM = new HomeViewModel();            
             MyListVM = new MyListViewModel();
-            FilmsVM = new FilmsViewModel();
             OriginalsVM = new OriginalsViewModel();
             User = DangNhapViewModel.User;
             CurrentView = HomeVM;
 
-            HomeViewCommand = new RelayCommand(o=>
+            HomeViewCommand = new RelayCommand<object>(o=> { return true; },
+            (o) =>
             {
                 CurrentView = HomeVM;
             });
-            MyListViewCommand = new RelayCommand(o =>
+            MyListViewCommand = new RelayCommand<object>(o => { return true; },
+            (o) =>
             {
                 CurrentView = MyListVM;
-            });
-            FilmsViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = FilmsVM;
-            });
-            OriginalsViewCommand = new RelayCommand(o =>
+            });            
+            OriginalsViewCommand = new RelayCommand<object>(o => { return true; },
+            (o) =>
             {
                 CurrentView = OriginalsVM;
             });

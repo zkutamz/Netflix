@@ -44,3 +44,4 @@ namespace Project_Netflix.Command.MainWindow
 		}
 	}
 }
+

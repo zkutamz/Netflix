@@ -72,7 +72,7 @@ namespace Project_Netflix.viewmodel
                             MessageBox.Show("Dang nhap thanh cong");
                             Admin_Management admin = new Admin_Management();
                             window.Close();
-                            admin.Show();
+                            admin.ShowDialog();
                         }
                         else if (getPassword.Single().TYPE == 1)
                         {

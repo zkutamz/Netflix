@@ -46,7 +46,7 @@
         <Label Grid.Row="11" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Type</Label>
         <Label Grid.Row="12" Margin="10 0 0 0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Rate</Label>
 
-       
+
         <StackPanel Grid.Row="1" Grid.RowSpan="2" Margin="0.4,0,-0.4,0" Grid.Column="1">
             <TextBox Text="{Binding Name}" Grid.Row="1" Grid.Column="1" Margin="9.6,8,0,8" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Center" Width="325" Foreground="White"/>
             <Button Margin="0 0 20 0" HorizontalAlignment="Right" Content="GET API" Background="#FF4AB73A" BorderBrush="White" Command="{Binding CmdGetAPIUpdate}"></Button>
@@ -74,7 +74,7 @@
    />
         <ComboBox ItemsSource="{Binding DSYear}" SelectedItem="{Binding Year,Mode=TwoWay}" Name="Year" Grid.Row="8" Grid.Column="1" Margin="10 0 0 0" Width="150" HorizontalAlignment="Left" Foreground="White"></ComboBox>
         <ComboBox ItemsSource="{Binding DSCountry}" SelectedItem="{Binding Country, Mode=TwoWay}" Name="Country" Grid.Row="9" Grid.Column="1" Margin="10, 8,0,8" Width="150" HorizontalAlignment="Left" Foreground="White"></ComboBox>
-        
+
         <materialDesign:RatingBar Max="10"  Grid.Row="12" Grid.Column="1" VerticalAlignment="Center" Foreground="Gold"
   x:Name="BasicRatingBar"
   Value="{Binding SelectedMovie.MOVIE_INFORMATION.RATE}"

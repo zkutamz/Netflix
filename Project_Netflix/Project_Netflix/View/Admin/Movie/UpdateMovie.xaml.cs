@@ -37,9 +37,8 @@ namespace Project_Netflix.View.Admin.Movie
 			Nullable<bool> result = openFileDialog.ShowDialog();
 			if (result == true)
 			{
-				vmdmin.Poster = openFileDialog.FileName;
 				PosterText.Text = getFileName(openFileDialog.FileName);
-				
+				vmdmin.SelectedMovie.POSTER = openFileDialog.FileName;
 			}
 		}
 		string getFileName(string fileName)
@@ -55,9 +54,8 @@ namespace Project_Netflix.View.Admin.Movie
 			Nullable<bool> result = openFileDialog.ShowDialog();
 			if (result == true)
 			{
-				vmdmin.Trailer = openFileDialog.FileName;
 				TrailerText.Text = getFileName(openFileDialog.FileName);
-				
+				vmdmin.SelectedMovie.TRAILER_NAME = openFileDialog.FileName;
 			}
 		}
 
@@ -69,23 +67,14 @@ namespace Project_Netflix.View.Admin.Movie
 			Nullable<bool> result = openFileDialog.ShowDialog();
 			if (result == true)
 			{
-				vmdmin.Movie = openFileDialog.FileName;
 				MovieText.Text = getFileName(openFileDialog.FileName);
-				
+				vmdmin.SelectedMovie.MOVIE_NAME = openFileDialog.FileName;
 			}
 		}
 
 		private void BasicRatingBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<int> e)
 		{
-			try
-			{
-				if (vmdmin.SelectedMovie != null)
-				vmdmin.SelectedMovie.MOVIE_INFORMATION.RATE = BasicRatingBar.Value;
-			}
-			catch (Exception)
-			{
-
-			}
+			vmdmin.SelectedMovie.MOVIE_INFORMATION.RATE = BasicRatingBar.Value;
 		}
 	}
 }

@@ -1,6 +1,8 @@
-﻿using Project_Netflix.ModelTest;
+﻿using Project_Netflix.model;
+using Project_Netflix.ModelTest;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,22 +10,16 @@ using System.Windows;
 
 namespace Project_Netflix.viewmodel
 {
-    public class MyListViewModel : DependencyObject
+    public class MyListViewModel : BaseViewModel
     {
-        public static readonly DependencyProperty MyListProperty;
-        static MyListViewModel()
-        {
-            MyListProperty = DependencyProperty.Register("MyList", typeof(IList<Movie>), typeof(MainViewModel));
-        }
-
-        public IList<Movie> MyList
-        {
-            get => (IList<Movie>)GetValue(MyListProperty);
-            set => SetValue(MyListProperty, value);
-        }
+        private ObservableCollection<FAVOURITE_MOVIES> _Mylist;
+        public ObservableCollection<FAVOURITE_MOVIES> Mylist { get => _Mylist; set { _Mylist = value; OnPropertyChanged(); } }
+        
         public MyListViewModel()
         {
-            MyList = Enumerable.Range(0, 10).Select(i => new Movie()).ToList();
+            var db = new NETFLIX_DBEntities();
+            Mylist = new ObservableCollection<FAVOURITE_MOVIES>(db.FAVOURITE_MOVIES.Include("MOVIE").Where(x => x.USER_ID == DangNhapViewModel.User.ID).ToList());
+      
         }
     }
 }

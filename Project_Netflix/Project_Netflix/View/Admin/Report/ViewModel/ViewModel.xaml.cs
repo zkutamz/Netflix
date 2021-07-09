@@ -1,4 +1,4 @@
-﻿using Project_Netflix.viewmodel.Admin.Report;
+﻿using Project_Netflix.viewmodel.Admin.Report.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,18 +14,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project_Netflix.View.Admin.Report
+namespace Project_Netflix.View.Admin.Report.ViewModel
 {
 	/// <summary>
-	/// Interaction logic for AdminReport.xaml
+	/// Interaction logic for ViewModel.xaml
 	/// </summary>
-	public partial class AdminReport : UserControl
+	public partial class ViewModel : UserControl
 	{
-		AdminReportViewModel vm = new AdminReportViewModel();
-		public AdminReport()
+		public ViewModel()
 		{
 			InitializeComponent();
+			AdminViewModel vm = new AdminViewModel();
 			DataContext = vm;
+			vm.Max = 60000;
 		}
 	}
 }

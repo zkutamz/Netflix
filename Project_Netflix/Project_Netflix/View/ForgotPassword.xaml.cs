@@ -35,9 +35,9 @@ namespace Project_Netflix.View
                 ChangePassword profile = new ChangePassword();
                 this.Close();
                 profile.Show();
-			}
-			else
-			{
+            }
+            else
+            {
                 MessageBox.Show("Email khong ton tai");
             }
         }

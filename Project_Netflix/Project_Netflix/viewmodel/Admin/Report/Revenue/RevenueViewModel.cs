@@ -1,4 +1,5 @@
-﻿using Project_Netflix.View.Admin.Report;
+﻿using Project_Netflix.model;
+using Project_Netflix.View.Admin.Report.Revenue;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows;
-using Project_Netflix.model;
 
 namespace Project_Netflix.viewmodel.Admin.Report.Revenue
 {
@@ -32,18 +31,30 @@ namespace Project_Netflix.viewmodel.Admin.Report.Revenue
 
 		public ICommand SelectionChange { get; set; }
 		public ICommand CmdLoad { get; set; }
-		public RevenueViewModel(){
+		public RevenueViewModel()
+		{
 			quy = new Quy();
 			thang = new Thang();
 			ngay = new Ngay();
 			Total = 0;
 			Currentsolution = null;
-			DSCachTinh = new ObservableCollection<string>(new List<string>() {"Quy","Thang","Ngay" });
-			CmdLoad = new RelayCommand(o=>
+			DSCachTinh = new ObservableCollection<string>(new List<string>() { "Quy", "Thang", "Ngay" });
+			CmdLoad = new RelayCommand<object>(
+				(o) =>
+				{
+					return true;
+				}
+
+				, (o) =>
 			{
 				Load();
 			});
-			SelectionChange = new RelayCommand(o =>
+			SelectionChange = new RelayCommand<object>((o) =>
+			{
+				return true;
+			}
+
+				, (o) =>
 			{
 				//MessageBox.Show(SelectedCachTinh);
 				switch (SelectedCachTinh)
@@ -70,15 +81,15 @@ namespace Project_Netflix.viewmodel.Admin.Report.Revenue
 					using (var db = new NETFLIX_DBEntities())
 					{
 						DSPay = new ObservableCollection<PURCHASE>(db.PURCHASEs.Include("ACCOUNT").Include("PACKAGE").Where(x => x.PURCHASED_DATE.Year == year && x.PURCHASED_DATE.Month <= qUY * 3).ToList());
-						if(DSPay.Count > 0)
+						if (DSPay.Count > 0)
 						{
-							foreach(var item in DSPay)
+							foreach (var item in DSPay)
 							{
 								Total += (double)item.PACKAGE.PRICE;
 							}
 						}
 					}
-						break;
+					break;
 				case "Thang":
 					var year1 = Thang.vm.SelectedYear;
 					var tHANG = Thang.vm.SelectedMonth;
@@ -113,3 +124,4 @@ namespace Project_Netflix.viewmodel.Admin.Report.Revenue
 		}
 	}
 }
+

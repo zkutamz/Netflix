@@ -72,14 +72,7 @@ namespace Project_Netflix.View.Admin.Movie
 
 		private void BasicRatingBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<int> e)
 		{
-			try
-			{
-				vmdmin.Rate = BasicRatingBar.Value;
-			}
-			catch(Exception)
-			{
-
-			}
+			vmdmin.Rate = BasicRatingBar.Value;
 		}
 	}
 }

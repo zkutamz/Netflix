@@ -19,10 +19,14 @@ namespace Project_Netflix.Command.Admin.Movie
 		AdminMovie vm;
 		public bool CanExecute(object parameter)
 		{
-			return vm.checkUpdate();
+			//if(parameter != null)
+			return true;
+			//else
+			//	return false;
 		}
 		public void Execute(object parameter)
 		{
+			
 			vm.DeleteMovie();
 		}
 		public CmdDeleteMovie(AdminMovie vm)

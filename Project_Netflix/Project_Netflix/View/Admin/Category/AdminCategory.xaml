@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
         <materialDesign:Card Grid.Row="0" Margin="5 0 5 5">
             <WrapPanel Margin="0 0 0 10">
-                <ComboBox Margin="20 10 0 0" Name="CbCategory" materialDesign:HintAssist.Hint="Category" Width="120" SelectedItem="{Binding SelectedCategory}" ItemsSource="{Binding DSCategory}" DisplayMemberPath="NAME"> </ComboBox>
+                <ComboBox Margin="20 10 0 0" Name="CbCategory" materialDesign:HintAssist.Hint="Category" Width="120" SelectedItem="{Binding SelectedCategory}" ItemsSource="{Binding DSCategory}" DisplayMemberPath="NAME"></ComboBox>
                 <TextBox  Margin="150 5 15 5" materialDesign:HintAssist.Hint="Selected Category" Text="{Binding Name, Mode=TwoWay}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <Button Command="{Binding CmdAddCategory}" Content="Thêm" Margin="5 15 5 5" Width="100" ></Button>
                 <Button Command="{Binding CmdUpdateCategory}" Content="Sua" Margin="5 15 5 5" Width="100" ></Button>
@@ -37,36 +37,36 @@
             </WrapPanel>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="2" Margin="5 0 5 0">
-        <ListView Grid.Row="2"
+            <ListView Grid.Row="2"
                   
                  ItemsSource="{Binding ElementName=CbCategory, Path=SelectedValue.MOVIEs}"
                   SelectedItem="{Binding SelectedMovie, 
             Mode=OneWayToSource}" >
-               
+
                 <ListView.View>
-                <GridView>
-                    <GridViewColumn
+                    <GridView>
+                        <GridViewColumn
         DisplayMemberBinding="{Binding NAME}"
         Header="Name" />
-                    <GridViewColumn
+                        <GridViewColumn
         DisplayMemberBinding="{Binding POSTER}"
         Header="Poster" />
-                    <GridViewColumn
+                        <GridViewColumn
         DisplayMemberBinding="{Binding MOVIE_INFORMATION.DESCRIPTION}"
         Header="Description" />
-                    <GridViewColumn
+                        <GridViewColumn
         Header="Category" DisplayMemberBinding="{Binding CATEGORY.NAME}">
-                    </GridViewColumn>
-                    <GridViewColumn
+                        </GridViewColumn>
+                        <GridViewColumn
         DisplayMemberBinding="{Binding MOVIE_INFORMATION.DISTRIBUTE_YEAR}"
         Header="Year" />
-                    <GridViewColumn
+                        <GridViewColumn
         DisplayMemberBinding="{Binding MOVIE_INFORMATION.COUNTRY}"
         Header="Country" />
-                    
-                </GridView>
-            </ListView.View>
-        </ListView>
-            </materialDesign:Card>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </materialDesign:Card>
     </Grid>
 </UserControl>

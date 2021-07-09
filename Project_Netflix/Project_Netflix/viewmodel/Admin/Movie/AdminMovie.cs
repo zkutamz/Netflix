@@ -18,10 +18,15 @@ namespace Project_Netflix.viewmodel
 		private ObservableCollection<MOVIE> _DSMovie;
 		public ObservableCollection<MOVIE> DSMovie { get => _DSMovie; set { _DSMovie = value; OnPropertyChanged(); } }
 		private MOVIE _SelectedMovie;
-		public MOVIE SelectedMovie { 
-			get => _SelectedMovie; 
-			set { _SelectedMovie = value; OnPropertyChanged(); 
-				if (SelectedMovie != null) { Name = SelectedMovie.NAME; Poster = SelectedMovie.POSTER; Movie = SelectedMovie.MOVIE_NAME; Trailer = SelectedMovie.TRAILER_NAME; Description = SelectedMovie.MOVIE_INFORMATION.DESCRIPTION; Country = SelectedMovie.MOVIE_INFORMATION.COUNTRY.Trim() ; Category = SelectedMovie.CATEGORY; Type = SelectedMovie.MOVIE_TYPE; Year = (int)SelectedMovie.MOVIE_INFORMATION.DISTRIBUTE_YEAR; Rate = (double)SelectedMovie.MOVIE_INFORMATION.RATE; View = (SelectedMovie.VIEWS!=null)?(int)SelectedMovie.VIEWS:0; } } }
+		public MOVIE SelectedMovie
+		{
+			get => _SelectedMovie;
+			set
+			{
+				_SelectedMovie = value; OnPropertyChanged();
+				if (SelectedMovie != null) { Name = SelectedMovie.NAME; Poster = SelectedMovie.POSTER; Movie = SelectedMovie.MOVIE_NAME; Trailer = SelectedMovie.TRAILER_NAME; Description = SelectedMovie.MOVIE_INFORMATION.DESCRIPTION; Country = SelectedMovie.MOVIE_INFORMATION.COUNTRY.Trim(); Category = SelectedMovie.CATEGORY; Type = SelectedMovie.MOVIE_TYPE; Year = (int)SelectedMovie.MOVIE_INFORMATION.DISTRIBUTE_YEAR; Rate = (double)SelectedMovie.MOVIE_INFORMATION.RATE; View = (SelectedMovie.VIEWS != null) ? (int)SelectedMovie.VIEWS : 0; }
+			}
+		}
 		private ObservableCollection<int> _DSYear;
 		public ObservableCollection<int> DSYear { get => _DSYear; set { _DSYear = value; OnPropertyChanged(); } }
 		private ObservableCollection<string> _DSCountry;
@@ -69,7 +74,7 @@ namespace Project_Netflix.viewmodel
 			using (var sr = new StreamReader(@"..\..\viewmodel\Admin\Movie\Country.txt"))
 			{
 				string listCountry = sr.ReadToEnd();
-				Countries = listCountry.Split('\n');	
+				Countries = listCountry.Split('\n');
 			}
 			var countries = from n in Countries orderby n select n;
 			DSCountry = new ObservableCollection<string>(countries);
@@ -169,12 +174,13 @@ namespace Project_Netflix.viewmodel
 			string path = exePaths[0];
 			for (int i = 1; i < exePaths.Length - 5; i++)
 				path += "\\" + exePaths[i];
-			using(var db = new NETFLIX_DBEntities())
+			using (var db = new NETFLIX_DBEntities())
 			{
 				try
 				{
 					var movie = db.MOVIEs.Where(x => x.ID == SelectedMovie.ID).Single();
-					if (db.FAVOURITE_MOVIES.Where(x => x.MOVIE_ID == movie.ID).Count() > 0) {
+					if (db.FAVOURITE_MOVIES.Where(x => x.MOVIE_ID == movie.ID).Count() > 0)
+					{
 						MessageBox.Show("Movie dang duoc user yeu thich khong the xoa");
 					}
 					else
@@ -201,7 +207,8 @@ namespace Project_Netflix.viewmodel
 							System.IO.File.Delete(path + "\\Movie\\" + movieOld);
 						}
 					}
-				}catch(Exception e)
+				}
+				catch (Exception e)
 				{
 					Console.WriteLine(e.Message);
 					MessageBox.Show("Khong the xoa movie");
@@ -264,80 +271,81 @@ namespace Project_Netflix.viewmodel
 		}
 		public List<string> getAPIByID(string ID)
 		{
-			try { 
-			List<string> listProperty = new List<string>();
-			if (ID.Length > 0)
+			try
 			{
-				var client = new RestClient("https://movie-database-imdb-alternative.p.rapidapi.com/?i=" + ID + "&r=json");
-				var request = new RestRequest(Method.GET);
-				request.AddHeader("x-rapidapi-key", "d788b074d0msh06f1c060333e3cbp1eb3e9jsncdf4c50c28fe");
-				request.AddHeader("x-rapidapi-host", "movie-database-imdb-alternative.p.rapidapi.com");
-				IRestResponse response = client.Execute(request);
-				string content = response.Content;
-				string[] condition = { "\",", };
-				string[] lst = content.Substring(1, content.Length - 2).Split(condition, System.StringSplitOptions.RemoveEmptyEntries);
-				for (int i = 0; i < lst.Length; i++)
+				List<string> listProperty = new List<string>();
+				if (ID.Length > 0)
 				{
-					lst[i] = lst[i].Replace('"', ' ');
-					string[] tokkens = lst[i].Split(':');
+					var client = new RestClient("https://movie-database-imdb-alternative.p.rapidapi.com/?i=" + ID + "&r=json");
+					var request = new RestRequest(Method.GET);
+					request.AddHeader("x-rapidapi-key", "d788b074d0msh06f1c060333e3cbp1eb3e9jsncdf4c50c28fe");
+					request.AddHeader("x-rapidapi-host", "movie-database-imdb-alternative.p.rapidapi.com");
+					IRestResponse response = client.Execute(request);
+					string content = response.Content;
+					string[] condition = { "\",", };
+					string[] lst = content.Substring(1, content.Length - 2).Split(condition, System.StringSplitOptions.RemoveEmptyEntries);
+					for (int i = 0; i < lst.Length; i++)
+					{
+						lst[i] = lst[i].Replace('"', ' ');
+						string[] tokkens = lst[i].Split(':');
 
-					if (tokkens[0].Trim() == "Title")
-					{
-						string title = "";
-						for (int j = 1; j < tokkens.Length; j++)
+						if (tokkens[0].Trim() == "Title")
 						{
-							title += " " + tokkens[j].Trim();
+							string title = "";
+							for (int j = 1; j < tokkens.Length; j++)
+							{
+								title += " " + tokkens[j].Trim();
+							}
+							listProperty.Add(title.Trim());
 						}
-						listProperty.Add(title.Trim());
-					}
-					else if (tokkens[0].Contains("Released"))
-					{
-						listProperty.Add(tokkens[1]);
-					}
-					else if (tokkens[0].Contains("Runtime"))
-					{
-						listProperty.Add(tokkens[1]);
-					}
-					else if (tokkens[0].Contains("Plot"))
-					{
-						string plot = "";
-						for (int j = 1; j < tokkens.Length; j++)
+						else if (tokkens[0].Contains("Released"))
 						{
-							plot += " " + tokkens[j].Trim();
+							listProperty.Add(tokkens[1]);
 						}
+						else if (tokkens[0].Contains("Runtime"))
+						{
+							listProperty.Add(tokkens[1]);
+						}
+						else if (tokkens[0].Contains("Plot"))
+						{
+							string plot = "";
+							for (int j = 1; j < tokkens.Length; j++)
+							{
+								plot += " " + tokkens[j].Trim();
+							}
 
-						listProperty.Add(plot.Trim());
-					}
-					else if (tokkens[0].Contains("Country"))
-					{
-						string[] countrys = tokkens[1].Split(',');
-						listProperty.Add(countrys[0].Trim());
-					}
-					else if (tokkens[0].Contains("Poster"))
-					{
-						listProperty.Add(tokkens[1]);
-					}
-					else if (tokkens[0].Contains("imdbRating"))
-					{
-						listProperty.Add(tokkens[1]);
-					}
-					else if (tokkens[0].Contains("imdbVotes"))
-					{
-						string vote = "";
-						string[] votes = tokkens[1].Split(',');
-						for (int j = 0; j < votes.Length; j++)
-						{
-							vote += votes[j];
+							listProperty.Add(plot.Trim());
 						}
-						listProperty.Add(vote);
-					}
-					else
-					{
-						continue;
+						else if (tokkens[0].Contains("Country"))
+						{
+							string[] countrys = tokkens[1].Split(',');
+							listProperty.Add(countrys[0].Trim());
+						}
+						else if (tokkens[0].Contains("Poster"))
+						{
+							listProperty.Add(tokkens[1]);
+						}
+						else if (tokkens[0].Contains("imdbRating"))
+						{
+							listProperty.Add(tokkens[1]);
+						}
+						else if (tokkens[0].Contains("imdbVotes"))
+						{
+							string vote = "";
+							string[] votes = tokkens[1].Split(',');
+							for (int j = 0; j < votes.Length; j++)
+							{
+								vote += votes[j];
+							}
+							listProperty.Add(vote);
+						}
+						else
+						{
+							continue;
+						}
 					}
 				}
-			}
-			return listProperty;
+				return listProperty;
 			}
 			catch (Exception e)
 			{

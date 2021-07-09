@@ -26,6 +26,7 @@ namespace Project_Netflix.View
         {
             InitializeComponent();
             vm = new OriginalsViewModel();
+            DataContext = vm;
         }
     }
 }

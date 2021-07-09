@@ -75,10 +75,10 @@ namespace Project_Netflix.viewmodel.Admin.Account
 			CmdUpdateAdmin = new CmdUpdateAdmin(this);
 			CmdDeleteAdmin = new CmdDeleteAdmin(this);
 			CmdShowHistoryPay = new CmdShowHistoryPay(this);
-			
+
 			loadDBUser();
 			loadDBAdmin();
-			
+
 		}
 		void loadDBUser()
 		{
@@ -158,7 +158,7 @@ namespace Project_Netflix.viewmodel.Admin.Account
 						Console.WriteLine(e.Message);
 						MessageBox.Show("Sua that bai.");
 					}
-			}
+				}
 				else
 				{
 					MessageBox.Show("Email đã tồn tại.");
@@ -181,7 +181,8 @@ namespace Project_Netflix.viewmodel.Admin.Account
 						user.DATEOFBIRTH = Birth;
 						db.SaveChanges();
 						MessageBox.Show("Sua thanh cong");
-					}catch(Exception e)
+					}
+					catch (Exception e)
 					{
 						Console.WriteLine(e.Message);
 						MessageBox.Show("Sua that bai.");
@@ -214,7 +215,8 @@ namespace Project_Netflix.viewmodel.Admin.Account
 						db.SaveChanges();
 						MessageBox.Show("Xóa tài khoản thành công");
 						loadDBUser();
-					}catch(Exception e)
+					}
+					catch (Exception e)
 					{
 						Console.WriteLine(e.Message);
 						MessageBox.Show("Khong the xoa tai khoan");
@@ -251,7 +253,7 @@ namespace Project_Netflix.viewmodel.Admin.Account
 						MessageBox.Show("Dang ky thanh cong");
 						loadDBAdmin();
 					}
-					catch(Exception e)
+					catch (Exception e)
 					{
 						Console.WriteLine(e.Message);
 						MessageBox.Show("Khong the them admin.");
@@ -276,7 +278,8 @@ namespace Project_Netflix.viewmodel.Admin.Account
 						user.NAME = NameAdmin.Trim();
 						db.SaveChanges();
 						MessageBox.Show("Sua thanh cong");
-					}catch(Exception e)
+					}
+					catch (Exception e)
 					{
 						Console.WriteLine(e.Message);
 						MessageBox.Show("Khong the sua.");
@@ -304,7 +307,8 @@ namespace Project_Netflix.viewmodel.Admin.Account
 						db.SaveChanges();
 						MessageBox.Show("Xóa tài khoản thành công");
 						loadDBAdmin();
-					}catch(Exception e)
+					}
+					catch (Exception e)
 					{
 						Console.WriteLine(e.Message);
 						MessageBox.Show("Khong the xoa.");

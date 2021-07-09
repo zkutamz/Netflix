@@ -32,4 +32,3 @@ namespace Project_Netflix.Command.Admin.Movie
 		}
 	}
 }
-
