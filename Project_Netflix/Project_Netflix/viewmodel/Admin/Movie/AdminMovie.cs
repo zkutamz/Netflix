@@ -21,7 +21,7 @@ namespace Project_Netflix.viewmodel
 		public MOVIE SelectedMovie { 
 			get => _SelectedMovie; 
 			set { _SelectedMovie = value; OnPropertyChanged(); 
-				if (SelectedMovie != null) { Name = SelectedMovie.NAME; Poster = SelectedMovie.POSTER; Movie = SelectedMovie.MOVIE_NAME; Trailer = SelectedMovie.TRAILER_NAME; Description = SelectedMovie.MOVIE_INFORMATION.DESCRIPTION; Country = SelectedMovie.MOVIE_INFORMATION.COUNTRY.Trim() ; Category = SelectedMovie.CATEGORY; Type = SelectedMovie.MOVIE_TYPE; Year = (int)SelectedMovie.MOVIE_INFORMATION.DISTRIBUTE_YEAR; Rate = (double)SelectedMovie.MOVIE_INFORMATION.RATE; View = SelectedMovie.VIEWS; } } }
+				if (SelectedMovie != null) { Name = SelectedMovie.NAME; Poster = SelectedMovie.POSTER; Movie = SelectedMovie.MOVIE_NAME; Trailer = SelectedMovie.TRAILER_NAME; Description = SelectedMovie.MOVIE_INFORMATION.DESCRIPTION; Country = SelectedMovie.MOVIE_INFORMATION.COUNTRY.Trim() ; Category = SelectedMovie.CATEGORY; Type = SelectedMovie.MOVIE_TYPE; Year = (int)SelectedMovie.MOVIE_INFORMATION.DISTRIBUTE_YEAR; Rate = (double)SelectedMovie.MOVIE_INFORMATION.RATE; View = (SelectedMovie.VIEWS!=null)?(int)SelectedMovie.VIEWS:0; } } }
 		private ObservableCollection<int> _DSYear;
 		public ObservableCollection<int> DSYear { get => _DSYear; set { _DSYear = value; OnPropertyChanged(); } }
 		private ObservableCollection<string> _DSCountry;
@@ -34,6 +34,7 @@ namespace Project_Netflix.viewmodel
 		public ICommand CmdDeleteMovie { get; set; }
 		public ICommand CmdGetAPIUpdate { get; set; }
 		public ICommand CmdShowInformationMovie { get; set; }
+		public ICommand CmdLoadMovie { get; set; }
 		private string _Name;
 		public string Name { get => _Name; set { _Name = value; OnPropertyChanged(); } }
 		private string _Poster;
@@ -54,15 +55,15 @@ namespace Project_Netflix.viewmodel
 		public double Rate { get => _Rate; set { _Rate = value; OnPropertyChanged(); } }
 		private int _Year;
 		public int Year { get => _Year; set { _Year = value; OnPropertyChanged(); } }
-		private long _View;
-		public long View { get => _View; set { _View = value; OnPropertyChanged(); } }
+		private int _View;
+		public int View { get => _View; set { _View = value; OnPropertyChanged(); } }
 		public AdminMovie()
 		{
 			CmdUpdateMovie = new CmdUpdateMovie(this);
 			CmdDeleteMovie = new CmdDeleteMovie(this);
-			CmdShowInformationMovie = new CmdInformationMovie(this);
+			//CmdShowInformationMovie = new CmdInformationMovie(this);
 			CmdGetAPIUpdate = new CmdGetAPIUpdate(this);
-
+			CmdLoadMovie = new CmdLoadMovie(this);
 			loadMovie();
 			string[] Countries = null;
 			using (var sr = new StreamReader(@"..\..\viewmodel\Admin\Movie\Country.txt"))
@@ -99,11 +100,12 @@ namespace Project_Netflix.viewmodel
 				using (var db = new NETFLIX_DBEntities())
 				{
 					var movie = db.MOVIEs.Where(x => x.ID == SelectedMovie.ID).Single();
-					movie.NAME = SelectedMovie.NAME.Trim();
+					movie.NAME = Name.Trim();
 					movie.MOVIE_INFORMATION.DESCRIPTION = Description.Trim();
 					movie.MOVIE_INFORMATION.COUNTRY = Country.Trim();
 					movie.MOVIE_INFORMATION.DISTRIBUTE_YEAR = Year;
 					movie.MOVIE_INFORMATION.RATE = Rate;
+					movie.VIEWS = View;
 					movie.CATEGORY_ID = Category.ID;
 					movie.TYPE_ID = Type.ID;
 					if (movie.MOVIE_NAME != Movie)
@@ -128,39 +130,26 @@ namespace Project_Netflix.viewmodel
 
 					if (isChangePoster)
 					{
-						try
+						if (System.IO.File.Exists(Poster))
 						{
 							System.IO.File.Delete(path + "\\Movie\\Poster\\" + posterOld);
 							System.IO.File.Copy(Poster, path + "\\Movie\\Poster\\" + movie.POSTER, true);
 						}
-						catch (System.IO.IOException e)
-						{
-							Console.WriteLine(e.Message);
-						}
 					}
 					if (isChangeMovie)
 					{
-						try
+						if (System.IO.File.Exists(Poster))
 						{
-
 							System.IO.File.Delete(path + "\\Movie\\" + movieOld);
 							System.IO.File.Copy(Movie, path + "\\Movie\\" + movie.MOVIE_NAME, true);
-						}
-						catch (System.IO.IOException e)
-						{
-							Console.WriteLine(e.Message);
 						}
 					}
 					if (isChangeTrailer)
 					{
-						try
+						if (System.IO.File.Exists(Poster))
 						{
 							System.IO.File.Delete(path + "\\Movie\\" + trailerOld);
 							System.IO.File.Copy(Trailer, path + "\\Movie\\" + movie.TRAILER_NAME, true);
-						}
-						catch (System.IO.IOException e)
-						{
-							Console.WriteLine(e.Message);
 						}
 					}
 				}
@@ -169,6 +158,7 @@ namespace Project_Netflix.viewmodel
 			}
 			catch (Exception e)
 			{
+				Console.WriteLine(e.Message);
 				MessageBox.Show("Sua that bai");
 			}
 		}
@@ -181,55 +171,40 @@ namespace Project_Netflix.viewmodel
 				path += "\\" + exePaths[i];
 			using(var db = new NETFLIX_DBEntities())
 			{
-				var movie = db.MOVIEs.Where(x => x.ID == SelectedMovie.ID).Single();
-				var movie_information = db.MOVIE_INFORMATION.Where(x => x.ID == movie.INFORMATION).Single();
-				db.MOVIE_INFORMATION.Remove(movie_information);
-				db.MOVIEs.Remove(movie);
-				db.SaveChanges();
-				MessageBox.Show("Xoa movie thanh cong");
-				loadMovie();
-				if (System.IO.File.Exists(path + "\\Movie\\Poster\\" + movie.POSTER))
+				try
 				{
-					try
-					{
-						System.IO.File.Delete(path + "\\Movie\\Poster\\" + movie.POSTER);
+					var movie = db.MOVIEs.Where(x => x.ID == SelectedMovie.ID).Single();
+					if (db.FAVOURITE_MOVIES.Where(x => x.MOVIE_ID == movie.ID).Count() > 0) {
+						MessageBox.Show("Movie dang duoc user yeu thich khong the xoa");
 					}
-					catch (System.IO.IOException e)
+					else
 					{
-						Console.WriteLine(e.Message);
-						return;
+						string posterOld = movie.POSTER;
+						string trailerOld = movie.TRAILER_NAME;
+						string movieOld = movie.MOVIE_NAME;
+						var movie_information = db.MOVIE_INFORMATION.Where(x => x.ID == movie.INFORMATION).Single();
+						db.MOVIEs.Remove(movie);
+						db.MOVIE_INFORMATION.Remove(movie_information);
+						db.SaveChanges();
+						MessageBox.Show("Xoa movie thanh cong");
+						loadMovie();
+						if (System.IO.File.Exists(path + "\\Movie\\Poster\\" + posterOld))
+						{
+							System.IO.File.Delete(path + "\\Movie\\Poster\\" + posterOld);
+						}
+						if (System.IO.File.Exists(path + "\\Movie\\" + trailerOld))
+						{
+							System.IO.File.Delete(path + "\\Movie\\" + trailerOld);
+						}
+						if (System.IO.File.Exists(path + "\\Movie\\" + movieOld))
+						{
+							System.IO.File.Delete(path + "\\Movie\\" + movieOld);
+						}
 					}
-				}
-
-				if (System.IO.File.Exists(path + "\\Movie\\" + movie.TRAILER_NAME))
+				}catch(Exception e)
 				{
-					// Use a try block to catch IOExceptions, to
-					// handle the case of the file already being
-					// opened by another process.
-					try
-					{
-						System.IO.File.Delete(path + "\\Movie\\" + movie.TRAILER_NAME);
-					}
-					catch (System.IO.IOException e)
-					{
-						Console.WriteLine(e.Message);
-						return;
-					}
-				}
-				if (System.IO.File.Exists(path + "\\Movie\\" + movie.MOVIE_NAME))
-				{
-					// Use a try block to catch IOExceptions, to
-					// handle the case of the file already being
-					// opened by another process.
-					try
-					{
-						System.IO.File.Delete(path + "\\Movie\\" + movie.MOVIE_NAME);
-					}
-					catch (System.IO.IOException e)
-					{
-						Console.WriteLine(e.Message);
-						return;
-					}
+					Console.WriteLine(e.Message);
+					MessageBox.Show("Khong the xoa movie");
 				}
 			}
 		}
@@ -253,33 +228,43 @@ namespace Project_Netflix.viewmodel
 		}
 		public string getAPIByName(string Name)
 		{
-			if (Name.Length > 0)
+			try
 			{
-				Name = StringChangeURLEncode(Name);
-				string path = "https://movie-database-imdb-alternative.p.rapidapi.com/?s=" + Name + "&page=1&r=json";
-				var client = new RestClient(path);
-				var request = new RestRequest(Method.GET);
-				request.AddHeader("x-rapidapi-key", "d788b074d0msh06f1c060333e3cbp1eb3e9jsncdf4c50c28fe");
-				request.AddHeader("x-rapidapi-host", "movie-database-imdb-alternative.p.rapidapi.com");
-				IRestResponse response = client.Execute(request);
-
-				string[] lst = response.Content.Substring(1, response.Content.Length - 2).Split(',');
-				foreach (var item in lst)
+				if (Name.Length > 0)
 				{
-					if (item.Contains("imdbID"))
+					Name = StringChangeURLEncode(Name);
+					string path = "https://movie-database-imdb-alternative.p.rapidapi.com/?s=" + Name + "&page=1&r=json";
+					var client = new RestClient(path);
+					var request = new RestRequest(Method.GET);
+					request.AddHeader("x-rapidapi-key", "d788b074d0msh06f1c060333e3cbp1eb3e9jsncdf4c50c28fe");
+					request.AddHeader("x-rapidapi-host", "movie-database-imdb-alternative.p.rapidapi.com");
+					IRestResponse response = client.Execute(request);
+
+					string[] lst = response.Content.Substring(1, response.Content.Length - 2).Split(',');
+					foreach (var item in lst)
 					{
-						string[] tokkens = item.Split(':');
-						return tokkens[1].Substring(1, tokkens[1].Length - 2);
+						if (item.Contains("imdbID"))
+						{
+							string[] tokkens = item.Split(':');
+							return tokkens[1].Substring(1, tokkens[1].Length - 2);
+						}
 					}
+					MessageBox.Show("Khong tim thay phim");
+					return "";
 				}
-				MessageBox.Show("Khong tim thay phim");
+				MessageBox.Show("Hay nhap ten phim");
 				return "";
 			}
-			MessageBox.Show("Hay nhap ten phim");
-			return "";
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+				MessageBox.Show("Connection Fail.");
+				return null;
+			}
 		}
 		public List<string> getAPIByID(string ID)
 		{
+			try { 
 			List<string> listProperty = new List<string>();
 			if (ID.Length > 0)
 			{
@@ -353,21 +338,41 @@ namespace Project_Netflix.viewmodel
 				}
 			}
 			return listProperty;
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+				MessageBox.Show("Connection Fail.");
+				return null;
+			}
 		}
-
 		public void GetAPI()
 		{
-			List<string> listProperties = new List<string>();
+			try
+			{
+				List<string> listProperties = new List<string>();
 
-			listProperties = getAPIByID(getAPIByName(Name));
-			//0:title, 1:year, 2:time, 3:desc, 4:country, 5:poster, 6:rate, 7: view,
+				listProperties = getAPIByID(getAPIByName(Name));
+				//0:title, 1:year, 2:time, 3:desc, 4:country, 5:poster, 6:rate, 7: view,
 
-			Name = listProperties[0];
-			Year = DateTime.Parse(listProperties[1]).Year;
-			Description = (listProperties[3].Length <= 200) ? listProperties[3] : listProperties[3].Substring(0, 197) + "...";
-			Country = listProperties[4];
-			Rate = double.Parse(listProperties[6]);
-			View = Int64.Parse(listProperties[7]);
+				Name = listProperties[0];
+				Year = DateTime.Parse(listProperties[1]).Year;
+				Description = (listProperties[3].Length <= 200) ? listProperties[3] : listProperties[3].Substring(0, 197) + "...";
+				Country = listProperties[4];
+				Rate = double.Parse(listProperties[6]);
+				View = int.Parse(listProperties[7]);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+				MessageBox.Show("Connection Fail.");
+			}
+		}
+		public bool checkUpdate()
+		{
+			if (SelectedMovie != null)
+				return true;
+			return false;
 		}
 	}
 }

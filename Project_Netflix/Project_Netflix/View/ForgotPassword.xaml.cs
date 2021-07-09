@@ -26,6 +26,7 @@ namespace Project_Netflix.View
         public ForgotPassword()
         {
             InitializeComponent();
+            DataContext = vmfp;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -33,8 +34,11 @@ namespace Project_Netflix.View
             {
                 ChangePassword profile = new ChangePassword();
                 this.Close();
-                
                 profile.Show();
+			}
+			else
+			{
+                MessageBox.Show("Email khong ton tai");
             }
         }
 

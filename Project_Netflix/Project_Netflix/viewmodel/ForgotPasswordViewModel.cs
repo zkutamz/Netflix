@@ -66,14 +66,14 @@ namespace Project_Netflix.viewmodel
 			if (EmailForGot.Length == 0)
 				return false;
 			else if (!isEmail)
-			{
+			{ 
 				return false;
 			}
 			else
 			{
 				using(var db = new NETFLIX_DBEntities())
 				{
-					if(db.ACCOUNTs.Where(x=>x.EMAIL == EmailForGot).Count() == 0)
+					if(db.ACCOUNTs.Where(x=>x.EMAIL.Trim() == EmailForGot.Trim()).Count() == 0)
 					{
 						MessageBox.Show("Email khong ton tai");
 						return false;
@@ -81,7 +81,6 @@ namespace Project_Netflix.viewmodel
 					else { return true; }
 				}
 			}
-			
 		}
 		public bool checkePassword()
 		{

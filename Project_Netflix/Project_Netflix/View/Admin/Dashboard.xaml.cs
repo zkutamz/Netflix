@@ -10,21 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Project_Netflix.viewmodel.Admin.Account;
 
-namespace Project_Netflix.View.Admin.Account
+namespace Project_Netflix.View.Admin
 {
 	/// <summary>
-	/// Interaction logic for Admin_Account.xaml
+	/// Interaction logic for Dashboard.xaml
 	/// </summary>
-	public partial class Admin_Account : UserControl
+	public partial class Dashboard : UserControl
 	{
-		AdminAccount vmadmin = new AdminAccount();
-		public Admin_Account()
+		public Dashboard()
 		{
 			InitializeComponent();
-			DataContext = vmadmin;
 		}
 	}
 }

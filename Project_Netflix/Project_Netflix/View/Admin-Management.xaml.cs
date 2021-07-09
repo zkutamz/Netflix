@@ -33,29 +33,6 @@ namespace Project_Netflix.View
            
             this.DataContext = vm;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Admin_Account account = new Admin_Account();
-            account.Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Admin_Movie movie = new Admin_Movie();
-            movie.Show();
-        }
-
-		private void Button_Click_2(object sender, RoutedEventArgs e)
-		{
-            AdminCategory category = new AdminCategory();
-            category.Show();
-		}
-
-		private void Button_Click_3(object sender, RoutedEventArgs e)
-		{
-            AdminReport adminReport = new AdminReport();
-            adminReport.ShowDialog();
-		}
 	}
 }
    

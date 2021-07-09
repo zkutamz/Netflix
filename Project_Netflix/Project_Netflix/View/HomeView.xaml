@@ -14,7 +14,7 @@
             TextOptions.TextRenderingMode="Auto"
             Background="{DynamicResource MaterialDesignPaper}"
             FontFamily="{DynamicResource MaterialDesignFont}"
-            d:DesignHeight="630" d:DesignWidth="1330">
+             d:DesignHeight="630" d:DesignWidth="1330">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type m:Movie}">
             <Grid Margin="2" Width="240" Height="135" MouseLeave="Grid_MouseLeave" MouseEnter="Grid_MouseEnter">
@@ -29,14 +29,7 @@
                             </Border>
                         </Grid>
                         <Grid x:Name="lTrailer" Opacity="0">
-                            <MediaElement Name="video" Source="{Binding TRAILER_NAME}" LoadedBehavior="Manual" UnloadedBehavior="Manual"/>
-                            <Button Style="{StaticResource MaterialDesignIconButton}" ToolTip="MaterialDesignIconButton" 
-                                    HorizontalAlignment="Right" VerticalAlignment="Center" Opacity="0.5"  x:Name="btnWatch" Click="btnWatch_Click">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding ID}" x:Name="txtID" Visibility="Hidden"/>
-                                    <materialDesign:PackIcon Kind="Play"/>
-                                </StackPanel>
-                            </Button>
+                            <MediaElement Name="video" Source="{Binding t}" LoadedBehavior="Manual"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -81,7 +74,7 @@
             </Grid>
         </DataTemplate>
     </UserControl.Resources>
-    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
+    <ScrollViewer Grid.Row="1" HorizontalAlignment="Left" Width="1324">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>

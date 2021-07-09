@@ -40,13 +40,5 @@ namespace Project_Netflix.View
             var me = video.FindName("video") as MediaElement;
             me?.Stop();
         }
-
-        private void btnWatch_Click(object sender, RoutedEventArgs e)
-        {
-            var movie = sender as Button;
-            var id = movie.FindName("txtID") as TextBlock;
-            WatchMovieView watch = new WatchMovieView(int.Parse(id.Text));
-            watch.ShowDialog();
-        }
     }
 }

@@ -1,33 +1,35 @@
-﻿using Project_Netflix.viewmodel;
+﻿using Project_Netflix.viewmodel.Admin.Category;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
-namespace Project_Netflix.Command.Admin.Movie
+namespace Project_Netflix.Command.Admin.Category
 {
-	class CmdDeleteMovie : ICommand
+	public class CmdGetAPI : ICommand
 	{
 		public event EventHandler CanExecuteChanged
 		{
 			add { CommandManager.RequerySuggested += value; }
 			remove { CommandManager.RequerySuggested -= value; }
 		}
-		AdminMovie vm;
+		AdminCategoryViewModel vm;
 		public bool CanExecute(object parameter)
 		{
-			return vm.checkUpdate();
+			//if (vm.Name.Length > 0)
+			return true;
+			//return false;
 		}
 		public void Execute(object parameter)
 		{
-			vm.DeleteMovie();
+			vm.GetAPI();
 		}
-		public CmdDeleteMovie(AdminMovie vm)
+		public CmdGetAPI(AdminCategoryViewModel vm)
 		{
 			this.vm = vm;
 		}
 	}
 }
+

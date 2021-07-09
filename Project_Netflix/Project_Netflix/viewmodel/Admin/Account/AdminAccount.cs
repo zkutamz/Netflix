@@ -75,11 +75,10 @@ namespace Project_Netflix.viewmodel.Admin.Account
 			CmdUpdateAdmin = new CmdUpdateAdmin(this);
 			CmdDeleteAdmin = new CmdDeleteAdmin(this);
 			CmdShowHistoryPay = new CmdShowHistoryPay(this);
-			using (var db = new NETFLIX_DBEntities())
-			{
-				loadDBUser();
-				loadDBAdmin();
-			}
+			
+			loadDBUser();
+			loadDBAdmin();
+			
 		}
 		void loadDBUser()
 		{
@@ -132,26 +131,34 @@ namespace Project_Netflix.viewmodel.Admin.Account
 			{
 				if (db.ACCOUNTs.Where(x => x.EMAIL.Trim() == Email.Trim()).Count() == 0)
 				{
-					var user = new USER_INFORMATION()
+					try
 					{
-						NAME = Name.Trim(),
-						PHONE = Phone.Trim(),
-						ADDRESS = Address.Trim(),
-						DATEOFBIRTH = Birth,
-					};
-					db.USER_INFORMATION.Add(user);
-					var account = new ACCOUNT()
+						var user = new USER_INFORMATION()
+						{
+							NAME = Name.Trim(),
+							PHONE = Phone.Trim(),
+							ADDRESS = "",
+							DATEOFBIRTH = Birth,
+						};
+						db.USER_INFORMATION.Add(user);
+						var account = new ACCOUNT()
+						{
+							EMAIL = Email.Trim(),
+							PASSWORD = HashPassword("123456"),
+							TYPE = 1,
+							INFORMATION = user.ID,
+						};
+						db.ACCOUNTs.Add(account);
+						db.SaveChanges();
+						MessageBox.Show("Dang ky thanh cong");
+						loadDBUser();
+					}
+					catch (Exception e)
 					{
-						EMAIL = Email.Trim(),
-						PASSWORD = HashPassword("123456"),
-						TYPE = 1,
-						INFORMATION = user.ID,
-					};
-					db.ACCOUNTs.Add(account);
-					db.SaveChanges();
-					MessageBox.Show("Dang ky thanh cong");
-					loadDBUser();
-				}
+						Console.WriteLine(e.Message);
+						MessageBox.Show("Sua that bai.");
+					}
+			}
 				else
 				{
 					MessageBox.Show("Email đã tồn tại.");
@@ -164,14 +171,21 @@ namespace Project_Netflix.viewmodel.Admin.Account
 			{
 				if (db.ACCOUNTs.Where(x => x.EMAIL == Email).Count() == 1)
 				{
-					var id = db.ACCOUNTs.Where(x => x.EMAIL.Trim() == SelectedAccount.EMAIL.Trim()).Single().INFORMATION;
-					var user = db.USER_INFORMATION.Where(x => x.ID == id).Single();
-					user.NAME = Name.Trim();
-					user.PHONE = Phone.Trim();
-					user.ADDRESS = Address.Trim();
-					user.DATEOFBIRTH = Birth;
-					db.SaveChanges();
-					MessageBox.Show("Sua thanh cong");
+					try
+					{
+						var id = db.ACCOUNTs.Where(x => x.EMAIL.Trim() == SelectedAccount.EMAIL.Trim()).Single().INFORMATION;
+						var user = db.USER_INFORMATION.Where(x => x.ID == id).Single();
+						user.NAME = Name.Trim();
+						user.PHONE = Phone.Trim();
+						user.ADDRESS = Address.Trim();
+						user.DATEOFBIRTH = Birth;
+						db.SaveChanges();
+						MessageBox.Show("Sua thanh cong");
+					}catch(Exception e)
+					{
+						Console.WriteLine(e.Message);
+						MessageBox.Show("Sua that bai.");
+					}
 				}
 				else
 				{
@@ -187,13 +201,24 @@ namespace Project_Netflix.viewmodel.Admin.Account
 			{
 				if (db.ACCOUNTs.Where(x => x.EMAIL == Email).Count() == 1)
 				{
-					var account = new ACCOUNT() { ID = db.ACCOUNTs.Where(x => x.EMAIL == Email).Single().ID };
-					var user = new USER_INFORMATION() { ID = (int)db.ACCOUNTs.Where(x => x.EMAIL == Email).Single().INFORMATION };
-					db.USER_INFORMATION.Remove(user);
-					db.ACCOUNTs.Remove(account);
-					db.SaveChanges();
-					MessageBox.Show("Xóa tài khoản thành công");
-					loadDBUser();
+					try
+					{
+						var account = db.ACCOUNTs.Where(x => x.EMAIL == Email).Single();
+						var user = db.USER_INFORMATION.Where(x => x.ID == account.INFORMATION).Single();
+						var puc = db.PURCHASEs.Where(x => x.USER_ID == account.ID).ToList();
+						var fam = db.FAVOURITE_MOVIES.Where(x => x.USER_ID == account.ID).ToList();
+						db.USER_INFORMATION.Remove(user);
+						db.ACCOUNTs.Remove(account);
+						db.PURCHASEs.RemoveRange(puc);
+						db.FAVOURITE_MOVIES.RemoveRange(fam);
+						db.SaveChanges();
+						MessageBox.Show("Xóa tài khoản thành công");
+						loadDBUser();
+					}catch(Exception e)
+					{
+						Console.WriteLine(e.Message);
+						MessageBox.Show("Khong the xoa tai khoan");
+					}
 				}
 				else
 				{
@@ -207,22 +232,30 @@ namespace Project_Netflix.viewmodel.Admin.Account
 			{
 				if (db.ACCOUNTs.Where(x => x.EMAIL.Trim() == Email.Trim()).Count() == 0)
 				{
-					var user = new USER_INFORMATION()
+					try
 					{
-						NAME = NameAdmin.Trim(),
-					};
-					db.USER_INFORMATION.Add(user);
-					var account = new ACCOUNT()
+						var user = new USER_INFORMATION()
+						{
+							NAME = NameAdmin.Trim(),
+						};
+						db.USER_INFORMATION.Add(user);
+						var account = new ACCOUNT()
+						{
+							EMAIL = Email.Trim(),
+							PASSWORD = HashPassword("123456"),
+							TYPE = 2,
+							INFORMATION = user.ID,
+						};
+						db.ACCOUNTs.Add(account);
+						db.SaveChanges();
+						MessageBox.Show("Dang ky thanh cong");
+						loadDBAdmin();
+					}
+					catch(Exception e)
 					{
-						EMAIL = Email.Trim(),
-						PASSWORD = HashPassword("123456"),
-						TYPE = 2,
-						INFORMATION = user.ID,
-					};
-					db.ACCOUNTs.Add(account);
-					db.SaveChanges();
-					MessageBox.Show("Dang ky thanh cong");
-					loadDBAdmin();
+						Console.WriteLine(e.Message);
+						MessageBox.Show("Khong the them admin.");
+					}
 				}
 				else
 				{
@@ -236,11 +269,18 @@ namespace Project_Netflix.viewmodel.Admin.Account
 			{
 				if (db.ACCOUNTs.Where(x => x.EMAIL == Email).Count() == 1)
 				{
-					var id = db.ACCOUNTs.Where(x => x.EMAIL.Trim() == SelectedAccount.EMAIL.Trim()).Single().INFORMATION;
-					var user = db.USER_INFORMATION.Where(x => x.ID == id).Single();
-					user.NAME = NameAdmin.Trim();
-					db.SaveChanges();
-					MessageBox.Show("Sua thanh cong");
+					try
+					{
+						var id = db.ACCOUNTs.Where(x => x.EMAIL.Trim() == SelectedAccount.EMAIL.Trim()).Single().INFORMATION;
+						var user = db.USER_INFORMATION.Where(x => x.ID == id).Single();
+						user.NAME = NameAdmin.Trim();
+						db.SaveChanges();
+						MessageBox.Show("Sua thanh cong");
+					}catch(Exception e)
+					{
+						Console.WriteLine(e.Message);
+						MessageBox.Show("Khong the sua.");
+					}
 				}
 				else
 				{
@@ -255,13 +295,20 @@ namespace Project_Netflix.viewmodel.Admin.Account
 			{
 				if (db.ACCOUNTs.Where(x => x.EMAIL == Email).Count() == 1)
 				{
-					var account = new ACCOUNT() { ID = db.ACCOUNTs.Where(x => x.EMAIL == Email).Single().ID };
-					var user = new USER_INFORMATION() { ID = (int)db.ACCOUNTs.Where(x => x.EMAIL == Email).Single().INFORMATION };
-					db.USER_INFORMATION.Remove(user);
-					db.ACCOUNTs.Remove(account);
-					db.SaveChanges();
-					MessageBox.Show("Xóa tài khoản thành công");
-					loadDBAdmin();
+					try
+					{
+						var account = new ACCOUNT() { ID = db.ACCOUNTs.Where(x => x.EMAIL == Email).Single().ID };
+						var user = new USER_INFORMATION() { ID = (int)db.ACCOUNTs.Where(x => x.EMAIL == Email).Single().INFORMATION };
+						db.USER_INFORMATION.Remove(user);
+						db.ACCOUNTs.Remove(account);
+						db.SaveChanges();
+						MessageBox.Show("Xóa tài khoản thành công");
+						loadDBAdmin();
+					}catch(Exception e)
+					{
+						Console.WriteLine(e.Message);
+						MessageBox.Show("Khong the xoa.");
+					}
 				}
 				else
 				{

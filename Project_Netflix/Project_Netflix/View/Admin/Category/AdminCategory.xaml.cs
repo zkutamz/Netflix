@@ -20,7 +20,7 @@ namespace Project_Netflix.View.Admin.Category
 	/// <summary>
 	/// Interaction logic for AdminCategory.xaml
 	/// </summary>
-	public partial class AdminCategory : Window
+	public partial class AdminCategory : UserControl
 	{
 		public static AdminCategoryViewModel vm = new AdminCategoryViewModel();
 		public AdminCategory()

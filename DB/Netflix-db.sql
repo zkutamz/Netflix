@@ -18,18 +18,6 @@ create table ACCOUNT_TYPE
 	constraint PK_ACCTYPE primary key (ID)
 )
 
-create table CELEBRITIES
-(
-	ID int identity(1, 1),
-	NAME nvarchar(50) NOT NULL,
-	DATEOFBIRTH date,
-	--TYPE == 1 ==> ACTOR
-	--TYPE == 2 ==> DIRECTOR
-	TYPE int NOT NULL,
-
-	constraint PK_CELEBRITIES primary key (ID)
-)
-
 create table MOVIE_TYPE
 (
 	ID int identity(1, 1),
@@ -57,8 +45,7 @@ create table MOVIE
 	TYPE_ID int not null,
 	CATEGORY_ID int not null,
 	ACTIVE int NOT NULL,
-	VIEWS int NOT NULL,
-
+	VIEWS int DEFAULT 0,
 	constraint PK_MOVIE primary key (ID)
 )
 
@@ -78,7 +65,7 @@ create table USER_INFORMATION
 (
 	ID int identity(1, 1),
 	NAME nvarchar(50) NOT NULL,
-	PHONE nchar(20) UNIQUE,
+	PHONE nchar(20) NOT NULL,
 	ADDRESS nvarchar(50) NULL,
 	DATEOFBIRTH date NULL,
 	GENDER nvarchar(10) NULL,
@@ -100,14 +87,6 @@ create table ACCOUNT
 	constraint PK_ACCOUNT primary key (ID)
 )
 
-create table CREDITS
-(
-	MOVIE_ID int NOT NULL,
-	PERSON_ID int NOT NULL,
-	ROLE nvarchar(50) NOT NULL,
-
-	constraint PK_CREDITS primary key (MOVIE_ID, PERSON_ID)
-)
 
 create table FAVOURITE_MOVIES
 (
@@ -167,11 +146,7 @@ add constraint FK_MOVIE_CATEGORY foreign key (CATEGORY_ID) references CATEGORY (
 alter table MOVIE
 add constraint FK_MOVIE_TYPE foreign key (TYPE_ID) references MOVIE_TYPE (ID)
 
-alter table CREDITS
-add constraint FK_CRE_MOVIE foreign key (MOVIE_ID) references MOVIE(ID)
 
-alter table CREDITS
-add constraint FK_CRE_CELEB foreign key (PERSON_ID) references CELEBRITIES(ID)
 
 insert into ACCOUNT_TYPE
 --		  Name
@@ -223,14 +198,14 @@ values	('On the cusp of the year 2000, Colombian brothers Carly and Mateo prepar
 
 insert into MOVIE
 values	--Name							INFO_ID		POSTER_NAME			TRAILER_NAME							MOVIE_NAME						TYPE_ID		CATEGORY_ID		IS_ACTIVE
-		('Blast Beat',					'0001', '0001_poster.jpg', 'BlastBeat_Trailer.mov',					'BlastBeat_Film.mov',					1,			1,				1,0),
-		('Chasing Wonders',				'0002', '0002_poster.jpg', 'ChasingWonders_Trailer.mov',			'ChasingWonders_Film.mov',				3,			3,				1,0),
-		('Death in Texas',				'0003', '0003_poster.jpg', 'DeathInTexas_Trailer.mov',				'DeathInTexas_Film.mov',				4,			4,				1,0),
-		('Domino Battle of the Bones',	'0004', '0004_poster.jpg', 'DominoBattleOfTheBones_Trailer.mov',	'DominoBattleOfTheBones_Film.mov',		5,			5,				1,0),
-		('Dream Horse',					'0005', '0005_poster.jpg', 'DreamHorse_Trailer.mov',				'DreamHorse_Film.mov',					1,			6,				1,0),
-		('End Game',					'0006', '0006_poster.jpg', 'EndGame_Trailer.mov',					'EndGame_Film.mov',						2,			7,				1,0),
-		('Flash Back',					'0007', '0007_poster.jpg', 'FlashBack_Trailer.mov',					'FlashBack_Film.mov',					3,			1,				1,0),
-		('Free Guy',					'0008', '0008_poster.jpg', 'FreeGuy_Trailer.mov',					'FreeGuy_Film.mov',						4,			2,				1,0),
+		('Blast Beat',					'0001', '0001_poster.jpg', 'BlastBeat_Trailer.mov',					'BlastBeat_Film.mov',					1,			1,				1,		0),
+		('Chasing Wonders',				'0002', '0002_poster.jpg', 'ChasingWonders_Trailer.mov',			'ChasingWonders_Film.mov',				3,			3,				1,		0),
+		('Death in Texas',				'0003', '0003_poster.jpg', 'DeathInTexas_Trailer.mov',				'DeathInTexas_Film.mov',				4,			4,				1,		0),
+		('Domino Battle of the Bones',	'0004', '0004_poster.jpg', 'DominoBattleOfTheBones_Trailer.mov',	'DominoBattleOfTheBones_Film.mov',		5,			5,				1,		0),
+		('Dream Horse',					'0005', '0005_poster.jpg', 'DreamHorse_Trailer.mov',				'DreamHorse_Film.mov',					1,			6,				1,		0),
+		('End Game',					'0006', '0006_poster.jpg', 'EndGame_Trailer.mov',					'EndGame_Film.mov',						2,			7,				1,		0),
+		('Flash Back',					'0007', '0007_poster.jpg', 'FlashBack_Trailer.mov',					'FlashBack_Film.mov',					3,			1,				1,		0),
+		('Free Guy',					'0008', '0008_poster.jpg', 'FreeGuy_Trailer.mov',					'FreeGuy_Film.mov',						4,			2,				1,		0),
 		('Fun House',					'0009', '0009_poster.jpg', 'FunHouse_Trailer.mov',					'FunHouse_Film.mov',					5,			3,				1,0),
 		('Hero Mode',					'0010', '0010_poster.jpg', 'HeroMode_Trailer.mov',					'HeroMode_Film.mov',					1,			4,				1,0),
 		('Hitman Wife BodyGuard',		'0011', '0011_poster.jpg', 'HitmanWifeBodyGuard_Trailer.mov',		'HitmanWifeBodyGuard_Film.mov',			2,			5,				1,0),
@@ -239,60 +214,4 @@ values	--Name							INFO_ID		POSTER_NAME			TRAILER_NAME							MOVIE_NAME						TY
 		('Queen Bees',					'0014', '0014_poster.jpg', 'QueenBees_Trailer.mov',					'QueenBees_Film.mov',					5,			1,				1,0),
 		('Space Jam a New Legacy',		'0015', '0015_poster.jpg', 'SpaceJamANewLegacy_Trailer.mov',		'SpaceJamANewLegacy_Film.mov',			2,			2,				1,0)
 
-insert into CELEBRITIES
---			Name				DateOfBirth		Role
-values	('Chris Evans',			'1981-06-13',	1),
-		('Robert Downey Jr.',	'1965-04-04',	1),
-		('Chris Hemsworth',		'1983-08-11',	1),
-		('Anthony Russo',		'1970-03-03',	2),
-		('Joe Russo',			'1971-07-18',	2),
-		('Shawn Levy',			'1968-07-23',	2)
 
-insert into CREDITS
---		Movie_ID	Celeb_ID	 Role
-values	(1,				1,		'Actor'),
-		(1,				2,		'Actor'),
-		(1,				4,		'Director'),
-		(2,				2,		'Actor'),
-		(2,				3,		'Actor'),
-		(2,				5,		'Director'),
-		(3,				1,		'Actor'),
-		(3,				3,		'Actor'),
-		(3,				6,		'Director'),
-		(4,				1,		'Actor'),
-		(4,				2,		'Actor'),
-		(4,				5,		'Director'),
-		(5,				2,		'Actor'),
-		(5,				3,		'Actor'),
-		(5,				4,		'Director'),
-		(6,				1,		'Actor'),
-		(6,				2,		'Actor'),
-		(6,				3,		'Actor'),
-		(6,				4,		'Director'),
-		(6,				5,		'Director'),
-		(7,				2,		'Actor'),
-		(7,				6,		'Director'),
-		(7,				4,		'Director'),
-		(7,				5,		'Director'),
-		(8,				2,		'Actor'),
-		(8,				6,		'Director'),
-		(9,				1,		'Actor'),
-		(9,				4,		'Director'),
-		(10,			3,		'Actor'),
-		(10,			4,		'Director'),
-		(11,			3,		'Actor'),
-		(11,			6,		'Director'),
-		(12,			5,		'Director'),
-		(12,			1,		'Actor'),
-		(13,			6,		'Director'),
-		(13,			1,		'Actor'),
-		(14,			4,		'Director'),
-		(14,			5,		'Director'),
-		(14,			6,		'Director'),
-		(14,			2,		'Actor'),
-		(15,			4,		'Director'),
-		(15,			5,		'Director'),
-		(15,			6,		'Director'),
-		(15,			1,		'Actor'),
-		(15,			2,		'Actor'),
-		(15,			3,		'Actor')

@@ -14,17 +14,27 @@ namespace Project_Netflix.viewmodel.Admin.Report
 		public object CurrentPage { get => _CurrentPage; set { _CurrentPage = value; OnPropertyChanged(); } }
 		
 		public Project_Netflix.View.Admin.Report.Revenue revenue { get; set; }
+		public Project_Netflix.View.Admin.Report.ViewMovie.ViewMovie viewMovie { get; set; }
 		
 		public ICommand CmdRevenue { get; set; }
+		public ICommand CmdViewMovie { get; set; }
 		public ICommand CmdView { get; set; }
 
 		public AdminReportViewModel()
 		{
+
 			revenue = new View.Admin.Report.Revenue();
+			viewMovie = new View.Admin.Report.ViewMovie.ViewMovie();
+			
 			CurrentPage = null;
 			CmdRevenue = new RelayCommand(o =>
 			{
 				CurrentPage = revenue;
+			});
+			CmdViewMovie = new RelayCommand(o =>
+			{
+
+				CurrentPage = viewMovie;
 			});
 
 

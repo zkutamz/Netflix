@@ -18,7 +18,7 @@ namespace Project_Netflix.View.Admin.Report
 	/// <summary>
 	/// Interaction logic for AdminReport.xaml
 	/// </summary>
-	public partial class AdminReport : Window
+	public partial class AdminReport : UserControl
 	{
 		AdminReportViewModel vm = new AdminReportViewModel();
 		public AdminReport()

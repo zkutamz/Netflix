@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_Netflix.viewmodel.Admin.Report.ViewMovie;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,21 +11,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Project_Netflix.viewmodel.Admin.Account;
 
-namespace Project_Netflix.View.Admin.Account
+namespace Project_Netflix.View.Admin.Report.ViewMovie
 {
 	/// <summary>
-	/// Interaction logic for Admin_Account.xaml
+	/// Interaction logic for ViewMovie.xaml
 	/// </summary>
-	public partial class Admin_Account : UserControl
+	public partial class ViewMovie : UserControl
 	{
-		AdminAccount vmadmin = new AdminAccount();
-		public Admin_Account()
+		
+		public ViewMovie()
 		{
 			InitializeComponent();
-			DataContext = vmadmin;
+			AdminViewModel vm = new AdminViewModel();
+			DataContext = vm;
+			vm.Max = 60000;
 		}
 	}
 }

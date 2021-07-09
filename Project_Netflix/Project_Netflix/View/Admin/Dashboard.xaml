@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="Project_Netflix.View.Admin.Dashboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Project_Netflix.View.Admin"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Height="450" Width="800">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="8.5*" />
+        </Grid.RowDefinitions>
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" Content="DASHBOARD" FontSize="25" FontWeight="Bold"></Label>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+
+                <materialDesign:Card Background="#FFB6DFFF" Width="305" Height="150" Foreground="#DDFFFFFF" HorizontalAlignment="Left" Margin="20,21,0,20.2">
+
+                    <Grid>
+                        <Image  Opacity="0.4" Margin="-30,-8,-81.2,-121.6" Source="/Project_Netflix;component/img/tải xuống.png"/>
+                        <StackPanel Margin="25">
+                            <TextBlock  FontWeight="DemiBold" Text="Hello!!! "  FontSize="25" Foreground="#DDFFFFFF"></TextBlock>
+                            <TextBlock  FontWeight="DemiBold" Text="Have a nice day" Margin="0 5 0 5" FontSize="25" Foreground="#DDFFFFFF"></TextBlock>
+                            <TextBlock  Text="Get Start today!" FontSize="15" Foreground="#DDFFFFFF"></TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                </materialDesign:Card>
+
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="0">
+                <materialDesign:Card Background="#FFF34E4E" Width="150" Height="150" Foreground="#DDFFFFFF" ToolTip="Quan ly user va admin">
+                    <StackPanel VerticalAlignment="Center">
+
+                        <materialDesign:PackIcon HorizontalAlignment="Center"  Kind="AccountMultiple" Grid.Column="0" Width="60" Height="60" Foreground="#DDFFFFFF"/>
+                        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Text="ACCOUNT" FontSize="20" Foreground="#DDFFFFFF"></TextBlock>
+
+                    </StackPanel>
+                </materialDesign:Card>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <materialDesign:Card Background="#FF4A91F1" Width="150" Height="150" ToolTip="Quan ly movie">
+                    <StackPanel VerticalAlignment="Center">
+
+                        <materialDesign:PackIcon HorizontalAlignment="Center"  Kind="MovieRoll" Grid.Column="0" Width="60" Height="60" Foreground="#DDFFFFFF"/>
+                        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Text="MOVIE" FontSize="20" Foreground="#DDFFFFFF"></TextBlock>
+
+                    </StackPanel>
+                </materialDesign:Card>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="2">
+                <materialDesign:Card Background="#FF4AF088" Width="150" Height="150" ToolTip="Quan ly category">
+                    <StackPanel VerticalAlignment="Center">
+
+                        <materialDesign:PackIcon HorizontalAlignment="Center"  Kind="FormatListBulletedSquare" Grid.Column="0" Width="60" Height="60" Foreground="#DDFFFFFF"/>
+                        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Text="CATEGORY" FontSize="20" Foreground="#DDFFFFFF"></TextBlock>
+
+                    </StackPanel>
+                </materialDesign:Card>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="3">
+                <materialDesign:Card Background="#FFE2F34A" Width="150" Height="150">
+                    <StackPanel VerticalAlignment="Center" ToolTip="Thong ke thanh toan va view movie">
+
+                        <materialDesign:PackIcon HorizontalAlignment="Center"  Kind="ChartAreaspline" Grid.Column="0" Width="60" Height="60" Foreground="#DDFFFFFF"/>
+                        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Text="REPORT" FontSize="20" Foreground="#DDFFFFFF"></TextBlock>
+
+                    </StackPanel>
+                </materialDesign:Card>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <materialDesign:Card Background="#FFF34E4E" Width="150" Height="150" Foreground="#DDFFFFFF" ToolTip="Quan ly user va admin">
+                    <StackPanel VerticalAlignment="Center">
+
+                        <materialDesign:PackIcon HorizontalAlignment="Center"  Kind="AccountMultiple" Grid.Column="0" Width="60" Height="60" Foreground="#DDFFFFFF"/>
+                        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Text="ACCOUNT" FontSize="20" Foreground="#DDFFFFFF"></TextBlock>
+
+                    </StackPanel>
+                </materialDesign:Card>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <materialDesign:Card Background="#FF4A91F1" Width="150" Height="150" ToolTip="Quan ly movie">
+                    <StackPanel VerticalAlignment="Center">
+
+                        <materialDesign:PackIcon HorizontalAlignment="Center"  Kind="MovieRoll" Grid.Column="0" Width="60" Height="60" Foreground="#DDFFFFFF"/>
+                        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Text="MOVIE" FontSize="20" Foreground="#DDFFFFFF"></TextBlock>
+
+                    </StackPanel>
+                </materialDesign:Card>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="2">
+                <materialDesign:Card Background="#FF4AF088" Width="150" Height="150" ToolTip="Quan ly category">
+                    <StackPanel VerticalAlignment="Center">
+
+                        <materialDesign:PackIcon HorizontalAlignment="Center"  Kind="FormatListBulletedSquare" Grid.Column="0" Width="60" Height="60" Foreground="#DDFFFFFF"/>
+                        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Text="CATEGORY" FontSize="20" Foreground="#DDFFFFFF"></TextBlock>
+
+                    </StackPanel>
+                </materialDesign:Card>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="3">
+                <materialDesign:Card Background="#FFE2F34A" Width="150" Height="150">
+                    <StackPanel VerticalAlignment="Center" ToolTip="Thong ke thanh toan va view movie">
+
+                        <materialDesign:PackIcon HorizontalAlignment="Center"  Kind="ChartAreaspline" Grid.Column="0" Width="60" Height="60" Foreground="#DDFFFFFF"/>
+                        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Text="REPORT" FontSize="20" Foreground="#DDFFFFFF"></TextBlock>
+
+                    </StackPanel>
+                </materialDesign:Card>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

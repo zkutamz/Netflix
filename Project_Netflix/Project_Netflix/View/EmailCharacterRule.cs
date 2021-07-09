@@ -53,7 +53,6 @@ namespace Project_Netflix.View
 	
 	public class NameCharacterRule : ValidationRule
 	{
-
 		public override ValidationResult Validate(object value, CultureInfo cultureInfo)
 		{
 			string charString = value as string;

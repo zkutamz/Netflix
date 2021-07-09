@@ -1,4 +1,4 @@
-﻿<Window x:Class="Project_Netflix.View.Admin.Category.AdminCategory"
+﻿<UserControl x:Class="Project_Netflix.View.Admin.Category.AdminCategory"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -12,35 +12,38 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-        WindowStartupLocation="CenterScreen"
+        
         mc:Ignorable="d"
-        Title="Admin_Movie" Height="450" Width="800">
+        Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <materialDesign:Card Grid.Row="0" Margin="5">
+        <materialDesign:Card Grid.Row="0" Margin="5 0 5 5">
             <WrapPanel Margin="0 0 0 10">
                 <ComboBox Margin="20 10 0 0" Name="CbCategory" materialDesign:HintAssist.Hint="Category" Width="120" SelectedItem="{Binding SelectedCategory}" ItemsSource="{Binding DSCategory}" DisplayMemberPath="NAME"> </ComboBox>
                 <TextBox  Margin="150 5 15 5" materialDesign:HintAssist.Hint="Selected Category" Text="{Binding Name, Mode=TwoWay}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <Button Command="{Binding CmdAddCategory}" Content="Thêm" Margin="5" Width="100" ></Button>
-                <Button Command="{Binding CmdUpdateCategory}" Content="Sua" Margin="5" Width="100" ></Button>
-                <Button Command="{Binding CmdDeleteCategory}" Content="Xóa" Margin="5" Width="100"></Button>
+                <Button Command="{Binding CmdAddCategory}" Content="Thêm" Margin="5 15 5 5" Width="100" ></Button>
+                <Button Command="{Binding CmdUpdateCategory}" Content="Sua" Margin="5 15 5 5" Width="100" ></Button>
+                <Button Command="{Binding CmdDeleteCategory}" Content="Xóa" Margin="5 15 5 5" Width="100"></Button>
             </WrapPanel>
         </materialDesign:Card>
-        <materialDesign:Card Grid.Row="1" Margin="5">
+        <materialDesign:Card Grid.Row="1" Margin="5 0 5 5">
             <WrapPanel>
                 <Button  Content="Thêm" Margin="5" Width="100" Click="Button_Click" ></Button>
                 <Button Command="{Binding CmdDeleteCategoryMovie}" Content="Xóa" Margin="5" Width="100"></Button>
             </WrapPanel>
         </materialDesign:Card>
+        <materialDesign:Card Grid.Row="2" Margin="5 0 5 0">
         <ListView Grid.Row="2"
-                  ItemsSource="{Binding ElementName=CbCategory, Path=SelectedValue.MOVIEs}"
+                  
+                 ItemsSource="{Binding ElementName=CbCategory, Path=SelectedValue.MOVIEs}"
                   SelectedItem="{Binding SelectedMovie, 
             Mode=OneWayToSource}" >
-            <ListView.View>
+               
+                <ListView.View>
                 <GridView>
                     <GridViewColumn
         DisplayMemberBinding="{Binding NAME}"
@@ -60,24 +63,10 @@
                     <GridViewColumn
         DisplayMemberBinding="{Binding MOVIE_INFORMATION.COUNTRY}"
         Header="Country" />
-                    <GridViewColumn
-        Header="Options">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <ComboBox
-              Width="100">
-                                    <ComboBoxItem
-                Content="Test" />
-                                    <ComboBoxItem
-                Content="Test2" />
-                                    <ComboBoxItem
-                Content="Test3" />
-                                </ComboBox>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                    
                 </GridView>
             </ListView.View>
         </ListView>
+            </materialDesign:Card>
     </Grid>
-</Window>
+</UserControl>

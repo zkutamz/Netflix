@@ -93,7 +93,8 @@ namespace Project_Netflix.viewmodel.Admin.Movie
 
 				using (var db = new NETFLIX_DBEntities())
 				{
-					if (db.MOVIEs.Where(x => x.NAME == Name.Trim()).ToList().Count() == 0) {
+					if (db.MOVIEs.Where(x => x.NAME == Name.Trim()).ToList().Count() == 0 && db.MOVIEs.Where(x => x.POSTER == Poster.Trim()).ToList().Count() == 0) {
+					
 						string trailerName = (Trailer != null) ? Trailer.Split('\\').Last() : "";
 						string movieName = (Movie != null) ? Movie.Split('\\').Last() : "";
 						string postername = (Poster != null) ? Poster.Split('\\').Last() : "";
@@ -131,12 +132,14 @@ namespace Project_Netflix.viewmodel.Admin.Movie
 					}
 					else
 					{
+
 						MessageBox.Show("Phim da ton tai");
 					}
 				}
 			}
 			catch (Exception e)
 			{
+				Console.WriteLine(e.Message);
 				MessageBox.Show("Khong the them Movie");
 			}
 
@@ -154,6 +157,7 @@ namespace Project_Netflix.viewmodel.Admin.Movie
 		}
 		public string getAPIByName(string Name)
 		{
+			try { 
 			if (Name.Length > 0)
 			{
 				Name = StringChangeURLEncode(Name);
@@ -178,9 +182,17 @@ namespace Project_Netflix.viewmodel.Admin.Movie
 			}
 			MessageBox.Show("Hay nhap ten phim");
 			return "";
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+				MessageBox.Show("Connection fail");
+				return null;
+			}
 		}
 		public List<string> getAPIByID(string ID)
 		{
+			try { 
 			List<string> listProperty = new List<string>();
 			if (ID.Length > 0)
 			{
@@ -254,20 +266,39 @@ namespace Project_Netflix.viewmodel.Admin.Movie
 				}
 			}
 			return listProperty;
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+				MessageBox.Show("Connection fail");
+				return null;
+			}
 		}
-
 		public void GetAPI() {
+			
 			List<string> listProperties = new List<string>();
 			
 			listProperties = getAPIByID(getAPIByName(Name));
 			//0:title, 1:year, 2:time, 3:desc, 4:country, 5:poster, 6:rate, 7: view,
+			if (listProperties.Count > 0)
+			{
+				try
+				{
+					Name = listProperties[0];
+					Year = DateTime.Parse(listProperties[1]).Year;
+					Description = (listProperties[3].Length <= 200) ? listProperties[3] : listProperties[3].Substring(0, 197) + "...";
+					Country = listProperties[4];
+					Rate = double.Parse(listProperties[6]);
+					View = Int64.Parse(listProperties[7]);
+				}
+				catch (Exception e)
+				{
 
-			Name = listProperties[0];
-			Year = DateTime.Parse(listProperties[1]).Year;
-			Description = (listProperties[3].Length <= 200) ? listProperties[3] : listProperties[3].Substring(0, 197) + "...";
-			Country = listProperties[4];
-			Rate = double.Parse(listProperties[6]);
-			View = Int64.Parse(listProperties[7]);
+					Console.WriteLine(e.Message);
+
+					MessageBox.Show("Lay phim that bai");
+				}
+			}
 		}
 	}
 }

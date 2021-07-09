@@ -17,16 +17,9 @@ namespace Project_Netflix.model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MOVIE()
         {
-            this.CREDITS = new HashSet<CREDIT>();
             this.FAVOURITE_MOVIES = new HashSet<FAVOURITE_MOVIES>();
         }
-        
-        private string _P;
-        private string _Tr;
-        private string _Mo;
-
-        private string path_movie = @"D:\Netflix\Movie\";
-        private string path_poster = @"D:\Netflix\Movie\Poster\";
+    
         public int ID { get; set; }
         public string NAME { get; set; }
         public int INFORMATION { get; set; }
@@ -36,11 +29,9 @@ namespace Project_Netflix.model
         public int TYPE_ID { get; set; }
         public int CATEGORY_ID { get; set; }
         public int ACTIVE { get; set; }
-        public int VIEWS { get; set; }
+        public Nullable<int> VIEWS { get; set; }
     
         public virtual CATEGORY CATEGORY { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CREDIT> CREDITS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FAVOURITE_MOVIES> FAVOURITE_MOVIES { get; set; }
         public virtual MOVIE_INFORMATION MOVIE_INFORMATION { get; set; }

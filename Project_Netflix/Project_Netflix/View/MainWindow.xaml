@@ -17,7 +17,6 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        WindowState="Maximized"
         Title="MainWindow" Height="700" Width="1330"
         Name="DisplayWindow">
     <Window.DataContext>

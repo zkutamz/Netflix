@@ -18,7 +18,7 @@ namespace Project_Netflix.View.Admin.Movie
 	/// <summary>
 	/// Interaction logic for Admin_Movie.xaml
 	/// </summary>
-	public partial class Admin_Movie : Window
+	public partial class Admin_Movie : UserControl
 	{
 		public static AdminMovie vm = new AdminMovie();
 		public Admin_Movie()

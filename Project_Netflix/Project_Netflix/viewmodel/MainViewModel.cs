@@ -11,12 +11,20 @@ using System.Windows.Input;
 
 namespace Project_Netflix.viewmodel
 {
-    public class MainViewModel : BaseViewModel
-    {        
-        public ICommand HomeViewCommand { get; set; }
-        public ICommand MyListViewCommand { get; set; }
-        public ICommand OriginalsViewCommand { get; set; }
+    class MainViewModel : BaseViewModel
+    {
+        
+        public RelayCommand HomeViewCommand { get; set; }
+        public RelayCommand MyListViewCommand { get; set; }
+        public RelayCommand FilmsViewCommand { get; set; }
+        public RelayCommand OriginalsViewCommand { get; set; }
+        /// <summary>
+        /// /////////////////////////////////////////
+        /// </summary>
         public ACCOUNT User { get; set; }
+        /// <summary>
+        /// //////////////////////////////////////////
+        /// </summary>
         public HomeViewModel HomeVM { get; set; }
         public MyListViewModel MyListVM { get; set; }
 
@@ -43,18 +51,19 @@ namespace Project_Netflix.viewmodel
             User = DangNhapViewModel.User;
             CurrentView = HomeVM;
 
-            HomeViewCommand = new RelayCommand<object>(o=> { return true; },
-            (o) =>
+            HomeViewCommand = new RelayCommand(o=>
             {
                 CurrentView = HomeVM;
             });
-            MyListViewCommand = new RelayCommand<object>(o => { return true; },
-            (o) =>
+            MyListViewCommand = new RelayCommand(o =>
             {
                 CurrentView = MyListVM;
-            });            
-            OriginalsViewCommand = new RelayCommand<object>(o => { return true; },
-            (o) =>
+            });
+            FilmsViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = FilmsVM;
+            });
+            OriginalsViewCommand = new RelayCommand(o =>
             {
                 CurrentView = OriginalsVM;
             });

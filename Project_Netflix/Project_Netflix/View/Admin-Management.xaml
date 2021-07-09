@@ -5,48 +5,165 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Netflix.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
+        Background="Transparent"
         WindowStartupLocation="CenterScreen"
-        Background="{DynamicResource MaterialDesignPaper}"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Title="Admin_Management" MinHeight="450" Height="450" MinWidth="800" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="7*" />
-        </Grid.RowDefinitions>
-        <TextBlock FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Run Text="ADMIN AREA" />
-        </TextBlock>
-        <ToolBarTray Grid.Row="1">
-            <ToolBar
-    Style="{DynamicResource MaterialDesignToolBar}"
-    ClipToBounds="False">
+        Title="Admin_Management" MinHeight="450" Height="450" MinWidth="800" Width="1000" ResizeMode="NoResize" WindowStyle="None"
+        Name="AdminWindow">
+   
+    <Border Background="WhiteSmoke" CornerRadius="10">
+        <Grid Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="800"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock
+                
+                TextWrapping="Wrap"
+                FontSize="30"
+                Text="ADMIN MANAGER" Margin="25,15,30,12" Width="145" Height="85" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Separator VerticalAlignment="Bottom" Width="150" Background="LightGray"/>
+            <StackPanel Grid.Row="1" Width="150" VerticalAlignment="Center">
+                <Button  Content="ADMIN" Foreground="#CC000000" Command="{Binding CmdLogout}" CommandParameter="{Binding ElementName=AdminWindow}">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Height" Value="50"/>
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="Width" Value="150"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border CornerRadius="20" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
+                                            <Grid>
+                                                <Ellipse 
+                                                HorizontalAlignment="Left"
+                                                Height="45" 
+                                                Width="45" 
+                                                Margin="2 0"
+                                                Stroke="White"
+                                                StrokeThickness="2">
+                                                    <Ellipse.Fill>
+                                                        <ImageBrush
+                                                        ImageSource="channels4_profile.jpg"
+                                                        Stretch="UniformToFill">
 
-                <Button
-      ToolTip="Quan ly tai khoan"
-      
-      Content="ACCOUNT" Click="Button_Click" />
-                <Separator />
-                <Button
-      ToolTip="Quan ly movie"
-      Content="MOVIE" Click="Button_Click_1" VerticalAlignment="Top" />
-                <Separator />
-                <Button
-      ToolTip="Quan ly movie"
-      Content="CATEGORY"  VerticalAlignment="Top" Click="Button_Click_2" />
-                <Separator />
-                <Button
-      ToolTip="Lich su thanh toan"
-      Content="Report"  VerticalAlignment="Top" Click="Button_Click_3" />
-                <Separator />
-            </ToolBar>
-        </ToolBarTray>
-        <Border Grid.Row="2" BorderThickness="1 0 1 1" BorderBrush="{DynamicResource PrimaryHueMidBrush}" Padding="16">
-            <Grid>
-                <Label>Chức năng 3 ở đây</Label>
-            </Grid>
-        </Border>
-    </Grid>
+                                                        </ImageBrush>
+                                                    </Ellipse.Fill>
+
+                                                </Ellipse>
+                                                <ContentPresenter
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                Content="{TemplateBinding Content}">
+
+                                                </ContentPresenter>
+                                            </Grid>
+                                        </Border>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <WrapPanel Margin="5 2 0 0">
+                    <TextBlock Text="Logout"  HorizontalAlignment="Left" Foreground="#FFA8A8A8" />
+                    <materialDesign:PackIcon Kind="FormatHorizontalAlignRight" />
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDown">
+                            <i:InvokeCommandAction Command="{Binding CmdLogout}" CommandParameter="{Binding ElementName=AdminWindow}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </WrapPanel>
+            </StackPanel>
+            <Separator VerticalAlignment="Bottom" Width="150" Background="LightGray" Grid.Row="0" Grid.RowSpan="2"/>
+
+            <StackPanel Margin="0 10 0 0" Grid.Row="2" Grid.RowSpan="2" Grid.Column="0">
+                <Button  materialDesign:ShadowAssist.ShadowDepth="Depth0" Style="{StaticResource MaterialDesignFlatButton}"
+                ToolTip="Dashboard" HorizontalAlignment="Stretch" Width="150" Command="{Binding CmdDashboard}"
+                Foreground="#DD000000" Background="WhiteSmoke" BorderBrush="WhiteSmoke" HorizontalContentAlignment="Left">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="3*"/>
+                            <ColumnDefinition Width="7*"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="TabletDashboard" Grid.Column="0" Width="20" Height="20"/>
+
+                        <TextBlock Margin="5 0 0 0" Text="Dashboard" Grid.Column="1"/>
+                    </Grid>
+                </Button>
+                <Button  materialDesign:ShadowAssist.ShadowDepth="Depth0" Style="{StaticResource MaterialDesignFlatButton}"
+                ToolTip="Quan ly tai khoan" HorizontalAlignment="Stretch" Width="150" Command="{Binding CmdAccount}"
+                Foreground="#DD000000" Background="WhiteSmoke" BorderBrush="WhiteSmoke" HorizontalContentAlignment="Left">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="3*"/>
+                            <ColumnDefinition Width="7*"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="AccountMultiple" Grid.Column="0" Width="20" Height="20"/>
+                       
+                        <TextBlock Margin="5 0 0 0" Text="Account" Grid.Column="1"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Style="{StaticResource MaterialDesignFlatButton}"
+      ToolTip="Quan ly movie" Width="150" Command="{Binding CmdMovie}"
+      VerticalAlignment="Top" Foreground="#DD000000" Background="WhiteSmoke" BorderBrush="WhiteSmoke" HorizontalContentAlignment="Left">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="3*"/>
+                            <ColumnDefinition Width="7*"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="MovieRoll" Grid.Column="0" Width="20" Height="20"/>
+                        
+
+                        <TextBlock Text="Movie" Grid.Column="1" Margin="5 0 0 0"/>
+                    </Grid>
+                </Button>
+
+                <Button materialDesign:ShadowAssist.ShadowDepth="Depth0" Style="{StaticResource MaterialDesignFlatButton}"
+      ToolTip="Quan ly movie" Width="150" Command="{Binding CmdCategory}"
+      VerticalAlignment="Top" Foreground="#DD000000" Background="WhiteSmoke" BorderBrush="WhiteSmoke"  HorizontalContentAlignment="Left">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="3*"/>
+                            <ColumnDefinition Width="7*"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="FormatListBulletedSquare" Grid.Column="0" Width="20" Height="20"/>
+
+
+                        <TextBlock Text="Category" Grid.Column="1" Margin='5 0 0 0'/>
+                    </Grid>
+                </Button>
+
+                <Button materialDesign:ShadowAssist.ShadowDepth="Depth0" Style="{StaticResource MaterialDesignFlatButton}"
+      ToolTip="Thong ke" Width="150" Command="{Binding CmdReport}"
+       VerticalAlignment="Top" Foreground="#DD000000" Background="WhiteSmoke" BorderBrush="WhiteSmoke"  HorizontalContentAlignment="Left">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="3*"/>
+                            <ColumnDefinition Width="7*"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="ChartAreaspline" Grid.Column="0" Width="20" Height="20"/>
+
+
+                        <TextBlock Text="Report" Grid.Column="1" Margin="5 0 0 0"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
+
+            <ContentControl Content="{Binding CurrentAdminManager}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="4"></ContentControl>
+
+
+        </Grid>
+    </Border>
+
 </Window>

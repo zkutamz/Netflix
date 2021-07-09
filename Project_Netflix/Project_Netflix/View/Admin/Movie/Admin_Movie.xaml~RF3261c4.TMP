@@ -1,4 +1,4 @@
-<UserControl x:Class="Project_Netflix.View.Admin.Movie.Admin_Movie"
+﻿<Window x:Class="Project_Netflix.View.Admin.Movie.Admin_Movie"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -12,8 +12,9 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Height="450" Width="800">
+        Title="Admin_Movie" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -33,22 +34,25 @@
                 
             </WrapPanel>
         </materialDesign:Card>
-        <materialDesign:Card Grid.Row="1" Margin="5 0 5 5">
+        <materialDesign:Card Grid.Row="1" Margin="5">
             <WrapPanel>
                 <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100" Click="Button_Click"></Button>
                 <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100" Click="Button_Click_1"></Button>
                 <Button Command="{Binding CmdDeleteMovie}" Content="Xóa" Margin="5" Width="100"></Button>
-                <Button Command="{Binding CmdLoadMovie}" Content="Load" Margin="5" Width="100"></Button>
             </WrapPanel>
         </materialDesign:Card>
-        <materialDesign:Card Grid.Row="2" Margin="5 0 5 5">
         <ListView Grid.Row="2"
                   ItemsSource="{Binding DSMovie}" Name="item"
                   SelectedItem="{Binding SelectedMovie, 
             Mode=OneWayToSource}" >
-                <ListView.InputBindings>
-                    <MouseBinding  Gesture="MiddleClick"  Command="{Binding CmdShowInformationMovie}" CommandParameter="{Binding SelectedMovie}"/>
-               
+            <ListView.InputBindings>
+
+
+
+                <MouseBinding  Gesture="MiddleClick"  Command="{Binding CmdShowInformationMovie}" CommandParameter="{Binding SelectedMovie}"/>
+                     
+                 
+ 
             </ListView.InputBindings>
             <ListView.View>
                 <GridView>
@@ -73,10 +77,24 @@
                     <GridViewColumn
         DisplayMemberBinding="{Binding MOVIE_INFORMATION.COUNTRY}"
         Header="Country" />
-                   
+                    <GridViewColumn
+        Header="Options">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox
+              Width="100">
+                                    <ComboBoxItem
+                Content="Test" />
+                                    <ComboBoxItem
+                Content="Test2" />
+                                    <ComboBoxItem
+                Content="Test3" />
+                                </ComboBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-            </materialDesign:Card>
     </Grid>
-</UserControl>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+</Window>
