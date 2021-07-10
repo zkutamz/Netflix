@@ -26,7 +26,7 @@ namespace Project_Netflix.View.Admin.Report.ViewModel
 			InitializeComponent();
 			AdminViewModel vm = new AdminViewModel();
 			DataContext = vm;
-			vm.Max = 60000;
+			
 		}
 	}
 }

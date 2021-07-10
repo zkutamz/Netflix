@@ -23,12 +23,10 @@ namespace Project_Netflix.View
 	{
 		UserProfileViewModel vm = new UserProfileViewModel();
 		ACCOUNT _user = null;
-		public ProfileInformation(ACCOUNT user)
+		public ProfileInformation()
 		{
 			InitializeComponent();
 			DataContext = vm;
-			_user = user;
-			vm.User = _user;
 		}
 
 		private void Flipper_OnIsFlippedChanged(object sender, RoutedPropertyChangedEventArgs<bool> e)

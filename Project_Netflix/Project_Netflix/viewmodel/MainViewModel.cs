@@ -62,6 +62,10 @@ namespace Project_Netflix.viewmodel
             {
                 CurrentView = OriginalsVM;
             });
-        }        
+        }  
+        public void LoadUser()
+        {
+            User = DangNhapViewModel.User;
+        }
     }
 }

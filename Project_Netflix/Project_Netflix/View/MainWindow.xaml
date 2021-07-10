@@ -20,9 +20,7 @@
         WindowState="Maximized"
         Title="MainWindow" Height="700" Width="1330"
         Name="DisplayWindow">
-    <Window.DataContext>
-        <viewmodel:MainViewModel/>
-    </Window.DataContext>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

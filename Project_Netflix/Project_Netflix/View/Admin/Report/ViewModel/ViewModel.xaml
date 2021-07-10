@@ -31,7 +31,7 @@
                         materialDesign:HintAssist.Hint="Maximum"
                         materialDesign:TextFieldAssist.RippleOnFocusEnabled="False"
                         Style="{StaticResource MaterialDesignFilledTextBox}"
-                        Text="{Binding Max, UpdateSourceTrigger=PropertyChanged}" />
+                        Text="{Binding Maximum, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBox Width="100" Height="40"
                         Background="Black"
                      Padding="15 5 2 2" 
@@ -40,35 +40,33 @@
                         Margin="15,0,0,0"
                         Style="{StaticResource MaterialDesignFilledTextBox}"
                         Text="{Binding Tick, UpdateSourceTrigger=PropertyChanged}" />
+                <Button Content="Load" Height="35" Padding="0" Command="{Binding CmdLoad}" Margin="200 0 5 0" Background="#FF00507C" BorderBrush="White" />
             </StackPanel>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="1" Margin="5 0 5 5">
-            <ListView Grid.Row="1" ItemsSource="{Binding DSViewMovie}" Margin="0,5,0,0">
+            <ListView Grid.Row="1" ItemsSource="{Binding Items}" Margin="0,5,0,0">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn 
-        DisplayMemberBinding="{Binding NAME}"
+        DisplayMemberBinding="{Binding Name}"
         Header="Movie" />
                         <GridViewColumn Header="Options" Width="500">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Grid Width="500">
-
-
-
-                                        <Slider 
-                            Value="{Binding VIEWS}"
-                            Minimum="0"
-                            Maximum="{Binding ElementName= Max, Path=int}"
-                            Style="{StaticResource MaterialDesignDiscreteSlider}"
-                            TickFrequency="10000"
-                            TickPlacement="BottomRight" />
+                                        <Slider x:Name="slider"
+                                        Value="{Binding View}"
+                                        Minimum="0"
+                                        Maximum="{Binding Max}"
+                                        Style="{StaticResource MaterialDesignDiscreteSlider}"
+                                        TickFrequency="{Binding TickFrequency}"
+                                        TickPlacement="BottomRight" />
                                     </Grid>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn
-        DisplayMemberBinding="{Binding VIEWS}"
+        DisplayMemberBinding="{Binding View}"
         Header="View" />
                     </GridView>
                 </ListView.View>

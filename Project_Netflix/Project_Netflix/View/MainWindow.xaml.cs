@@ -21,14 +21,16 @@ namespace Project_Netflix.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainViewModel vm = new MainViewModel();
         public MainWindow()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            DataContext = vm;
         }
 
 		private void Chip_Click(object sender, RoutedEventArgs e)
 		{
-            ProfileInformation profile = new ProfileInformation(DangNhapViewModel.User);
+            ProfileInformation profile = new ProfileInformation();
             profile.ShowDialog();
 		}
 
@@ -37,7 +39,7 @@ namespace Project_Netflix.View
 			switch (UserControl.SelectedIndex)
 			{
                 case 0:
-					ProfileInformation profile = new ProfileInformation(DangNhapViewModel.User);
+					ProfileInformation profile = new ProfileInformation();
 					profile.ShowDialog();
 					break;
                 case 1:

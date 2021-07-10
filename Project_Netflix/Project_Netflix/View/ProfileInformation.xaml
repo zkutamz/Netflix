@@ -39,20 +39,20 @@
         <materialDesign:Flipper  IsFlippedChanged="Flipper_OnIsFlippedChanged" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,175,0,235.4" Background="White" Width="240" Height="40">
             <materialDesign:Flipper.FrontContent>
                 <Button  materialDesign:ShadowAssist.ShadowDepth="Depth0" 
-  Command="{x:Static materialDesign:Flipper.FlipCommand}" FontSize="15" Width="auto" Background="White" BorderBrush="Black" BorderThickness="0" Foreground="Black" Height="40" Content="{Binding User.USER_INFORMATION.NAME}" />
+  Command="{x:Static materialDesign:Flipper.FlipCommand}" FontSize="15" Width="auto" Background="White" BorderBrush="Black" BorderThickness="0" Foreground="Black" Height="40" Content="{Binding Name}" />
             </materialDesign:Flipper.FrontContent>
             <materialDesign:Flipper.BackContent>
                 <WrapPanel>
-                    <TextBox Text="{Binding User.USER_INFORMATION.NAME}" Padding="0 15 0 0" HorizontalAlignment="Left" Width="180" TextAlignment="Center"  VerticalAlignment="Top" FontSize="15" Foreground="Black" FontFamily="Arial" Height="37"/>
+                    <TextBox Text="{Binding Name ,Mode=TwoWay}" Padding="0 15 0 0" HorizontalAlignment="Left" Width="180" TextAlignment="Center"  VerticalAlignment="Top" FontSize="15" Foreground="Black" FontFamily="Arial" Height="37"/>
                     <Button materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="10 7 0 0" Padding="0" Command="{x:Static materialDesign:Flipper.FlipCommand}" Foreground="Black" Background="White" BorderBrush="White" Width="25" Height="25">
                         <materialDesign:PackIcon Kind="Pencil" />
                     </Button>
                 </WrapPanel>
             </materialDesign:Flipper.BackContent>
         </materialDesign:Flipper>
-        <TextBox Style="{StaticResource MaterialDesignFilledTextBox}" VerticalAlignment="Top" AcceptsReturn="True" Text="{Binding User.USER_INFORMATION.PHONE}"
+        <TextBox Style="{StaticResource MaterialDesignFilledTextBox}" VerticalAlignment="Top" AcceptsReturn="True" Text="{Binding Phone}"
             TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Số điện thoại" Height="45" Margin="20,230,20,0" Padding="15,5,15,0" BorderBrush="#89000000" Foreground="#DD000000"/>
-        <DatePicker materialDesign:HintAssist.Hint="Ngày sinh" SelectedDate="{Binding User.USER_INFORMATION.DATEOFBIRTH}" Height="45" Margin="20,270,19,0"  VerticalAlignment="Top" MaxWidth="400" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Padding="15,5,15,0" BorderBrush="#89000000" Foreground="#DD000000"/>
+        <DatePicker materialDesign:HintAssist.Hint="Ngày sinh" SelectedDate="{Binding DOB}" Height="45" Margin="20,270,19,0"  VerticalAlignment="Top" MaxWidth="400" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Padding="15,5,15,0" BorderBrush="#89000000" Foreground="#DD000000"/>
         <StackPanel Margin="15,325,0,90.4">
             <Label Foreground="#DD000000" Margin="15 0 0 0">Giới tính</Label>
             <WrapPanel Height="41">
