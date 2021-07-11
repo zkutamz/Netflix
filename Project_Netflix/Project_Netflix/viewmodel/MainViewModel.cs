@@ -1,6 +1,7 @@
 ﻿using Project_Netflix.Command.MainWindow;
 using Project_Netflix.model;
 using Project_Netflix.ModelTest;
+using Project_Netflix.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,6 @@ namespace Project_Netflix.viewmodel
         /// </summary>
         public HomeViewModel HomeVM { get; set; }
         public MyListViewModel MyListVM { get; set; }
-
         public OriginalsViewModel OriginalsVM { get; set; }
 
         private object _currentView;
@@ -38,7 +38,17 @@ namespace Project_Netflix.viewmodel
                 OnPropertyChanged();
             }
         }
-        
+        private object _currentUser;
+
+        public object CurrentUser
+        {
+            get { return _currentUser; }
+            set
+            {
+                _currentUser = value;
+                OnPropertyChanged();
+            }
+        }
         public MainViewModel()
         {
             HomeVM = new HomeViewModel();            
@@ -46,6 +56,7 @@ namespace Project_Netflix.viewmodel
             OriginalsVM = new OriginalsViewModel();
             User = DangNhapViewModel.User;
             CurrentView = HomeVM;
+            CurrentUser = new UserInfo();
 
             HomeViewCommand = new RelayCommand<object>(o=> { return true; },
             (o) =>
@@ -65,7 +76,7 @@ namespace Project_Netflix.viewmodel
         }  
         public void LoadUser()
         {
-            User = DangNhapViewModel.User;
+            CurrentUser = new UserInfo();
         }
     }
 }

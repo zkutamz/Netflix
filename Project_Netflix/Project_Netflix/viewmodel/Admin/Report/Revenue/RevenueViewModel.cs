@@ -110,7 +110,7 @@ namespace Project_Netflix.viewmodel.Admin.Report.Revenue
 					var end = Ngay.vm.End;
 					using (var db = new NETFLIX_DBEntities())
 					{
-						DSPay = new ObservableCollection<PURCHASE>(db.PURCHASEs.Include("ACCOUNT").Include("PACKAGE").Where(x => x.PURCHASED_DATE >= start && x.OUTOFDATE <= end).ToList());
+						DSPay = new ObservableCollection<PURCHASE>(db.PURCHASEs.Include("ACCOUNT").Include("PACKAGE").Where(x => x.PURCHASED_DATE >= start && x.PURCHASED_DATE <= end).ToList());
 						if (DSPay.Count > 0)
 						{
 							foreach (var item in DSPay)

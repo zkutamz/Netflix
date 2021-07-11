@@ -22,6 +22,7 @@ namespace Project_Netflix.viewmodel
         public static readonly DependencyProperty PasswordProperty;
         public ICommand CmdDangNhap { get; set; }
         public ICommand CmdPasswordChange { get; set; }
+        public static MainWindow main { get; set; }
         public static bool IsLogin { get; set; }
         public static ACCOUNT User { get; set; }
         static DangNhapViewModel()
@@ -84,7 +85,7 @@ namespace Project_Netflix.viewmodel
                                 User.ACTIVE = 0;
                             if (User.ACTIVE == 1)
                             {
-                                MainWindow main = new MainWindow();
+                                main = new MainWindow();
                                 window.Close();
                                 main.ShowDialog();
                             }

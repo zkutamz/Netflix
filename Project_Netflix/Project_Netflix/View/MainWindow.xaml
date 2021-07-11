@@ -65,7 +65,8 @@
                     </Button>
                 </StackPanel>
                 <Grid Grid.Column="3">
-                    <Grid Name="Info" HorizontalAlignment="Right" Background="Black" Margin="0,0,0,0.4" Width="243">
+                    <ContentControl Content="{Binding CurrentUser}" />
+                    <!--<Grid Name="Info" HorizontalAlignment="Right" Background="Black" Margin="0,0,0,0.4" Width="243">
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="Black">
                             <materialDesign:Chip
@@ -89,7 +90,7 @@
                                 </ListBox>
                             </materialDesign:PopupBox>
                         </StackPanel>
-                    </Grid>
+                    </Grid>-->
                     <!--<Grid Name="Sign" HorizontalAlignment="Right" VerticalAlignment="Center" Opacity="1" Margin="20 0">
                         <StackPanel Orientation="Horizontal">
                             <Button Content="SIGN IN" Margin="10 0" Width="100" Background="Red" VerticalAlignment="Top" Click="Button_Click"/>

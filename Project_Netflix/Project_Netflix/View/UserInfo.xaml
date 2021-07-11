@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Project_Netflix.View.UserInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Project_Netflix.View"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+             >
+    <Grid Name="Info" HorizontalAlignment="Right" Background="Black" Margin="0,0,0,0.4" Width="243">
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="Black">
+            <materialDesign:Chip
+                                 Content="{Binding User.USER_INFORMATION.NAME, Mode=OneWay}" Click="Chip_Click">
+                <materialDesign:Chip.Icon>
+                    <Image Source="channels4_profile.jpg" />
+                </materialDesign:Chip.Icon>
+            </materialDesign:Chip>
+            <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" Margin="10">
+                <ListBox x:Name="UserControl" Width="150" SelectionChanged="ListBox_SelectionChanged">
+                    <ListBoxItem x:Name="Profile" Content="Profile"/>
+                    <ListBoxItem Content="Lich su thanh toan" />
+                    <ListBoxItem>
+                        <ListBoxItem.Content>
+                            <WrapPanel>
+                                <materialDesign:PackIcon Kind="Logout" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                                <TextBlock Text="Log out"/>
+                            </WrapPanel>
+                        </ListBoxItem.Content>
+                    </ListBoxItem>
+                </ListBox>
+            </materialDesign:PopupBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

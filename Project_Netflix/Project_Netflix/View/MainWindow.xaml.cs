@@ -28,33 +28,6 @@ namespace Project_Netflix.View
             DataContext = vm;
         }
 
-		private void Chip_Click(object sender, RoutedEventArgs e)
-		{
-            ProfileInformation profile = new ProfileInformation();
-            profile.ShowDialog();
-		}
-
-		private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
-			switch (UserControl.SelectedIndex)
-			{
-                case 0:
-					ProfileInformation profile = new ProfileInformation();
-					profile.ShowDialog();
-					break;
-                case 1:
-                    HistoryPay historyPay = new HistoryPay();
-                    historyPay.ShowDialog();
-                    break;
-                case 2:
-                    DangNhapViewModel.IsLogin = false;
-                    DangNhapViewModel.User = null;
-                    DanhNhap danhNhap = new DanhNhap();
-                    this.Close();
-                    danhNhap.Show();
-                    break;
-			}
-
-        }
+		
 	}
 }
